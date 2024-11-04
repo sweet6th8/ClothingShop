@@ -24,7 +24,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     pagination_class = PageNumberPagination
 
 class CategoryViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all() # lấy tất cả products
+    queryset = Product.objects.all() # lấy tất cả categories
     serializer_class = ProductSerializer
 
 

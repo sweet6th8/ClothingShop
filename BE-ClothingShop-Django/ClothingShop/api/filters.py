@@ -5,6 +5,5 @@ class ProductFilter(FilterSet):
     class Meta:
         model = Product
         fields = {
-                   'price': ['gt', 'lt'],
-                  
+                   'price': ['gt', 'lt'],      
                 }
