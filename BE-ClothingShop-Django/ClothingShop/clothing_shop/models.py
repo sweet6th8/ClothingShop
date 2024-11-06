@@ -10,6 +10,7 @@ from django.db import models
 from django.db import models
 
 
+
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
@@ -38,6 +39,8 @@ class AuthPermission(models.Model):
         managed = False
         db_table = 'auth_permission'
         unique_together = (('content_type', 'codename'),)
+
+
 
 
 
@@ -268,3 +271,4 @@ class UserprofileCustomer(models.Model):
     class Meta:
         managed = False
         db_table = 'userprofile_customer'
+
