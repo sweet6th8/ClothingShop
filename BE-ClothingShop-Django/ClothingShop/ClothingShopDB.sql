@@ -21,7 +21,21 @@ CREATE TABLE Product (
     category_id INT,
     FOREIGN KEY (category_id) REFERENCES Category(category_id) ON DELETE CASCADE
 );
- 
+
+CREATE TABLE User (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR
+);
+
+CREATE TABLE Order (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT AUTO_INCREMENT,
+    order_date TIMESTAMP,
+    price INT NOT NULL,
+    order_status ENUM, 
+    FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE
+);
+
 INSERT INTO Category (title, slug, description) VALUES
 ('Men\'s Clothing', 'mens-clothing', 'A variety of men\'s clothing including shirts, pants, and accessories.'),
 ('Women\'s Clothing', 'womens-clothing', 'A selection of women\'s clothing including dresses, tops, and skirts.'),
