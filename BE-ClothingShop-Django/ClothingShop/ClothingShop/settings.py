@@ -84,9 +84,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ClothingShop',  
         'USER': 'root',      
-        'PASSWORD': '123456',  
+        'PASSWORD': 'tit2222004',  
         'HOST': 'localhost',     
-        'PORT': '3306',        
+        'PORT': '3307',        
     }
 }
 
@@ -135,3 +135,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'PAGE_SIZE': 2
 }
+
+# Email setting
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Thay đổi tùy vào nhà cung cấp dịch vụ email
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your_email@gmail.com'  # Email người gửi
+EMAIL_HOST_PASSWORD = 'your_email_password'  # Mật khẩu của email
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
