@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'api',
     'clothing_shop',
     'django_filters',
+    'djoser',
 
 
 ]
@@ -108,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+AUTH_USER_MODEL = "clothing_shop.User"
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
@@ -132,17 +134,45 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# REST_FRAMEWORK = {
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+#     'PAGE_SIZE': 2
+# }
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 2
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+       'rest_framework_simplejwt.authentication.JWTAuthentication',   
+    ),
 }
+
+SIMPLE_JWT = {
+   'AUTH_HEADER_TYPES': ('JWT',),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+}
+
+# register url: /auth/users
+# login url: /auth/jwt/create
+# xem tk: /auth/users/me
+# dung modheader extension de add "access" de login 
+# /auth/jwt/refresh de lay refresh de lay access de login lai khi het han 
+# docs: https://djoser.readthedocs.io/en/latest/getting_started.html
+
+#   "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczMjgzNjAxNiwiaWF0IjoxNzMyNzQ5NjE2LCJqdGkiOiI1YWQ2MDRlMWFhY2E0N2Q4OTgxMmU3MGEyMWFlMDZhMCIsInVzZXJfaWQiOjF9._90RhuFWjlrC-uEzxEOUon5un6xT21bDzCZWbpd0V90",
+#     "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMyNzQ5OTE2LCJpYXQiOjE3MzI3NDk2MTYsImp0aSI6ImIxODk4MGQ5MjY5YjQzNDNiNmY3NGFlYzNmYzQzNWNkIiwidXNlcl9pZCI6MX0.5d5hEWgFFoG8xwPW7tilG5ru3yeeE9GrcyILXlHhVbs"
+
+DJOSER = {
+    'SERIALIZERS' : {
+        'user_create': "api.serializers.MyUserCreateSerializer"
+    }
+}
+
 
 # Email setting
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # Thay đổi tùy vào nhà cung cấp dịch vụ email
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your_email@gmail.com'  # Email người gửi
-EMAIL_HOST_PASSWORD = 'your_email_password'  # Mật khẩu của email
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'  # Thay đổi tùy vào nhà cung cấp dịch vụ email
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'your_email@gmail.com'  # Email người gửi
+# EMAIL_HOST_PASSWORD = 'your_email_password'  # Mật khẩu của email
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

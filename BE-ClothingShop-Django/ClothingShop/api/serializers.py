@@ -2,8 +2,18 @@ from itertools import product
 from rest_framework import serializers
 from clothing_shop.models import Category, Product, Cart, Cartitems, ProductImage
 
+from djoser.serializers import UserCreateSerializer
+
 from django.contrib.auth.models import User
 # from django.contrib.auth import auth  enticate
+
+
+
+
+class MyUserCreateSerializer(UserCreateSerializer):
+    class Meta(UserCreateSerializer.Meta):
+        fields = ["id", "email", "first_name", "last_name", "password", "username"]
+
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
