@@ -105,7 +105,14 @@ class AddCartItemSerializer(serializers.ModelSerializer):
 
         return self.instance
     
-    
+
     class Meta:
         model = Cartitems
         fields = ["id", "product_id", "quantity"]
+
+class UpdateCartItemSerializer(serializers.ModelSerializer):
+    # id = serializers.IntegerField(read_only=True)
+    class Meta:
+        model = Cartitems
+        fields = ["quantity"] # cập nhật số lượng
+

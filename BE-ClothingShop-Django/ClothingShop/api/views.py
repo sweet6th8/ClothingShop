@@ -1,7 +1,7 @@
 from urllib import response
 # from django.shortcuts import render, get_object_or_404
 # from rest_framework.decorators import api_view
-from .serializers import ProductSerializer, CategorySerializer, CartSerializer, CartItemSerializer, AddCartItemSerializer
+from .serializers import ProductSerializer, CategorySerializer, CartSerializer, CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer
 from clothing_shop.models import Category, Product, Cart, Cartitems
 from rest_framework.response import Response
 from rest_framework import status
@@ -68,18 +68,23 @@ class CartViewSet(CreateModelMixin, RetrieveModelMixin, DestroyModelMixin, Gener
     serializer_class = CartSerializer
 
 class CartitemViewSet(ModelViewSet):
+    http_method_names = ["get", "post", "patch", "delete"]
     
     def get_queryset(self):
         return Cartitems.objects.filter(cart_id=self.kwargs["cart_pk"])
 
-    # add to cart
+    
     def get_serializer_class(self):
+        # add item to cart
         if self.request.method == "POST":
             return AddCartItemSerializer
+        # update cart item
+        elif self.request.method == "PATCH":
+            return UpdateCartItemSerializer
         
         return CartItemSerializer
     
     def get_serializer_context(self):
         return {"cart_id": self.kwargs["cart_pk"]}
-
-
+    
+    
