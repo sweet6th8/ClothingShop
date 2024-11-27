@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product
+from .models import Category, Product, Cart, Cartitems
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -12,6 +12,8 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('product_name', 'slug')
     list_filter = ('is_available', 'category')
 # đã đăng ký rồi
+
 # admin.site.register(Category, CategoryAdmin)
 # admin.site.register(Product, ProductAdmin)
-    
+admin.site.register(Cart)
+admin.site.register(Cartitems)
