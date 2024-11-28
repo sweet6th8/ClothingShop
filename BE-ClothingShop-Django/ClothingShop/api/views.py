@@ -1,7 +1,7 @@
 from urllib import response
 # from django.shortcuts import render, get_object_or_404
 # from rest_framework.decorators import api_view
-from .serializers import ProductSerializer, CategorySerializer, CartSerializer, CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer, ProfileSerializer
+from .serializers import *
 from clothing_shop.models import Category, Product, Cart, Cartitems, Profile
 from rest_framework.response import Response
 from rest_framework import status
@@ -14,6 +14,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from api.filters import ProductFilter
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.permissions import IsAuthenticated
 
 # from django.contrib.auth import login, logout
 from rest_framework.authtoken.models import Token
@@ -90,7 +91,7 @@ class CartitemViewSet(ModelViewSet):
 class ProfileViewSet(ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-    parser_classes = (MultiPartParser, FormParser)
+    parser_classes = (MultiPartParser, FormParser) # tuong thich voi react
 
     def create(self, request, *args, **kwargs):
         name = request.data["name"]
@@ -100,4 +101,22 @@ class ProfileViewSet(ModelViewSet):
         Profile.objects.create(name=name, bio=bio, picture=picture)
 
         return Response("Profile created successfully", status=status.HTTP_200_OK)
+    
+
+class OrderViewSet(ModelViewSet):
+    permission_classes = [IsAuthenticated]
+    
+    def get_serializer_class(self):
+        if self.request.method == "POST":
+            return CreateOrderSerializer
+        return OrderSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_staff:
+            return Order.objects.all()
+        return Order.objects.filter(owner=user)
+    
+    def get_serializer_context(self):
+        return {"user_id": self.request.user.id}
     

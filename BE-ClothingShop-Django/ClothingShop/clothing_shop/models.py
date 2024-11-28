@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 import uuid
+from  django.conf import settings
 
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
@@ -52,16 +53,21 @@ class User(AbstractUser):
 
     objects = UserManager()
 
+    class Meta:
+        db_table = 'User'  # Tên bảng trong cơ sở dữ liệu
+
 class Category(models.Model):
     category_id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, unique=True)
     title = models.CharField(unique=True, max_length=200)
     slug = models.SlugField(default=None, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
-
-
     def __str__(self):
         return self.title
+    
+    class Meta:
+        db_table = 'Category'
+        verbose_name_plural = 'Categories'  # Tên số nhiều
 
 
 class Product(models.Model):
@@ -78,9 +84,15 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name
     
+    class Meta:
+        db_table = 'Product'
+    
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(upload_to = 'img', blank=True, null=True, default='')
+
+    class Meta:
+        db_table = 'ProductImage'
     
 class Cart(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True)
@@ -90,12 +102,17 @@ class Cart(models.Model):
     def __str__(self):
         return str(self.id)
     
+    class Meta:
+        db_table = 'Cart'
+    
 
 class Cartitems(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name="items", blank=True, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True, related_name='cartitems')
     quantity = models.PositiveSmallIntegerField(default=0)
     
+    class Meta:
+        db_table = 'CartItem'
 
 class Profile(models.Model):
     name = models.CharField(max_length=30)
@@ -104,3 +121,42 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.name
+    
+    class Meta:
+        db_table = 'Profile'
+
+ 
+class Order(models.Model):
+    PAYMENT_STATUS_PENDING = 'P'
+    PAYMENT_STATUS_COMPLETE = 'C'
+    PAYMENT_STATUS_FAILED = 'F'
+    
+    PAYMENT_STATUS_CHOICES = [
+        (PAYMENT_STATUS_PENDING, 'Pending'),
+        (PAYMENT_STATUS_COMPLETE, 'Complete'),
+        (PAYMENT_STATUS_FAILED, 'Failed'),
+    ]
+    placed_at = models.DateTimeField(auto_now_add=True)
+    pending_status = models.CharField(
+        max_length=50, choices=PAYMENT_STATUS_CHOICES, default='PAYMENT_STATUS_PENDING')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
+    
+    def __str__(self):
+        return self.pending_status
+    
+    class Meta:
+        db_table = 'Order'
+
+
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.PROTECT, related_name = "items")
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    quantity = models.PositiveSmallIntegerField()
+    
+
+    def __str__(self):
+        return self.product.product_name
+    
+    class Meta:
+        db_table = 'OrderItem'

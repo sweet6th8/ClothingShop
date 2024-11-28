@@ -1,11 +1,12 @@
 from itertools import product
 from rest_framework import serializers
-from clothing_shop.models import Category, Product, Cart, Cartitems, ProductImage, Profile
+from clothing_shop.models import *
 
 from djoser.serializers import UserCreateSerializer
 
 from django.contrib.auth.models import User
 # from django.contrib.auth import auth  enticate
+from django.db import transaction
 
 
 
@@ -131,3 +132,33 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = ["id", "name", "bio", "picture"]
+
+class OrderItemSerializer(serializers.ModelSerializer):
+    product = SimpleProductSerializer()
+    class Meta:
+        model = OrderItem
+        fields = ["id", "product", "quantity"]
+
+class OrderSerializer(serializers.ModelSerializer):
+    items = OrderItemSerializer(many=True, read_only=True)
+    class Meta:
+        model = Order
+        fields = ["id", "placed_at", "pending_status", "owner", "items"]
+
+class CreateOrderSerializer(serializers.Serializer):
+    cart_id = serializers.UUIDField()
+
+    def save (self, **kwargs):
+        with transaction.atomic():
+            cart_id = self.validated_data["cart_id"]
+            user_id = self.context["user_id"]
+            order = Order.objects.create(owner_id = user_id)
+            cartitems = Cartitems.objects.filter(cart_id=cart_id)
+            orderitems = [
+                OrderItem(order=order, product=item.product, quantity=item.quantity)
+            for item in cartitems
+            ]
+            OrderItem.objects.bulk_create(orderitems)
+            Cart.objects.filter(id=cart_id).delete()
+        
+    

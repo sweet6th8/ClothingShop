@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product, Cart, Cartitems, User
+from .models import Category, Product, Cart, Cartitems, User, Order, OrderItem
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth import get_user_model
 from django.contrib.admin.sites import AlreadyRegistered
@@ -45,3 +45,5 @@ except AlreadyRegistered:
 # admin.site.register(Product, ProductAdmin)
 admin.site.register(Cart)
 admin.site.register(Cartitems)
+admin.site.register(Order)
+admin.site.register(OrderItem)
