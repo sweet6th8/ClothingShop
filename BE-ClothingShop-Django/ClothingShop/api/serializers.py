@@ -1,6 +1,6 @@
 from itertools import product
 from rest_framework import serializers
-from clothing_shop.models import Category, Product, Cart, Cartitems, ProductImage
+from clothing_shop.models import Category, Product, Cart, Cartitems, ProductImage, Profile
 
 from djoser.serializers import UserCreateSerializer
 
@@ -43,6 +43,7 @@ class ProductSerializer(serializers.ModelSerializer):
             newproduct_image = ProductImage.objects.create(product=product, image=image)
         return product
     
+
     
 # class RegisterSerializer(serializers.ModelSerializer):
 #     password = serializers.CharField(write_only=True)
@@ -126,3 +127,7 @@ class UpdateCartItemSerializer(serializers.ModelSerializer):
         model = Cartitems
         fields = ["quantity"] # cập nhật số lượng
 
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ["id", "name", "bio", "picture"]

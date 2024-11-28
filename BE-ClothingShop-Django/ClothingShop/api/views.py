@@ -1,8 +1,8 @@
 from urllib import response
 # from django.shortcuts import render, get_object_or_404
 # from rest_framework.decorators import api_view
-from .serializers import ProductSerializer, CategorySerializer, CartSerializer, CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer
-from clothing_shop.models import Category, Product, Cart, Cartitems
+from .serializers import ProductSerializer, CategorySerializer, CartSerializer, CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer, ProfileSerializer
+from clothing_shop.models import Category, Product, Cart, Cartitems, Profile
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
@@ -13,7 +13,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 from api.filters import ProductFilter
 from rest_framework.pagination import PageNumberPagination
-
+from rest_framework.parsers import MultiPartParser, FormParser
 
 # from django.contrib.auth import login, logout
 from rest_framework.authtoken.models import Token
@@ -87,4 +87,17 @@ class CartitemViewSet(ModelViewSet):
     def get_serializer_context(self):
         return {"cart_id": self.kwargs["cart_pk"]}
     
+class ProfileViewSet(ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+    parser_classes = (MultiPartParser, FormParser)
+
+    def create(self, request, *args, **kwargs):
+        name = request.data["name"]
+        bio = request.data["bio"]
+        picture = request.data["picture"]
+
+        Profile.objects.create(name=name, bio=bio, picture=picture)
+
+        return Response("Profile created successfully", status=status.HTTP_200_OK)
     
