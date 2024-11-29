@@ -176,3 +176,6 @@ DJOSER = {
 # EMAIL_HOST_USER = 'your_email@gmail.com'  # Email người gửi
 # EMAIL_HOST_PASSWORD = 'your_email_password'  # Mật khẩu của email
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+FLW_SEC_KEY  ='FLWSECK_TEST-825d260605a1fb0170d7af0cc15520f5-X'
+FLW_PUB_KEY = "FLWPUBK_TEST-617743b4ad9d84020bc285ed618887b3-X"

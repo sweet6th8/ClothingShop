@@ -154,11 +154,18 @@ class CreateOrderSerializer(serializers.Serializer):
             user_id = self.context["user_id"]
             order = Order.objects.create(owner_id = user_id)
             cartitems = Cartitems.objects.filter(cart_id=cart_id)
+             # Tạo danh sách các đối tượng OrderItem từ các Cartitems
             orderitems = [
                 OrderItem(order=order, product=item.product, quantity=item.quantity)
             for item in cartitems
             ]
+             # Sử dụng bulk_create để chèn nhiều OrderItem vào cơ sở dữ liệu cùng một lúc, giúp tăng hiệu năng
             OrderItem.objects.bulk_create(orderitems)
             Cart.objects.filter(id=cart_id).delete()
+
+class UpdateOrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order 
+        fields = ["pending_status"]
         
     

@@ -19,6 +19,9 @@ from rest_framework.permissions import IsAuthenticated
 # from django.contrib.auth import login, logout
 from rest_framework.authtoken.models import Token
 # from .serializers import RegisterSerializer, LoginSerializer
+import requests
+from rest_framework.decorators import action
+
 # Create your views here.
 
 class ProductViewSet(ModelViewSet):
@@ -119,4 +122,78 @@ class OrderViewSet(ModelViewSet):
     
     def get_serializer_context(self):
         return {"user_id": self.request.user.id}
+    
+    
+    @action(detail=True, methods=['POST'])
+    def pay(self, request, pk):
+        order = self.get_object()
+        amount = order.total_price
+        email = request.user.email
+        order_id = str(order.id)
+        # redirect_url = "http://127.0.0.1:8000/confirm"
+        return initiate_payment(amount, email, order_id)
+    
+    @action(detail=False, methods=["POST"])
+    def confirm_payment(self, request):
+        order_id = request.GET.get("o_id")
+        order = Order.objects.get(id=order_id)
+        order.pending_status = "C"
+        order.save()
+        serializer = OrderSerializer(order)
+        
+        data = {
+            "msg": "payment was successful",
+            "data": serializer.data
+        }
+        return Response(data)
+    
+def initiate_payment(amount, email, order_id):
+    url = "https://api.flutterwave.com/v3/payments"
+    headers = {
+        "Authorization": f"Bearer {settings.FLW_SEC_KEY}"
+        
+    }
+    
+    data = {
+        "tx_ref": str(uuid.uuid4()),
+        "amount": str(amount), 
+        "currency": "USD",
+        "redirect_url": "http:/127.0.0.1:8000/api/orders/confirm_payment/?o_id=" + order_id,
+        "meta": {
+            "consumer_id": 23,
+            "consumer_mac": "92a3-912ba-1192a"
+        },
+        "customer": {
+            "email": email,
+            "phonenumber": "080****4528",
+            "name": "Yemi Desola"
+        },
+        "customizations": {
+            "title": "Pied Piper Payments",
+            "logo": "http://www.piedpiper.com/app/themes/joystick-v27/images/logo.png"
+        }
+    }
+    
+
+    try:
+        response = requests.post(url, headers=headers, json=data)
+        response_data = response.json()
+        return Response(response_data)
+    
+    except requests.exceptions.RequestException as err:
+        print("the payment didn't go through")
+        return Response({"error": str(err)}, status=500)
+
+# Luồng hoạt động tổng quát của phần thanh toán:
+
+# Thanh toán (pay()):
+# Người dùng gửi yêu cầu POST tới endpoint /api/orders/<order_id>/pay/.
+# pay() gọi initiate_payment() để khởi tạo giao dịch trên Flutterwave.
+# Flutterwave trả về một phản hồi, bao gồm URL để người dùng thực hiện thanh toán (là trang giao dịch).
+
+# Xác nhận thanh toán (confirm_payment()):
+# Sau khi người dùng thanh toán, Flutterwave redirect đến URL đã chỉ định (redirect_url) kèm o_id.
+# Endpoint /api/orders/confirm_payment/ được gọi.
+# Hệ thống cập nhật trạng thái đơn hàng và trả về thông báo thành công.
+
     

@@ -147,6 +147,12 @@ class Order(models.Model):
     class Meta:
         db_table = 'Order'
 
+    @property 
+    def total_price(self):
+        items = self.items.all()
+        total = sum([item.quantity * item.product.price for item in items])
+        return total
+
 
 
 class OrderItem(models.Model):
@@ -160,3 +166,4 @@ class OrderItem(models.Model):
     
     class Meta:
         db_table = 'OrderItem'
+
