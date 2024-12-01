@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,18 +44,25 @@ INSTALLED_APPS = [
     'clothing_shop',
     'django_filters',
     'djoser',
-
-
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # Đặt ở đầu
+    'django.middleware.common.CommonMiddleware',  # Giữ dòng này
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+]
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
 ]
 
 ROOT_URLCONF = 'ClothingShop.urls'
@@ -150,12 +158,23 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
 }
 
-# register url: /auth/users
-# login url: /auth/jwt/create
-# xem tk: /auth/users/me
-# dung modheader extension de add "access" de login 
-# /auth/jwt/refresh de lay refresh de lay access de login lai khi het han 
-# docs: https://djoser.readthedocs.io/en/latest/getting_started.html
+# Các endpoint của djoser:
+# Djoser cung cấp các endpoint để thực hiện các chức năng liên quan đến người dùng như:
+
+# Đăng ký người dùng:
+
+# POST /auth/users/ - Đăng ký một người dùng mới. (username, email, password cần thiết).
+# Đăng nhập và lấy token JWT:
+
+# POST /auth/token/login/ - Đăng nhập và lấy token JWT (cung cấp username và password).
+# POST /auth/token/logout/ - Đăng xuất và hủy token JWT.
+# Thông tin người dùng hiện tại:
+
+# GET /auth/users/me/ - Lấy thông tin người dùng đã đăng nhập (cần xác thực).
+# Thay đổi mật khẩu:
+
+# POST /auth/users/set_password/ - Thay đổi mật khẩu người dùng.
+# POST /auth/users/reset_password/ - Reset mật khẩu cho người dùng.
 
 #   "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczMjgzNjAxNiwiaWF0IjoxNzMyNzQ5NjE2LCJqdGkiOiI1YWQ2MDRlMWFhY2E0N2Q4OTgxMmU3MGEyMWFlMDZhMCIsInVzZXJfaWQiOjF9._90RhuFWjlrC-uEzxEOUon5un6xT21bDzCZWbpd0V90",
 #     "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMyNzQ5OTE2LCJpYXQiOjE3MzI3NDk2MTYsImp0aSI6ImIxODk4MGQ5MjY5YjQzNDNiNmY3NGFlYzNmYzQzNWNkIiwidXNlcl9pZCI6MX0.5d5hEWgFFoG8xwPW7tilG5ru3yeeE9GrcyILXlHhVbs"
@@ -179,3 +198,6 @@ DJOSER = {
 
 FLW_SEC_KEY  ='FLWSECK_TEST-825d260605a1fb0170d7af0cc15520f5-X'
 FLW_PUB_KEY = "FLWPUBK_TEST-617743b4ad9d84020bc285ed618887b3-X"
+
+MEDIA_URL = '/media/'  # URL truy cập file media
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Đường dẫn lưu trữ file media

@@ -57,7 +57,7 @@ class User(AbstractUser):
         db_table = 'User'  # Tên bảng trong cơ sở dữ liệu
 
 class Category(models.Model):
-    category_id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, unique=True)
+    category_id = models.AutoField(primary_key=True)
     title = models.CharField(unique=True, max_length=200)
     slug = models.SlugField(default=None, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
@@ -69,33 +69,51 @@ class Category(models.Model):
         db_table = 'Category'
         verbose_name_plural = 'Categories'  # Tên số nhiều
 
+class Subcategory(models.Model):
+    subcategory_id = models.AutoField(primary_key=True) 
+    title = models.CharField(max_length=200)  
+    slug = models.SlugField(default=None, blank=True, null=True)  
+    description = models.TextField(blank=True, null=True)  
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="subcategories")  
+
+    def __str__(self):
+        return self.title  # Tên của subcategory
+
+    class Meta:
+        db_table = 'Subcategory'  # Tên bảng trong cơ sở dữ liệu
+        verbose_name_plural = 'Subcategories' 
+
+
 
 class Product(models.Model):
-    product_id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, unique=True)
+    product_id = models.AutoField(primary_key=True)
     product_name = models.CharField(unique=True, max_length=200)
     slug = models.SlugField(default=None, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     price = models.IntegerField()
-    image = models.ImageField(upload_to = 'img', blank=True, null=True, default='')
     stock = models.IntegerField()
-    is_available = models.IntegerField(blank=True, null=True)
+    is_available = models.BooleanField(default=True)
     category = models.ForeignKey(Category, models.DO_NOTHING, blank=True, null=True)
+    subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE, blank=True, null=True)  # Liên kết với Subcategory
 
     def __str__(self):
         return self.product_name
     
     class Meta:
-        db_table = 'Product'
-    
-class ProductImage(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="images")
-    image = models.ImageField(upload_to = 'img', blank=True, null=True, default='')
+        db_table = 'Product' 
 
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='img/product_images/',  blank=True, null=True, default='')
+
+    def __str__(self):
+        return f"Image for {self.product.product_name}"
+    
     class Meta:
         db_table = 'ProductImage'
     
 class Cart(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, primary_key=True)
+    id = models.AutoField(primary_key=True)
     created = models.DateTimeField(auto_now_add=True)
     
 
@@ -113,6 +131,8 @@ class Cartitems(models.Model):
     
     class Meta:
         db_table = 'CartItem'
+        verbose_name_plural = 'CartItems' 
+        
 
 class Profile(models.Model):
     name = models.CharField(max_length=30)

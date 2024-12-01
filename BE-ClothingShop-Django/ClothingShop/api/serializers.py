@@ -15,6 +15,11 @@ class MyUserCreateSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         fields = ["id", "email", "first_name", "last_name", "password", "username"]
 
+class SubcategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subcategory
+        fields = '__all__'
+
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -22,47 +27,33 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProductImageSerializer(serializers.ModelSerializer):
+
+
     class Meta:
         model = ProductImage
         fields = ["id", "product", "image"]
 
+   
+
 class ProductSerializer(serializers.ModelSerializer):
     images = ProductImageSerializer(many=True, read_only=True)
     uploaded_images = serializers.ListField(
-        child = serializers.ImageField(max_length = 1000000, allow_empty_file = False, use_url = False),
-        write_only=True)
+        child=serializers.ImageField(max_length=1000000, allow_empty_file=False, use_url=False),
+        write_only=True
+    )
     
     class Meta:
         model = Product
-        fields = [ "product_id", "product_name", "description", "price", "stock", "images", "uploaded_images"]
-    
+        fields = ["product_id", "product_name", "slug", "description", "price", "stock", "is_available", "category", "subcategory", "images", "uploaded_images"]
     
     def create(self, validated_data):
-        uploaded_images = validated_data.pop("uploaded_images")
+        uploaded_images = validated_data.pop("uploaded_images", [])  # Sửa tên trường
         product = Product.objects.create(**validated_data)
         for image in uploaded_images:
-            newproduct_image = ProductImage.objects.create(product=product, image=image)
+            ProductImage.objects.create(product=product, image=image)
         return product
-    
-
-    
-# class RegisterSerializer(serializers.ModelSerializer):
-#     password = serializers.CharField(write_only=True)
-
-#     class Meta:
-#         model = User
-#         fields = ('username', 'password', 'email', 'first_name', 'last_name')
 
 
-
-# class LoginSerializer(serializers.Serializer):
-#     username = serializers.CharField()
-#     password = serializers.CharField(write_only=True)
-#     def validate(self, data):
-#         user = authenticate(**data)
-#         if user and user.is_active:
-#             return user
-#         raise serializers.ValidationError("False")
 class SimpleProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
@@ -92,7 +83,7 @@ class CartSerializer(serializers.ModelSerializer):
         return sum(item.quantity * item.product.price for item in cart.items.all())
 
 
-class AddCartItemSerializer(serializers.ModelSerializer):
+class  AddCartItemSerializer(serializers.ModelSerializer):
     product_id = serializers.UUIDField()
 
     def validate_product_id(self, value):
@@ -169,3 +160,4 @@ class UpdateOrderSerializer(serializers.ModelSerializer):
         fields = ["pending_status"]
         
     
+

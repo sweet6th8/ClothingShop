@@ -15,6 +15,7 @@ from api.filters import ProductFilter
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 # from django.contrib.auth import login, logout
 from rest_framework.authtoken.models import Token
@@ -33,37 +34,32 @@ class ProductViewSet(ModelViewSet):
     ordering_fields = ['price']
     pagination_class = PageNumberPagination
 
+    # lấy danh sách sản phẩm ngẫu nhiên
+    @action(detail=False, methods=['get'])
+    def random(self, request):
+        random_products = Product.objects.order_by('?')[:10]  # Lấy 10 sản phẩm ngẫu nhiên
+        serializer = self.get_serializer(random_products, many=True)
+        return Response(serializer.data)
+    
+    def create(self, request, *args, **kwargs):
+        return super().create(request, *args, **kwargs)
+
+
 class CategoryViewSet(ModelViewSet):
-    queryset = Product.objects.all() # lấy tất cả categories
+    queryset = Category.objects.all() # lấy tất cả categories
     serializer_class = CategorySerializer
 
-# # View cho đăng ký
-# class RegisterView(APIView):
-#     def post(self, request):
-#         serializer = RegisterSerializer(data=request.data)
-#         if serializer.is_valid():
-#             user = serializer.save()
-#             token, created = Token.objects.get_or_create(user=user)
-#             return Response({'token': token.key}, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# # View cho đăng nhập
-# class LoginView(APIView):
-#     def post(self, request):
-#         serializer = LoginSerializer(data=request.data)
-#         if serializer.is_valid():
-#             user = serializer.validated_data
-#             token, created = Token.objects.get_or_create(user=user)
-#             login(request, user)
-#             return Response({'token': token.key}, status=status.HTTP_200_OK)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# # View cho đăng xuất
-# class LogoutView(APIView):
-#     def post(self, request):
-#         request.user.auth_token.delete()
-#         logout(request)
-#         return Response(status=status.HTTP_204_NO_CONTENT)
+class SubcategoryViewSet(ModelViewSet):
+    queryset = Subcategory.objects.all()
+    serializer_class = SubcategorySerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    
+    def perform_create(self, serializer):
+        category_id = self.request.data.get('category_id')
+        category = Category.objects.get(id=category_id)
+        serializer.save(category=category)
 
 class CartViewSet(CreateModelMixin, RetrieveModelMixin, DestroyModelMixin, GenericViewSet):
     #RetrieveModelMixin: lấy ra 
@@ -74,6 +70,7 @@ class CartViewSet(CreateModelMixin, RetrieveModelMixin, DestroyModelMixin, Gener
 class CartitemViewSet(ModelViewSet):
     http_method_names = ["get", "post", "patch", "delete"]
     
+    # Lấy danh sách các sp trong cart dựa trên cart_id
     def get_queryset(self):
         return Cartitems.objects.filter(cart_id=self.kwargs["cart_pk"])
 
@@ -85,9 +82,10 @@ class CartitemViewSet(ModelViewSet):
         # update cart item
         elif self.request.method == "PATCH":
             return UpdateCartItemSerializer
-        
+        # if GET/DELETE
         return CartItemSerializer
     
+    # Truyền cart_id vào context của serializer
     def get_serializer_context(self):
         return {"cart_id": self.kwargs["cart_pk"]}
     
