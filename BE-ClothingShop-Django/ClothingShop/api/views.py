@@ -34,15 +34,68 @@ class ProductViewSet(ModelViewSet):
     ordering_fields = ['price']
     pagination_class = PageNumberPagination
 
-    # lấy danh sách sản phẩm ngẫu nhiên
-    @action(detail=False, methods=['get'])
-    def random(self, request):
-        random_products = Product.objects.order_by('?')[:10]  # Lấy 10 sản phẩm ngẫu nhiên
-        serializer = self.get_serializer(random_products, many=True)
-        return Response(serializer.data)
     
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
+    
+
+    # lấy danh sách sản phẩm ngẫu nhiên
+    @action(detail=False, methods=['get'])
+    def random(self, request):
+        random_products = Product.objects.order_by('?')
+        page = self.paginate_queryset(random_products)  # Áp dụng phân trang
+
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(random_products, many=True)
+        return Response(serializer.data)
+
+    # lấy danh sách sản phẩm theo Categories
+    @action(detail=False, methods=['get'])
+    def by_category(self, request):
+        category_id = request.query_params.get('category_id')
+        if not category_id:
+            return Response({"error": "category_id is required"}, status=400)
+
+        try:
+            category = Category.objects.get(category_id=category_id)
+        except Category.DoesNotExist:
+            return Response({"error": "Category not found"}, status=404)
+
+        products = Product.objects.filter(category=category)
+        page = self.paginate_queryset(products)  # Áp dụng phân trang
+
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(products, many=True)
+        return Response(serializer.data)
+
+    # lấy danh sách sản phẩm theo Subcategories
+    @action(detail=False, methods=['get'])
+    def by_subcategory(self, request):
+        subcategory_id = request.query_params.get('subcategory_id')
+        if not subcategory_id:
+            return Response({"error": "subcategory_id is required"}, status=400)
+
+        try:
+            subcategory = Subcategory.objects.get(subcategory_id=subcategory_id)
+        except Subcategory.DoesNotExist:
+            return Response({"error": "Subcategory not found"}, status=404)
+
+        products = Product.objects.filter(subcategory=subcategory)
+        page = self.paginate_queryset(products)  # Áp dụng phân trang
+
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(products, many=True)
+        return Response(serializer.data)
+    
 
 
 class CategoryViewSet(ModelViewSet):
@@ -55,11 +108,17 @@ class SubcategoryViewSet(ModelViewSet):
     queryset = Subcategory.objects.all()
     serializer_class = SubcategorySerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
-    
-    def perform_create(self, serializer):
-        category_id = self.request.data.get('category_id')
-        category = Category.objects.get(id=category_id)
-        serializer.save(category=category)
+
+    # Lấy danh sách subcategory theo category_id
+
+    def get_queryset(self):
+        # Lấy category_id từ tham số URL hoặc từ query params
+        category_id = self.request.query_params.get('category_id', None)
+        if category_id is not None:
+            return Subcategory.objects.filter(category_id=category_id)
+        return Subcategory.objects.all()
+
+
 
 class CartViewSet(CreateModelMixin, RetrieveModelMixin, DestroyModelMixin, GenericViewSet):
     #RetrieveModelMixin: lấy ra 

@@ -15,17 +15,21 @@ router.register(r'carts', CartViewSet, basename='Carts')
 router.register('n_profiles', ProfileViewSet, basename='Profiles')
 router.register('orders', OrderViewSet, basename='Orders')
 
+router.register(r'subcategories', SubcategoryViewSet)
+
+
+
 
 
 cart_router = routers.NestedDefaultRouter(router, "carts", lookup="cart")
 cart_router.register("items", CartitemViewSet, basename="cart-items")
 
 # Khởi tạo router phụ cho Subcategory (Danh mục con)
-subcategory_router = routers.NestedDefaultRouter(router, r'categories', lookup='category')
-subcategory_router.register(r'subcategories', SubcategoryViewSet, basename='Subcategories')
+# subcategory_router = routers.NestedDefaultRouter(router, r'categories', lookup='category')
+# subcategory_router.register(r'subcategories', SubcategoryViewSet, basename='Subcategories')
 
 urlpatterns = [
     path('', include(router.urls)),
     path('', include(cart_router.urls)),
-    path('', include(subcategory_router.urls)),
+    # path('', include(subcategory_router.urls)),
 ]
