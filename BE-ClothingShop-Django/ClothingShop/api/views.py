@@ -52,49 +52,36 @@ class ProductViewSet(ModelViewSet):
         serializer = self.get_serializer(random_products, many=True)
         return Response(serializer.data)
 
-    # lấy danh sách sản phẩm theo Categories
-    @action(detail=False, methods=['get'])
-    def by_category(self, request):
-        category_id = request.query_params.get('category_id')
-        if not category_id:
-            return Response({"error": "category_id is required"}, status=400)
+    #  # Lọc sản phẩm theo category_id và subcategory_id
+    # @action(detail=False, methods=['get'])
+    # def by_category_and_subcategory(self, request):
+    #     category_id = request.query_params.get('category_id')
+    #     subcategory_id = request.query_params.get('subcategory_id')
 
-        try:
-            category = Category.objects.get(category_id=category_id)
-        except Category.DoesNotExist:
-            return Response({"error": "Category not found"}, status=404)
+    #     # Lọc theo category_id
+    #     if category_id:
+    #         try:
+    #             category = Category.objects.get(category_id=category_id)
+    #             self.queryset = self.queryset.filter(category=category)
+    #         except Category.DoesNotExist:
+    #             return Response({"error": "Category not found"}, status=404)
 
-        products = Product.objects.filter(category=category)
-        page = self.paginate_queryset(products)  # Áp dụng phân trang
+    #     # Lọc theo subcategory_id
+    #     if subcategory_id:
+    #         try:
+    #             subcategory = Subcategory.objects.get(subcategory_id=subcategory_id)
+    #             self.queryset = self.queryset.filter(subcategory=subcategory)
+    #         except Subcategory.DoesNotExist:
+    #             return Response({"error": "Subcategory not found"}, status=404)
 
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
+    #     # Phân trang và trả về kết quả
+    #     page = self.paginate_queryset(self.queryset)
+    #     if page is not None:
+    #         serializer = self.get_serializer(page, many=True)
+    #         return self.get_paginated_response(serializer.data)
 
-        serializer = self.get_serializer(products, many=True)
-        return Response(serializer.data)
-
-    # lấy danh sách sản phẩm theo Subcategories
-    @action(detail=False, methods=['get'])
-    def by_subcategory(self, request):
-        subcategory_id = request.query_params.get('subcategory_id')
-        if not subcategory_id:
-            return Response({"error": "subcategory_id is required"}, status=400)
-
-        try:
-            subcategory = Subcategory.objects.get(subcategory_id=subcategory_id)
-        except Subcategory.DoesNotExist:
-            return Response({"error": "Subcategory not found"}, status=404)
-
-        products = Product.objects.filter(subcategory=subcategory)
-        page = self.paginate_queryset(products)  # Áp dụng phân trang
-
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-
-        serializer = self.get_serializer(products, many=True)
-        return Response(serializer.data)
+    #     serializer = self.get_serializer(self.queryset, many=True)
+    #     return Response(serializer.data)
     
 
 
@@ -111,12 +98,16 @@ class SubcategoryViewSet(ModelViewSet):
 
     # Lấy danh sách subcategory theo category_id
 
+    filter_backends = (DjangoFilterBackend, OrderingFilter)
+    filterset_fields = ['category_id']  # Định nghĩa query parameter category_id
+    
+
     def get_queryset(self):
-        # Lấy category_id từ tham số URL hoặc từ query params
+        queryset = Subcategory.objects.all()
         category_id = self.request.query_params.get('category_id', None)
         if category_id is not None:
-            return Subcategory.objects.filter(category_id=category_id)
-        return Subcategory.objects.all()
+            queryset = queryset.filter(category_id=category_id)
+        return queryset
 
 
 
