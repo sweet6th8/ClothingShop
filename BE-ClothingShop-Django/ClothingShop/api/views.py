@@ -12,10 +12,10 @@ from api import serializers
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 from api.filters import ProductFilter
-from rest_framework.pagination import PageNumberPagination
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from .pagination import CustomPagination
 
 # from django.contrib.auth import login, logout
 from rest_framework.authtoken.models import Token
@@ -32,7 +32,7 @@ class ProductViewSet(ModelViewSet):
     filterset_class = ProductFilter
     search_fields = ['product_name', 'description']
     ordering_fields = ['price']
-    pagination_class = PageNumberPagination
+    pagination_class = CustomPagination  
 
     
     def create(self, request, *args, **kwargs):

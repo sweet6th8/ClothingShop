@@ -8,7 +8,7 @@ class ProductFilter(FilterSet):
     category_id = django_filters.NumberFilter(field_name='category_id', lookup_expr='exact')
     
     # Lọc theo subcategory_id
-    subcategory_id = django_filters.NumberFilter(field_name='subcategory_id', lookup_expr='exact')
+    subcategory_id = django_filters.NumberFilter(field_name='subcategoryư_id', lookup_expr='exact')
     
     # Lọc theo giá (price) với các điều kiện lớn hơn và nhỏ hơn
     price__gt = django_filters.NumberFilter(field_name='price', lookup_expr='gt')  # Lọc theo giá lớn hơn
