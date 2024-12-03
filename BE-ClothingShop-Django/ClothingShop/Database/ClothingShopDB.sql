@@ -335,117 +335,127 @@ VALUES (
 -- Cho các sản phẩm thuộc Subcategory "Nam": 
 -- Ảnh cho Quần Jean Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (1, 'product_images/quan_jean_nam_1.jpg');
+VALUES (1, 'product_images/quan_jean_nam_G_Jeans_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (1, 'product_images/quan_jean_nam_2.jpg');
--- Ảnh cho Quần Kaki Nam (3 ảnh)
+VALUES (1, 'product_images/quan_jean_nam_G_Jeans_b.jpg');
+-- Ảnh cho Quần Kaki Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (2, 'product_images/quan_kaki_nam_1.jpg');
+VALUES (2, 'product_images/quan_kaki_nam_Gen_Viet_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (2, 'product_images/quan_kaki_nam_2.jpg');
-INSERT INTO ProductImage (product_id, image)
-VALUES (2, 'product_images/quan_kaki_nam_3.jpg');
+VALUES (2, 'product_images/quan_kaki_nam_Gen_Viet_b.jpg');
 -- Ảnh cho Áo Thun Nam (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (3, 'product_images/ao_thun_nam_1.jpg');
+VALUES (3, 'product_images/ao_thun_BAD_HABITS_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (3, 'product_images/ao_thun_nam_2.jpg');
+VALUES (3, 'product_images/ao_thun_BAD_HABITS_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (3, 'product_images/ao_thun_nam_3.jpg');
+VALUES (3, 'product_images/ao_thun_BAD_HABITS_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (3, 'product_images/ao_thun_nam_4.jpg');
+VALUES (3, 'product_images/ao_thun_BAD_HABITS_d.jpg');
 -- Ảnh cho Áo Sơ Mi Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (4, 'product_images/ao_so_mi_nam_1.jpg');
+VALUES (4, 'product_images/ao_so_mi_nam_GenViet_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (4, 'product_images/ao_so_mi_nam_2.jpg');
+VALUES (4, 'product_images/ao_so_mi_nam_GenViet_b.jpg');
 -- Ảnh cho Áo Khoác Nam (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (5, 'product_images/ao_khoac_nam_1.jpg');
+VALUES (5, 'product_images/ao_khoac_gio_BAD_HABITS_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (5, 'product_images/ao_khoac_nam_2.jpg');
+VALUES (5, 'product_images/ao_khoac_gio_BAD_HABITS_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (5, 'product_images/ao_khoac_nam_3.jpg');
+VALUES (5, 'product_images/ao_khoac_gio_BAD_HABITS_c.jpg');
+INSERT INTO ProductImage (product_id, image)
+VALUES (5, 'product_images/ao_khoac_gio_BAD_HABITS_d.jpg');
 -- Ảnh cho Quần Short Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (6, 'product_images/quan_short_nam_1.jpg');
+VALUES (6, 'product_images/quan_short_nam_BAD_HABITS_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (6, 'product_images/quan_short_nam_2.jpg');
+VALUES (6, 'product_images/quan_short_nam_BAD_HABITS_b.jpg');
+INSERT INTO ProductImage (product_id, image)
+VALUES (6, 'product_images/quan_short_nam_BAD_HABITS_c.jpg');
+INSERT INTO ProductImage (product_id, image)
+VALUES (6, 'product_images/quan_short_nam_BAD_HABITS_d.jpg');
 -- Cho các sản phẩm thuộc Subcategory "Nữ":
 -- Ảnh cho Quần Jean Nữ (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (7, 'product_images/quan_jean_nu_1.jpg');
+VALUES (7, 'product_images/quan_jean_nu_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (7, 'product_images/quan_jean_nu_2.jpg');
+VALUES (7, 'product_images/quan_jean_nu_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (7, 'product_images/quan_jean_nu_3.jpg');
+VALUES (7, 'product_images/quan_jean_nu_uniqlo_c.jpg');
 -- Ảnh cho Quần Legging Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (8, 'product_images/quan_legging_nu_1.jpg');
+VALUES (8, 'product_images/quan_legging_nu_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (8, 'product_images/quan_legging_nu_2.jpg');
+VALUES (8, 'product_images/quan_legging_nu_uniqlo_b.jpg');
 -- Ảnh cho Áo Thun Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (9, 'product_images/ao_thun_nu_1.jpg');
+VALUES (9, 'product_images/ao_thun_nu_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (9, 'product_images/ao_thun_nu_2.jpg');
+VALUES (9, 'product_images/ao_thun_nu_uniqlo_b.jpg');
+INSERT INTO ProductImage (product_id, image)
+VALUES (9, 'product_images/ao_thun_nu_uniqlo_c.jpg');
+
 -- Ảnh cho Áo Sơ Mi Nữ (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (10, 'product_images/ao_so_mi_nu_1.jpg');
+VALUES (10, 'product_images/ao_so_mi_nu_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (10, 'product_images/ao_so_mi_nu_2.jpg');
-INSERT INTO ProductImage (product_id, image)
-VALUES (10, 'product_images/ao_so_mi_nu_3.jpg');
+VALUES (10, 'product_images/ao_so_mi_nu_uniqlo_b.jpg');
 -- Ảnh cho Áo Len Nữ (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (11, 'product_images/ao_len_nu_1.jpg');
+VALUES (11, 'product_images/ao_len_nu_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (11, 'product_images/ao_len_nu_2.jpg');
+VALUES (11, 'product_images/ao_len_nu_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (11, 'product_images/ao_len_nu_3.jpg');
+VALUES (11, 'product_images/ao_len_nu_uniqlo_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (11, 'product_images/ao_len_nu_4.jpg');
+VALUES (11, 'product_images/ao_len_nu_uniqlo_d.jpg');
 -- Ảnh cho Chân Váy Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (12, 'product_images/chan_vay_nu_1.jpg');
+VALUES (12, 'product_images/chan_vay_nu_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (12, 'product_images/chan_vay_nu_2.jpg');
+VALUES (12, 'product_images/chan_vay_nu_uniqlo_b.jpg');
+INSERT INTO ProductImage (product_id, image)
+VALUES (12, 'product_images/chan_vay_nu_uniqlo_c.jpg');
 -- Cho các sản phẩm thuộc Subcategory "Trẻ Em":
 -- Ảnh cho Quần Jean Trẻ Em (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (13, 'product_images/quan_jean_tre_em_1.jpg');
+VALUES (13, 'product_images/quan_jean_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (13, 'product_images/quan_jean_tre_em_2.jpg');
+VALUES (13, 'product_images/quan_jean_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (13, 'product_images/quan_jean_tre_em_3.jpg');
+VALUES (13, 'product_images/quan_jean_tre_em_uniqlo_a.jpg');
 -- Ảnh cho Quần Short Trẻ Em (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (14, 'product_images/quan_short_tre_em_1.jpg');
+VALUES (14, 'product_images/quan_short_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (14, 'product_images/quan_short_tre_em_2.jpg');
+VALUES (14, 'product_images/quan_short_tre_em_uniqlo_b.jpg');
+INSERT INTO ProductImage (product_id, image)
+VALUES (14, 'product_images/quan_short_tre_em_uniqlo_c.jpg');
+INSERT INTO ProductImage (product_id, image)
+VALUES (14, 'product_images/quan_short_tre_em_uniqlo_d.jpg');
 -- Ảnh cho Áo Thun Trẻ Em (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (15, 'product_images/ao_thun_tre_em_1.jpg');
+VALUES (15, 'product_images/ao_thun_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (15, 'product_images/ao_thun_tre_em_2.jpg');
+VALUES (15, 'product_images/ao_thun_tre_em_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (15, 'product_images/ao_thun_tre_em_3.jpg');
-INSERT INTO ProductImage (product_id, image)
-VALUES (15, 'product_images/ao_thun_tre_em_4.jpg');
+VALUES (15, 'product_images/ao_thun_tre_em_uniqlo_c.jpg');
+
 -- Ảnh cho Áo Sơ Mi Trẻ Em (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (16, 'product_images/ao_so_mi_tre_em_1.jpg');
+VALUES (16, 'product_images/ao_so_mi_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (16, 'product_images/ao_so_mi_tre_em_2.jpg');
+VALUES (16, 'product_images/ao_so_mi_tre_em_uniqlo_b.jpg');
 -- Ảnh cho Áo Khoác Trẻ Em (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (17, 'product_images/ao_khoac_tre_em_1.jpg');
+VALUES (17, 'product_images/ao_khoac_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (17, 'product_images/ao_khoac_tre_em_2.jpg');
+VALUES (17, 'product_images/ao_khoac_tre_em_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (17, 'product_images/ao_khoac_tre_em_3.jpg');
+VALUES (17, 'product_images/ao_khoac_tre_em_uniqlo_c.jpg');
 -- Ảnh cho Váy Nữ Trẻ Em (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (18, 'product_images/vay_nu_tre_em_1.jpg');
+VALUES (18, 'product_images/vay_nu_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (18, 'product_images/vay_nu_tre_em_2.jpg');
+VALUES (18, 'product_images/vay_nu_tre_em_uniqlo_b.jpg');
