@@ -16,12 +16,15 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .pagination import CustomPagination
+from rest_framework.exceptions import NotFound
+
 
 # from django.contrib.auth import login, logout
 from rest_framework.authtoken.models import Token
 # from .serializers import RegisterSerializer, LoginSerializer
 import requests
 from rest_framework.decorators import action
+from rest_framework.permissions import AllowAny
 
 # Create your views here.
 
@@ -33,7 +36,7 @@ class ProductViewSet(ModelViewSet):
     search_fields = ['product_name', 'description']
     ordering_fields = ['price']
     pagination_class = CustomPagination  
-
+    permission_classes = [AllowAny]  # Cho phép truy cập không cần xác thực
     
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
@@ -52,49 +55,20 @@ class ProductViewSet(ModelViewSet):
         serializer = self.get_serializer(random_products, many=True)
         return Response(serializer.data)
 
-    #  # Lọc sản phẩm theo category_id và subcategory_id
-    # @action(detail=False, methods=['get'])
-    # def by_category_and_subcategory(self, request):
-    #     category_id = request.query_params.get('category_id')
-    #     subcategory_id = request.query_params.get('subcategory_id')
-
-    #     # Lọc theo category_id
-    #     if category_id:
-    #         try:
-    #             category = Category.objects.get(category_id=category_id)
-    #             self.queryset = self.queryset.filter(category=category)
-    #         except Category.DoesNotExist:
-    #             return Response({"error": "Category not found"}, status=404)
-
-    #     # Lọc theo subcategory_id
-    #     if subcategory_id:
-    #         try:
-    #             subcategory = Subcategory.objects.get(subcategory_id=subcategory_id)
-    #             self.queryset = self.queryset.filter(subcategory=subcategory)
-    #         except Subcategory.DoesNotExist:
-    #             return Response({"error": "Subcategory not found"}, status=404)
-
-    #     # Phân trang và trả về kết quả
-    #     page = self.paginate_queryset(self.queryset)
-    #     if page is not None:
-    #         serializer = self.get_serializer(page, many=True)
-    #         return self.get_paginated_response(serializer.data)
-
-    #     serializer = self.get_serializer(self.queryset, many=True)
-    #     return Response(serializer.data)
     
 
-
 class CategoryViewSet(ModelViewSet):
+    permission_classes = [AllowAny]
     queryset = Category.objects.all() # lấy tất cả categories
     serializer_class = CategorySerializer
+    
 
 
 
 class SubcategoryViewSet(ModelViewSet):
+    permission_classes = [AllowAny]
     queryset = Subcategory.objects.all()
     serializer_class = SubcategorySerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
 
     # Lấy danh sách subcategory theo category_id
 
@@ -112,17 +86,26 @@ class SubcategoryViewSet(ModelViewSet):
 
 
 class CartViewSet(CreateModelMixin, RetrieveModelMixin, DestroyModelMixin, GenericViewSet):
+    
     #RetrieveModelMixin: lấy ra 
     #DestroyModelMixin: delete cart
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
 
 class CartitemViewSet(ModelViewSet):
+   
     http_method_names = ["get", "post", "patch", "delete"]
     
     # Lấy danh sách các sp trong cart dựa trên cart_id
     def get_queryset(self):
-        return Cartitems.objects.filter(cart_id=self.kwargs["cart_pk"])
+        # Kiểm tra xem cart_pk có tồn tại không
+        cart_pk = self.kwargs.get("cart_pk")
+        try:
+            cart = Cart.objects.get(pk=cart_pk)  # Kiểm tra sự tồn tại của cart
+        except Cart.DoesNotExist:
+            raise NotFound(detail="Cart with the given ID does not exist.")
+        
+        return Cartitems.objects.filter(cart=cart)
 
     
     def get_serializer_class(self):
@@ -135,11 +118,16 @@ class CartitemViewSet(ModelViewSet):
         # if GET/DELETE
         return CartItemSerializer
     
-    # Truyền cart_id vào context của serializer
+    
+      # Truyền cart_id vào context của serializer
     def get_serializer_context(self):
+        if "cart_pk" not in self.kwargs:
+            raise NotFound(detail="cart_pk parameter is missing in the URL.")
+
         return {"cart_id": self.kwargs["cart_pk"]}
     
 class ProfileViewSet(ModelViewSet):
+      
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     parser_classes = (MultiPartParser, FormParser) # tuong thich voi react
@@ -155,7 +143,6 @@ class ProfileViewSet(ModelViewSet):
     
 
 class OrderViewSet(ModelViewSet):
-    permission_classes = [IsAuthenticated]
     
     def get_serializer_class(self):
         if self.request.method == "POST":
