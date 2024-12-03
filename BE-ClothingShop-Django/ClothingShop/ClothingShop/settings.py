@@ -9,11 +9,14 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+from dotenv import load_dotenv
 
 from pathlib import Path
 from datetime import timedelta
 import os
 
+
+load_dotenv()  # Tải biến môi trường từ file .env
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -63,8 +66,10 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
 
 ROOT_URLCONF = 'ClothingShop.urls'
@@ -94,10 +99,10 @@ WSGI_APPLICATION = 'ClothingShop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ClothingShop',  
-        'USER': 'root',      
-        'PASSWORD': '123456',  
-        'HOST': 'localhost',     
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),      
+        'PASSWORD': os.environ.get('DB_PASS'),  
+        'HOST': '127.0.0.1',     
         'PORT': '3306',        
     }
 }
@@ -145,19 +150,23 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 12,
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-       'rest_framework_simplejwt.authentication.JWTAuthentication',   
+     'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
     ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+  
 }
 
+# JWT Settings
 SIMPLE_JWT = {
-   'AUTH_HEADER_TYPES': ('JWT',),
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
+    'AUTH_HEADER_TYPES': ('JWT',),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ROTATE_REFRESH_TOKENS": True,
+    "UPDATE_LAST_LOGIN": True,
 }
-
 # Các endpoint của djoser:
 # Djoser cung cấp các endpoint để thực hiện các chức năng liên quan đến người dùng như:
 
@@ -179,22 +188,42 @@ SIMPLE_JWT = {
 #   "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczMjgzNjAxNiwiaWF0IjoxNzMyNzQ5NjE2LCJqdGkiOiI1YWQ2MDRlMWFhY2E0N2Q4OTgxMmU3MGEyMWFlMDZhMCIsInVzZXJfaWQiOjF9._90RhuFWjlrC-uEzxEOUon5un6xT21bDzCZWbpd0V90",
 #     "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMyNzQ5OTE2LCJpYXQiOjE3MzI3NDk2MTYsImp0aSI6ImIxODk4MGQ5MjY5YjQzNDNiNmY3NGFlYzNmYzQzNWNkIiwidXNlcl9pZCI6MX0.5d5hEWgFFoG8xwPW7tilG5ru3yeeE9GrcyILXlHhVbs"
 
+#Djoser Settings
 DJOSER = {
-    'SERIALIZERS' : {
-        'user_create': "api.serializers.MyUserCreateSerializer"
-    }
+    'LOGIN_FIELD': 'email',
+    'USER_CREATE_PASSWORD_RETYPE':True,
+    'ACTIVATION_URL':'/activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL':True,
+    'SEND_CONFIRMATION_EMAIL':True,
+    'PASSWORD_CHANGED_EMAIL_CONFIRMATION':True,
+    'PASSWORD_RESET_CONFIRM_URL': 'password-reset/{uid}/{token}',
+    'SET_PASSWORD_RETYPE': True,
+    'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND': True,
+    'TOKEN_MODEL': None,       # To Delete User Must Set it to None
+    'SERIALIZERS':{
+        'user_create': 'api.serializers.MyUserCreateSerializer',
+        'user': 'api.serializers.MyUserCreateSerializer',
+        'user_delete': 'djoser.serializers.UserDeleteSerializer',
+    },
+    'EMAIL': {
+        'activation': 'api.email.ActivationEmail',
+        'confirmation': 'api.email.ConfirmationEmail',
+        'password_reset': 'api.email.PasswordResetEmail',
+        'password_changed_confirmation': 'api.email.PasswordChangedConfirmationEmail',
+    },
+
+
 }
 
 
-# Email setting
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'  # Thay đổi tùy vào nhà cung cấp dịch vụ email
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'your_email@gmail.com'  # Email người gửi
-# EMAIL_HOST_PASSWORD = 'your_email_password'  # Mật khẩu của email
-# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# Email Configuration
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
+EMAIL_USE_TLS = True
 
 FLW_SEC_KEY  ='FLWSECK_TEST-825d260605a1fb0170d7af0cc15520f5-X'
 FLW_PUB_KEY = "FLWPUBK_TEST-617743b4ad9d84020bc285ed618887b3-X"

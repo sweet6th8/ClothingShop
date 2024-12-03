@@ -3,6 +3,11 @@ from . import views
 from rest_framework.routers import DefaultRouter
 from .views import *
 from rest_framework_nested import routers
+from rest_framework_simplejwt.views import (
+    TokenObtainSlidingView,
+    TokenRefreshSlidingView,
+)
+
 
 
 
@@ -17,12 +22,10 @@ router.register('orders', OrderViewSet, basename='Orders')
 
 router.register(r'subcategories', SubcategoryViewSet)
 
+# Khởi tạo router con cho các Cartitems
+cart_router = routers.NestedDefaultRouter(router, r'carts', lookup='cart')
+cart_router.register(r'items', CartitemViewSet, basename='CartItems')
 
-
-
-
-cart_router = routers.NestedDefaultRouter(router, "carts", lookup="cart")
-cart_router.register("items", CartitemViewSet, basename="cart-items")
 
 # Khởi tạo router phụ cho Subcategory (Danh mục con)
 # subcategory_router = routers.NestedDefaultRouter(router, r'categories', lookup='category')
@@ -31,5 +34,6 @@ cart_router.register("items", CartitemViewSet, basename="cart-items")
 urlpatterns = [
     path('', include(router.urls)),
     path('', include(cart_router.urls)),
-    # path('', include(subcategory_router.urls)),
+    path('token/', TokenObtainSlidingView.as_view(), name='token_obtain'),
+    path('token/refresh/', TokenRefreshSlidingView.as_view(), name='token_refresh'),
 ]
