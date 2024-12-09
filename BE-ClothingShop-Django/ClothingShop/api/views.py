@@ -17,6 +17,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .pagination import CustomPagination
 from rest_framework.exceptions import NotFound
+from rest_framework.exceptions import ValidationError
 
 
 # from django.contrib.auth import login, logout
@@ -43,9 +44,19 @@ class ProductViewSet(ModelViewSet):
     
 
     # lấy danh sách sản phẩm ngẫu nhiên
-    @action(detail=False, methods=['get'])
-    def random(self, request):
-        random_products = Product.objects.order_by('?')
+    @action(detail=False, methods=['get'], url_path='random/(?P<count>[0-9]+)')
+    def random(self, request, *args, **kwargs):
+        count = kwargs.get('count')  # Lấy tham số count từ kwargs
+        try:
+            count = int(count)  
+            if count <= 0:
+                raise ValueError
+        except ValueError:
+            raise ValidationError({"count": "Tham số 'count' phải là một số nguyên dương."})
+
+        # Lấy danh sách sản phẩm ngẫu nhiên, giới hạn theo 'count'
+        random_products = Product.objects.order_by('?')[:count]
+    
         page = self.paginate_queryset(random_products)  # Áp dụng phân trang
 
         if page is not None:
