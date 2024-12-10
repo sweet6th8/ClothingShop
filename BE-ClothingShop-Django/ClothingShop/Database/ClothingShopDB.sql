@@ -201,12 +201,12 @@ VALUES (
         2
     ),
      (
-     112,
-        'Quần Kaki Nam',
+      112,
+        'Quần Kaki Nam Cao Cấp',
         'quan-kaki-nam-cao-cap',
         'Quần kaki nam kiểu dáng thanh lịch, phù hợp cho công sở và đi chơi.',
-        450000,
-        80,
+        890000 ,
+        75,
         1,
         2
     ),
@@ -215,12 +215,11 @@ VALUES (
         'Quần dài nam dáng suông kaki phong cách Hanlu Nhật Bản Streetwear mùa thu đông',
         'quan-kaki-nam-hanlu',
         'Quần dài nam kaki chất vải kaki gân chéo dày dặn, Dáng: Phom rộng mặc thoải phái, Phù hợp: Mặc đi làm, công sở, các hoạt động dã ngoại ngoài trời, dạo phố.',
-        450000,
-        80,
+        332000,
+        100 ,
         1,
         2
     ),
-
     (
      121,
          'Áo Thun Nam',
@@ -233,21 +232,24 @@ VALUES (
     ),
     (
      122,
-         'Áo Thun Nam',
-        'ao-thun-nam',
-        'Áo thun nam chất liệu cotton mềm mại, dễ chịu, phù hợp với mọi hoạt động.',
-        250000,
-        200,
+         'Áo Thun-Polo Nam ',
+        'ao-thun-nam-polo',
+        'Áo thun nam là trang phục cơ bản và tiện dụng nhất đối với phái mạnh. Hầu như người đàn ông nào cũng' ||
+                ' đều phải có vài chiếc áo pull nam trong tủ áo của mình. ',
+        95000,
+        300,
         1,
         3
     ),
     (
      123,
-         'Áo Thun Nam',
-        'ao-thun-nam',
-        'Áo thun nam chất liệu cotton mềm mại, dễ chịu, phù hợp với mọi hoạt động.',
-        250000,
-        200,
+         'Áo Thun Nam tay lỡ',
+        'ao-thun-nam-tay-lo',
+        'Dù là ai, bạn cũng nên thử nghĩ đến áo thun tay lỡ – một items mới mẻ mang đến style năng động và “chất lừ” cho bất cứ ai sở hữu nó.' ||
+        ' Không phải áo thun freesize hay tay dài nữa'
+        ', áo thun tay lỡ mới thực sự làm điên đảo giới trẻ trong thời điểm này.',
+        85000,
+        250,
         1,
         3
     ),
@@ -262,6 +264,28 @@ VALUES (
         4
     ),
     (
+     132,
+        'Áo sơ mi nam dài tay Pastel Premium ',
+        'ao-so-mi-nam-Pastel-Premium',
+        'Áo sơ mi trơn công sở là một kiểu áo sơ mi nam đơn giản, trang trọng và lịch sự' ||
+        ', được thiết kế để mặc trong môi trường văn phòng hoặc các sự kiện chuyên nghiệp.',
+        890000,
+        30,
+        1,
+        4
+    ),
+    (
+     133,
+        'Áo Sơ Mi Tay Ngắn TÚI HỘP Thêu',
+        'ao-so-mi-nam-tay-ngan',
+        'Được chăm chút từ chất liệu, form dáng, đường may, hình in cho đến khâu đóng gói và hậu mãi,' ||
+         ' chiếc sơ mi Cuban xinh xẻo này sẽ làm hài lòng cả những vị khách khó tính nhất.',
+        87000,
+        100,
+        1,
+        4
+    ),
+    (
      141,
         'Áo Khoác Nam',
         'ao-khoac-nam',
@@ -271,12 +295,56 @@ VALUES (
         1,
         5
     ),
+    (
+     142,
+        'Áo Khoác Bomber Dù Hai Lớp',
+        'ao-khoac-nam-Bomber',
+        'Áo khoác dù nam hàng VNXK
+         Chất liệu vải dù nhám dày dặn 2 lớp.Trong lớp lót giúp áo thoáng nhiệt.
+          Thiết kế áo  form cực đẹp, các chi tiết logo sắc nét. ',
+        450000,
+        49,
+        1,
+        5
+    ),
+    (
+     143,
+        'Áo Hoodie Trơn Basic Nam',
+        'ao-khoac-Hoodie-nam',
+        'Áo Hoodie form rộng Tay Lỡ với chất nỉ bông mịn, ấm với đường may kỹ, lên dáng đẹp . ',
+        250000,
+        79,
+        1,
+        5
+    ),
     (151,
         'Quần Short Nam',
         'quan-short-nam',
         'Quần short nam thoải mái cho các hoạt động thể thao và du lịch.',
         300000,
         150,
+        1,
+        6
+    ),
+        (152,
+        'Quần Short Pocket SAIGONESE, Quần Đùi Túi Hộp',
+        'quan-short-tui-hop-nam',
+        'Quần Short Pocket SAIGONESE là một trong những item mà các bạn nam  nữ nên có trong tủ đồ của mình trong mùa hè
+- Chất liệu Kaki cotton  cao cấp – Dày dặn – Co giãn.
+ - Form dáng basic – Dễ phối đồ từ đi chơi – dạo phố - đi làm.
+- Thiết kế lưng chun phía sau giúp co dãn tối đa.',
+        150000,
+        75,
+        1,
+        6
+    ),
+     (153,
+        'Quần Short Đùi JOGGER thể thao nam phong cách đường phố',
+        'quan-short-JOGGER-nam',
+        'Quần Short Đùi unisex JOG thể thao nam nữ oversize phong cách đường phố:
+         Đảm bảo vải chuẩn Nỉ cotton 100% chất lượng',
+        95000,
+        210,
         1,
         6
     );
@@ -302,12 +370,58 @@ VALUES (
         1
     ),
     (
+        202,
+        'SUNAIXUE quần ống rộng quần nữ jean ',
+        'quan-jean-SUNAIXUE-nu',
+        'quần nữ jean sunaixue với chất liệu denim cực kỳ phù hợp cho các bạn nữ theo phong cách Minimalist, Đơn giản Cổ điển',
+        350000,
+        120,
+        2,
+        1
+    ),
+    (
+        203,
+        'Quần jean Lovito xếp ly màu trơn',
+        'quan-jean-lovito-nu',
+        'Lovito là một thương hiệu mới nổi tin vào sức mạnh của con gái, '
+        'cam kết cung cấp các lựa chọn quần áo thời trang và giá cả phải chăng cho các phong cách, '
+        'nhu cầu và bản sắc khác nhau.',
+        197000,
+        120,
+        2,
+        1
+    ),
+    (
      211,
         'Quần Legging Nữ',
         'quan-legging-nu',
         'Quần legging nữ co giãn tốt, dễ dàng kết hợp với nhiều trang phục khác.',
         250000,
         200,
+        2,
+        2
+    ),
+     (
+     212,
+        'Quần legging đùi ECOCHIC nữ cạp cao gen bụng tập gym yoga',
+        'quan-legging-ECOCHIC-nu',
+        'Chất liệu vải đạt tiêu chuẩn xuất khẩu cao cấp mềm, mịn, thấm hút mồ hôi
+- Chất liệu thun co giãn 4 chiều cao cấp, công nghệ kháng khuẩn, thấm hút tạo cảm giác thoải mái dễ chịu
+- Đường may kỹ, tinh tế, sản phẩm luôn được kiểm tra kỹ lưỡng trước khi đóng gói.',
+        255000,
+        230,
+        2,
+        2
+    ),
+     (
+     213,
+        'Quần legging tập gym yoga legging nữ cạp cao Fitme Zeta',
+        'quan-legging-Fitme-Zeta-nu',
+        'u điểm của chất liệu này là bề mặt vải bóng mượt, mềm mịn, khả năng co giãn tốt. ' ||
+        'Vải Nylon spandex rất dễ giặt, độ bền cao, giữ form tốt,' ||
+        ' không bị mất đi tính năng ban đầu và mang đến sự thoải mái cho người mặc',
+        150000,
+        452,
         2,
         2
     ),
@@ -458,7 +572,6 @@ VALUES (113, 'product_images/quan_kaki_nam_hanlu_a.png'),
        (113, 'product_images/quan_kaki_nam_hanlu_b.png'),
        (113, 'product_images/quan_kaki_nam_hanlu_c.png');
 
-
 -- Ảnh cho Áo Thun Nam (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (121, 'product_images/ao_thun_BAD_HABITS_a.png');
@@ -468,11 +581,30 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (121, 'product_images/ao_thun_BAD_HABITS_c.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (121 , 'product_images/ao_thun_BAD_HABITS_d.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (122, 'product_images/ao_thun_nam_polo_a.png'),
+       (122, 'product_images/ao_thun_nam_polo_b.png'),
+       (122, 'product_images/ao_thun_nam_polo_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (122, 'product_images/ao_thun_nam_tay_lo_a.png'),
+       (122, 'product_images/ao_thun_nam_tay_lo_b.png'),
+       (122, 'product_images/ao_thun_nam_tay_lo_c.png');
+
 -- Ảnh cho Áo Sơ Mi Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (131, 'product_images/ao_so_mi_nam_GenViet_a.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (131, 'product_images/ao_so_mi_nam_GenViet_b.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (132, 'product_images/ao_so_mi_nam_Pastel_Premium_a.png'),
+       (132, 'product_images/ao_so_mi_nam_Pastel_Premium_b.png'),
+       (132, 'product_images/ao_so_mi_nam_Pastel_Premium_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (133, 'product_images/ao_so_mi_nam_tay_ngan_a.png'),
+       (133, 'product_images/ao_so_mi_nam_tay_ngan_b.png'),
+       (133 ,'product_images/ao_so_mi_nam_tay_ngan_c.png');
+
+
 -- Ảnh cho Áo Khoác Nam (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (141, 'product_images/ao_khoac_gio_BAD_HABITS_a.png');
@@ -482,6 +614,15 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (141, 'product_images/ao_khoac_gio_BAD_HABITS_c.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (141 , 'product_images/ao_khoac_gio_BAD_HABITS_d.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (142, 'product_images/ao_khoac_nam_Bomber_a.png'),
+       (142, 'product_images/ao_khoac_nam_Bomber_b.png'),
+       (142 ,'product_images/ao_khoac_nam_Bomber_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (143, 'product_images/ao_khoac_Hoodie_nam_a.png'),
+       (143, 'product_images/ao_khoac_Hoodie_nam_b.png'),
+
+
 -- Ảnh cho Quần Short Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (151, 'product_images/quan_short_nam_BAD_HABITS_a.png');
@@ -491,6 +632,17 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (151, 'product_images/quan_short_nam_BAD_HABITS_c.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (151, 'product_images/quan_short_nam_BAD_HABITS_d.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (152, 'product_images/quan_short_tui_hop_nam_a.png'),
+       (152, 'product_images/quan_short_tui_hop_nam_b.png'),
+       (152, 'product_images/quan_short_tui_hop_nam_c.png'),
+       (152, 'product_images/quan_short_tui_hop_nam_d.png'),
+       (152 ,'product_images/quan_short_tui_hop_nam_e.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (153, 'product_images/quan_short_JOGGER_nam_a.png'),
+       (153, 'product_images/quan_short_JOGGER_nam_b.png');
+
+
 -- Cho các sản phẩm thuộc Subcategory "Nữ":
 -- Ảnh cho Quần Jean Nữ (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
@@ -499,11 +651,29 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (201, 'product_images/quan_jean_nu_uniqlo_b.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (201, 'product_images/quan_jean_nu_uniqlo_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (202, 'product_images/quan_jean_SUNAIXUE_nu_a.png'),
+       (202, 'product_images/quan_jean_SUNAIXUE_nu_b.png'),
+       (202 ,'product_images/quan_jean_SUNAIXUE_nu_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (203, 'product_images/quan_jean_lovito_nu_a.png'),
+       (203, 'product_images/quan_jean_lovito_nu_b.png'),
+       (203 ,'product_images/quan_jean_lovito_nu_c.png');
+
+
 -- Ảnh cho Quần Legging Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (211, 'product_images/quan_legging_nu_uniqlo_a.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (211, 'product_images/quan_legging_nu_uniqlo_b.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (212, 'product_images/quan_legging_ECOCHIC_nu_a.png'),
+       (212, 'product_images/quan_legging_ECOCHIC_nu_b.png'),
+       (212 ,'product_images/quan_legging_ECOCHIC_nu_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (213, 'product_images/quan_legging_Fitme_Zeta_nu_a.png'),
+       (213 ,'product_images/quan_legging_Fitme_Zeta_nu_b.png');
+
 -- Ảnh cho Áo Thun Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (221, 'product_images/ao_thun_nu_uniqlo_a.png');
