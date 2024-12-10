@@ -46,7 +46,7 @@ class UserManager(BaseUserManager):
 class User(AbstractUser):
     username = None
     email = models.EmailField(unique=True)
-    
+    is_active = models.BooleanField(default=False)  # Đảm bảo user không được kích hoạt mặc định
     
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

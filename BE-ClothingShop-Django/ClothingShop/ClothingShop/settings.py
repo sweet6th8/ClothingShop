@@ -151,7 +151,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
      'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.IsAuthenticated',
+          'rest_framework.permissions.AllowAny',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -192,7 +193,7 @@ SIMPLE_JWT = {
 DJOSER = {
     'LOGIN_FIELD': 'email',
     'USER_CREATE_PASSWORD_RETYPE':True,
-    'ACTIVATION_URL':'/activate/{uid}/{token}',
+    'ACTIVATION_URL':'api/activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL':True,
     'SEND_CONFIRMATION_EMAIL':True,
     'PASSWORD_CHANGED_EMAIL_CONFIRMATION':True,
@@ -205,12 +206,12 @@ DJOSER = {
         'user': 'api.serializers.MyUserCreateSerializer',
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
     },
-    'EMAIL': {
-        'activation': 'api.email.ActivationEmail',
-        'confirmation': 'api.email.ConfirmationEmail',
-        'password_reset': 'api.email.PasswordResetEmail',
-        'password_changed_confirmation': 'api.email.PasswordChangedConfirmationEmail',
-    },
+    # 'EMAIL': {
+    #     'activation': 'api.email.ActivationEmail',
+    #     'confirmation': 'api.email.ConfirmationEmail',
+    #     'password_reset': 'api.email.PasswordResetEmail',
+    #     'password_changed_confirmation': 'api.email.PasswordChangedConfirmationEmail',
+    # },
 
 
 }

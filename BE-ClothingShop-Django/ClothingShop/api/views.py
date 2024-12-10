@@ -18,6 +18,14 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .pagination import CustomPagination
 from rest_framework.exceptions import NotFound
 from rest_framework.exceptions import ValidationError
+from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from gradio_client import Client
+import tempfile
+from djoser.views import UserViewSet
+from django.contrib.auth import get_user_model
+from django.utils.http import urlsafe_base64_decode
+
 
 
 # from django.contrib.auth import login, logout
@@ -243,3 +251,65 @@ def initiate_payment(amount, email, order_id):
 # Hệ thống cập nhật trạng thái đơn hàng và trả về thông báo thành công.
 
     
+
+
+# import tempfile
+# from gradio_client import Client
+# from rest_framework.decorators import api_view
+# from django.http import JsonResponse
+
+# # Tạo client Gradio
+# client = Client("https://f2edfb8f338119030b.gradio.live/")
+
+
+# @api_view(["POST"])
+# def predict_images(request):
+#     try:
+#         # Nhận file từ request
+#         cloth_image = request.FILES.get("cloth_image")
+#         human_image = request.FILES.get("human_image")
+
+#         if not cloth_image or not human_image:
+#             return JsonResponse({"error": "Both images are required."}, status=400)
+
+#         # Lưu file tạm thời để gửi đến API Gradio
+#         with open("temp_cloth.png", "wb") as f:
+#             for chunk in cloth_image.chunks():
+#                 f.write(chunk)
+
+#         with open("temp_human.png", "wb") as f:
+#             for chunk in human_image.chunks():
+#                 f.write(chunk)
+
+#         # Gửi request đến Gradio API
+#         result = client.predict(
+#             "temp_cloth.png",  # Đường dẫn đến ảnh quần áo
+#             "temp_human.png",  # Đường dẫn đến ảnh người
+#             fn_index=0
+#         )
+
+#         # Xóa file tạm nếu cần
+#         import os
+#         os.remove("temp_cloth.png")
+#         os.remove("temp_human.png")
+
+#         # Trả kết quả về frontend
+#         return JsonResponse({"result": result}, status=200)
+
+#     except Exception as e:
+#         return JsonResponse({"error": str(e)}, status=500)
+
+class CustomUserViewSet(UserViewSet):
+    permission_classes = [AllowAny] 
+    @action(detail=True, methods=["get"], url_path="activate/(?P<uid>[\w-]+)/(?P<token>[\w-]+)")
+    def activate(self, request, uid, token):
+        try:
+            uid = urlsafe_base64_decode(uid).decode()
+            user = get_user_model().objects.get(pk=uid)
+            if user.activation_token == token:
+                user.is_active = True
+                user.save()
+                return Response({"detail": "Account activated successfully."}, status=status.HTTP_200_OK)
+            return Response({"detail": "Invalid activation link."}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({"detail": "Invalid activation link."}, status=status.HTTP_400_BAD_REQUEST)
