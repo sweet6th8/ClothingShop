@@ -14,6 +14,12 @@ from django.db import transaction
 class MyUserCreateSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
         fields = ["id", "email", "first_name", "last_name", "password", "username"]
+        
+    def create(self, validated_data):
+        user = super().create(validated_data)
+        user.is_active = False  # Đảm bảo user chưa được kích hoạt khi đăng ký
+        user.save()
+        return user
 
 class SubcategorySerializer(serializers.ModelSerializer):
     class Meta:

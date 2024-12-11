@@ -7,6 +7,8 @@ from rest_framework_simplejwt.views import (
     TokenObtainSlidingView,
     TokenRefreshSlidingView,
 )
+# from .views import predict_images
+
 
 
 
@@ -36,4 +38,8 @@ urlpatterns = [
     path('', include(cart_router.urls)),
     path('token/', TokenObtainSlidingView.as_view(), name='token_obtain'),
     path('token/refresh/', TokenRefreshSlidingView.as_view(), name='token_refresh'),
+    # path("predict/", predict_images, name="predict_images"),
+    path('activate/<uid>/<token>/', CustomUserViewSet.as_view({'get': 'activate'}), name='user-activate'),  # Đăng ký view kích hoạt
+
+
 ]
