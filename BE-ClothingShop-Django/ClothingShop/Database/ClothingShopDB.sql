@@ -170,9 +170,9 @@ VALUES (
         102,
         'Quần Jean Nam Wash RETRO',
         'quan-jean-nam-wash-retro',
-        'uần jean  nam với chất vải THOÁNG MÁT,  VẬN ĐỘNG THOẢI MÁI cho mùa hè nắng nóng. '
-        'Bề mặt đanh, mịn, mặc thoả mái và vẫn giữ nguyên form quần sau nhiều lần giặt.'
-        ' Đặc biệt form dáng rộng mát HOT nhất hè năm 2024',
+        'uần jean  nam với chất vải THOÁNG MÁT,  VẬN ĐỘNG THOẢI MÁI cho mùa hè nắng nóng.
+        Bề mặt đanh, mịn, mặc thoả mái và vẫn giữ nguyên form quần sau nhiều lần giặt.
+         Đặc biệt form dáng rộng mát HOT nhất hè năm 2024',
         899000,
         70 ,
         1,
@@ -183,7 +183,7 @@ VALUES (
         'Quần Jean Nam',
         'quan-jean-nam-thoi-trang',
         'Quần Jean Nam Dáng Baggy Ống Suông Wash Smoke 2 Màu Chất Vải Dày Dặn The Jeans
-        The Jean luôn nỗ lực trở thành đơn vị cung cấp các mẫu Jean tốt nhất trên thị trường, với mẫu mã đa dạng' ||
+        The Jean luôn nỗ lực trở thành đơn vị cung cấp các mẫu Jean tốt nhất trên thị trường, với mẫu mã đa dạng'
         ' và luôn bắt kịp các xu hướng mới nhất.',
         500000,
         100,
@@ -234,8 +234,8 @@ VALUES (
      122,
          'Áo Thun-Polo Nam ',
         'ao-thun-nam-polo',
-        'Áo thun nam là trang phục cơ bản và tiện dụng nhất đối với phái mạnh. Hầu như người đàn ông nào cũng' ||
-                ' đều phải có vài chiếc áo pull nam trong tủ áo của mình. ',
+        'Áo thun nam là trang phục cơ bản và tiện dụng nhất đối với phái mạnh. Hầu như người đàn ông nào cũng
+         đều phải có vài chiếc áo pull nam trong tủ áo của mình. ',
         95000,
         300,
         1,
@@ -245,9 +245,9 @@ VALUES (
      123,
          'Áo Thun Nam tay lỡ',
         'ao-thun-nam-tay-lo',
-        'Dù là ai, bạn cũng nên thử nghĩ đến áo thun tay lỡ – một items mới mẻ mang đến style năng động và “chất lừ” cho bất cứ ai sở hữu nó.' ||
-        ' Không phải áo thun freesize hay tay dài nữa'
-        ', áo thun tay lỡ mới thực sự làm điên đảo giới trẻ trong thời điểm này.',
+        'Dù là ai, bạn cũng nên thử nghĩ đến áo thun tay lỡ – một items mới mẻ mang đến style năng động và “chất lừ” cho bất cứ ai sở hữu nó.
+         Không phải áo thun freesize hay tay dài nữa
+        , áo thun tay lỡ mới thực sự làm điên đảo giới trẻ trong thời điểm này.',
         85000,
         250,
         1,
@@ -267,7 +267,7 @@ VALUES (
      132,
         'Áo sơ mi nam dài tay Pastel Premium ',
         'ao-so-mi-nam-Pastel-Premium',
-        'Áo sơ mi trơn công sở là một kiểu áo sơ mi nam đơn giản, trang trọng và lịch sự' ||
+        'Áo sơ mi trơn công sở là một kiểu áo sơ mi nam đơn giản, trang trọng và lịch sự'
         ', được thiết kế để mặc trong môi trường văn phòng hoặc các sự kiện chuyên nghiệp.',
         890000,
         30,
@@ -278,8 +278,8 @@ VALUES (
      133,
         'Áo Sơ Mi Tay Ngắn TÚI HỘP Thêu',
         'ao-so-mi-nam-tay-ngan',
-        'Được chăm chút từ chất liệu, form dáng, đường may, hình in cho đến khâu đóng gói và hậu mãi,' ||
-         ' chiếc sơ mi Cuban xinh xẻo này sẽ làm hài lòng cả những vị khách khó tính nhất.',
+        'Được chăm chút từ chất liệu, form dáng, đường may, hình in cho đến khâu đóng gói và hậu mãi,
+          chiếc sơ mi Cuban xinh xẻo này sẽ làm hài lòng cả những vị khách khó tính nhất.',
         87000,
         100,
         1,
@@ -430,6 +430,27 @@ VALUES (
         'Áo Thun Nữ',
         'ao-thun-nu',
         'Áo thun nữ dễ thương, chất liệu vải mát mẻ, thích hợp cho mùa hè.',
+        180000,
+        250,
+        2,
+        3
+    ),
+      (
+     222,
+        ' Áo Đỏ Năm Mới Giáng Sinh Slim Fit Cổ Tròn',
+        'ao-thun-slim-fit-nu',
+        'Áo Đỏ Năm Mới Giáng Sinh Slim Fit Cổ Tròn cực kì sang chảnh,'
+        ' thời thượng giúp các nàng có những bộ ảnh đi chơi, du lịch xinh xắn',
+        170000,
+        260,
+        2,
+        3
+    ),
+      (
+     223,
+        'Áo Thun AM BE Nữ In Hình Nhiều Họa Tiết TỔNG HỢP Siêu Cute',
+        'ao-thun-am-be-nu',
+        'Áo thun nữ dễ thương, chất liệu cotton thoáng mát, thấm hút mồ hôi mang lại cảm giác dễ chịu cho nàng xinh ',
         180000,
         250,
         2,
