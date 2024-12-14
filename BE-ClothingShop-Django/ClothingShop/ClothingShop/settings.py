@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'api',
+    'api.apps.ApiConfig',   #sử dụng AppConfig của 'api'
     'clothing_shop',
     'django_filters',
     'djoser',
@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'drf_yasg',
 ]
+
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # Đặt ở đầu
@@ -251,3 +253,4 @@ SWAGGER_SETTINGS = {
     },
     'USE_SESSION_AUTH': False,
 }
+

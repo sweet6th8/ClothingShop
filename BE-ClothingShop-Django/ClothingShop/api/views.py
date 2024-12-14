@@ -144,8 +144,11 @@ class CartitemViewSet(ModelViewSet):
         
         cart = Cart.objects.filter(user=self.request.user).first()
         if not cart:
-            raise NotFound("Giỏ hàng không tồn tại.")
+            # Tạo giỏ hàng nếu không tồn tại
+            cart = Cart.objects.create(user=self.request.user)
+        
         return Cartitems.objects.filter(cart=cart)
+
 
     def get_serializer_class(self):
         """Chọn serializer tương ứng với phương thức HTTP"""
