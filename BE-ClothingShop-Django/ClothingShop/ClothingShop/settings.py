@@ -54,14 +54,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # Đặt ở đầu
-    'django.middleware.common.CommonMiddleware',  # Giữ dòng này
-    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',  
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'api.middleware.CartMiddleware', # Đặt ở sau những tác vụ như xác thực
     
 ]
 
@@ -150,19 +150,17 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-     'DEFAULT_PERMISSION_CLASSES': (
-        # 'rest_framework.permissions.IsAuthenticated',
-          'rest_framework.permissions.AllowAny',
-    ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-  
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
 }
 
 # JWT Settings
 SIMPLE_JWT = {
-    'AUTH_HEADER_TYPES': ('JWT',),
+    'AUTH_HEADER_TYPES': ('Bearer',),
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": True,
@@ -212,6 +210,16 @@ DJOSER = {
     #     'password_reset': 'api.email.PasswordResetEmail',
     #     'password_changed_confirmation': 'api.email.PasswordChangedConfirmationEmail',
     # },
+    'EMAIL': {
+        
+            'activation': 'djoser.email.ActivationEmail',
+            'confirmation': 'djoser.email.ConfirmationEmail',
+            'password_reset': 'djoser.email.PasswordResetEmail',
+            'password_changed_confirmation': 'djoser.email.PasswordChangedConfirmationEmail',
+            'username_changed_confirmation': 'djoser.email.UsernameChangedConfirmationEmail',
+            'username_reset': 'djoser.email.UsernameResetEmail',
+
+    },
 
 
 }
@@ -231,3 +239,15 @@ FLW_PUB_KEY = "FLWPUBK_TEST-617743b4ad9d84020bc285ed618887b3-X"
 
 MEDIA_URL = '/media/'  # URL truy cập file media
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Đường dẫn lưu trữ file media
+
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+        },
+    },
+    'USE_SESSION_AUTH': False,
+}

@@ -25,7 +25,9 @@ import tempfile
 from djoser.views import UserViewSet
 from django.contrib.auth import get_user_model
 from django.utils.http import urlsafe_base64_decode
-
+from rest_framework.exceptions import PermissionDenied
+from django.shortcuts import get_object_or_404
+from rest_framework.exceptions import NotAuthenticated
 
 
 # from django.contrib.auth import login, logout
@@ -104,46 +106,66 @@ class SubcategoryViewSet(ModelViewSet):
 
 
 
-class CartViewSet(CreateModelMixin, RetrieveModelMixin, DestroyModelMixin, GenericViewSet):
-    
-    #RetrieveModelMixin: lấy ra 
-    #DestroyModelMixin: delete cart
+
+class CartViewSet(GenericViewSet, CreateModelMixin):
+    permission_classes = [IsAuthenticated]
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
 
-class CartitemViewSet(ModelViewSet):
-   
-    http_method_names = ["get", "post", "patch", "delete"]
-    
-    # Lấy danh sách các sp trong cart dựa trên cart_id
     def get_queryset(self):
-        # Kiểm tra xem cart_pk có tồn tại không
-        cart_pk = self.kwargs.get("cart_pk")
-        try:
-            cart = Cart.objects.get(pk=cart_pk)  # Kiểm tra sự tồn tại của cart
-        except Cart.DoesNotExist:
-            raise NotFound(detail="Cart with the given ID does not exist.")
+        """Lấy cart của user đã đăng nhập"""
+        return Cart.objects.filter(user=self.request.user)
+
+    @action(detail=False, methods=["get"], url_path="mine", permission_classes=[IsAuthenticated])
+    def get_user_cart(self, request):
+        """Lấy hoặc tạo cart của user"""
+        cart, created = Cart.objects.get_or_create(user=request.user)
+        serializer = self.get_serializer(cart)
+        return Response(serializer.data)
+
+    @action(detail=False, methods=['get'], url_path='total-quantity', permission_classes=[IsAuthenticated])
+    def get_total_quantity(self, request):
+        """Trả về tổng số lượng sản phẩm trong giỏ hàng."""
+        cart = Cart.objects.filter(user=request.user).first()
+        if not cart:
+            return Response({"total_quantity": 0})
+        total_quantity = sum(item.quantity for item in cart.items.all())
+        return Response({"total_quantity": total_quantity})
+
+
+class CartitemViewSet(ModelViewSet):
+    http_method_names = ["get", "post", "patch", "delete"]
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        """Trả về danh sách các sản phẩm trong giỏ hàng của user."""
+        if not self.request.user.is_authenticated:
+            raise NotAuthenticated("Bạn cần đăng nhập để thực hiện thao tác này.")
         
+        cart = Cart.objects.filter(user=self.request.user).first()
+        if not cart:
+            raise NotFound("Giỏ hàng không tồn tại.")
         return Cartitems.objects.filter(cart=cart)
 
-    
     def get_serializer_class(self):
-        # add item to cart
+        """Chọn serializer tương ứng với phương thức HTTP"""
         if self.request.method == "POST":
             return AddCartItemSerializer
-        # update cart item
         elif self.request.method == "PATCH":
             return UpdateCartItemSerializer
-        # if GET/DELETE
         return CartItemSerializer
-    
-    
-      # Truyền cart_id vào context của serializer
-    def get_serializer_context(self):
-        if "cart_pk" not in self.kwargs:
-            raise NotFound(detail="cart_pk parameter is missing in the URL.")
 
-        return {"cart_id": self.kwargs["cart_pk"]}
+    def get_serializer_context(self):
+        """Truyền cart_id từ user vào context của serializer."""
+        if not self.request.user.is_authenticated:
+            raise NotAuthenticated("Bạn cần đăng nhập để thực hiện thao tác này.")
+        
+        cart = Cart.objects.filter(user=self.request.user).first()
+        if not cart:
+            raise NotFound("Giỏ hàng không tồn tại.")
+        return {"cart_id": cart.id}
+
+
     
 class ProfileViewSet(ModelViewSet):
       
@@ -301,15 +323,26 @@ def initiate_payment(amount, email, order_id):
 
 class CustomUserViewSet(UserViewSet):
     permission_classes = [AllowAny] 
-    @action(detail=True, methods=["get"], url_path="activate/(?P<uid>[\w-]+)/(?P<token>[\w-]+)")
+
+    @action(detail=True, methods=["get"], url_path=r"activate/(?P<uid>[\w-]+)/(?P<token>[\w-]+)")
     def activate(self, request, uid, token):
         try:
+            # Giải mã UID từ base64
             uid = urlsafe_base64_decode(uid).decode()
+            # Lấy người dùng từ DB theo ID
             user = get_user_model().objects.get(pk=uid)
+
+            # Kiểm tra token kích hoạt
             if user.activation_token == token:
-                user.is_active = True
+                user.is_active = True  # Đánh dấu tài khoản đã kích hoạt
                 user.save()
                 return Response({"detail": "Account activated successfully."}, status=status.HTTP_200_OK)
-            return Response({"detail": "Invalid activation link."}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                return Response({"detail": "Invalid activation link."}, status=status.HTTP_400_BAD_REQUEST)
+
+        except get_user_model().DoesNotExist:
+            # Nếu không tìm thấy người dùng
+            return Response({"detail": "User not found."}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
-            return Response({"detail": "Invalid activation link."}, status=status.HTTP_400_BAD_REQUEST)
+            # Log lỗi chi tiết nếu có
+            return Response({"detail": f"Error: {str(e)}"}, status=status.HTTP_400_BAD_REQUEST)

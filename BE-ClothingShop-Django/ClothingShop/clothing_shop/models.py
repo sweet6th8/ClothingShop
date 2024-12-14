@@ -114,14 +114,16 @@ class ProductImage(models.Model):
     
 class Cart(models.Model):
     id = models.AutoField(primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="cart")
     created = models.DateTimeField(auto_now_add=True)
-    
+    updated = models.DateTimeField(auto_now=True)  # Thêm trường updated_at để lưu thay đổi cuối
 
     def __str__(self):
         return str(self.id)
     
     class Meta:
         db_table = 'Cart'
+
     
 
 class Cartitems(models.Model):
@@ -132,6 +134,7 @@ class Cartitems(models.Model):
     class Meta:
         db_table = 'CartItem'
         verbose_name_plural = 'CartItems' 
+        unique_together = ('cart', 'product')  # Đảm bảo một sản phẩm chỉ xuất hiện một lần trong giỏ hàng
         
 
 class Profile(models.Model):

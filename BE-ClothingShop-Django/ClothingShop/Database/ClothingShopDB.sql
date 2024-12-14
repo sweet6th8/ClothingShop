@@ -11,7 +11,7 @@ SET SQL_SAFE_UPDATES = 1;
 USE ClothingShop;
 SELECT * FROM ProductImage;
 -- Thêm vào bảng `Category` (Danh mục chính)
-
+SELECT * FROM Category
 
 INSERT INTO `Category` (`title`, `slug`, `description`)
 VALUES (
@@ -183,7 +183,7 @@ VALUES (
         'Quần Jean Nam',
         'quan-jean-nam-thoi-trang',
         'Quần Jean Nam Dáng Baggy Ống Suông Wash Smoke 2 Màu Chất Vải Dày Dặn The Jeans
-        The Jean luôn nỗ lực trở thành đơn vị cung cấp các mẫu Jean tốt nhất trên thị trường, với mẫu mã đa dạng' ||
+        The Jean luôn nỗ lực trở thành đơn vị cung cấp các mẫu Jean tốt nhất trên thị trường, với mẫu mã đa dạng' 
         ' và luôn bắt kịp các xu hướng mới nhất.',
         500000,
         100,
@@ -234,7 +234,7 @@ VALUES (
      122,
          'Áo Thun-Polo Nam ',
         'ao-thun-nam-polo',
-        'Áo thun nam là trang phục cơ bản và tiện dụng nhất đối với phái mạnh. Hầu như người đàn ông nào cũng' ||
+        'Áo thun nam là trang phục cơ bản và tiện dụng nhất đối với phái mạnh. Hầu như người đàn ông nào cũng' 
                 ' đều phải có vài chiếc áo pull nam trong tủ áo của mình. ',
         95000,
         300,
@@ -245,7 +245,7 @@ VALUES (
      123,
          'Áo Thun Nam tay lỡ',
         'ao-thun-nam-tay-lo',
-        'Dù là ai, bạn cũng nên thử nghĩ đến áo thun tay lỡ – một items mới mẻ mang đến style năng động và “chất lừ” cho bất cứ ai sở hữu nó.' ||
+        'Dù là ai, bạn cũng nên thử nghĩ đến áo thun tay lỡ – một items mới mẻ mang đến style năng động và “chất lừ” cho bất cứ ai sở hữu nó.' 
         ' Không phải áo thun freesize hay tay dài nữa'
         ', áo thun tay lỡ mới thực sự làm điên đảo giới trẻ trong thời điểm này.',
         85000,
@@ -267,7 +267,7 @@ VALUES (
      132,
         'Áo sơ mi nam dài tay Pastel Premium ',
         'ao-so-mi-nam-Pastel-Premium',
-        'Áo sơ mi trơn công sở là một kiểu áo sơ mi nam đơn giản, trang trọng và lịch sự' ||
+        'Áo sơ mi trơn công sở là một kiểu áo sơ mi nam đơn giản, trang trọng và lịch sự' 
         ', được thiết kế để mặc trong môi trường văn phòng hoặc các sự kiện chuyên nghiệp.',
         890000,
         30,
@@ -278,7 +278,7 @@ VALUES (
      133,
         'Áo Sơ Mi Tay Ngắn TÚI HỘP Thêu',
         'ao-so-mi-nam-tay-ngan',
-        'Được chăm chút từ chất liệu, form dáng, đường may, hình in cho đến khâu đóng gói và hậu mãi,' ||
+        'Được chăm chút từ chất liệu, form dáng, đường may, hình in cho đến khâu đóng gói và hậu mãi,' 
          ' chiếc sơ mi Cuban xinh xẻo này sẽ làm hài lòng cả những vị khách khó tính nhất.',
         87000,
         100,
@@ -417,8 +417,8 @@ VALUES (
      213,
         'Quần legging tập gym yoga legging nữ cạp cao Fitme Zeta',
         'quan-legging-Fitme-Zeta-nu',
-        'u điểm của chất liệu này là bề mặt vải bóng mượt, mềm mịn, khả năng co giãn tốt. ' ||
-        'Vải Nylon spandex rất dễ giặt, độ bền cao, giữ form tốt,' ||
+        'u điểm của chất liệu này là bề mặt vải bóng mượt, mềm mịn, khả năng co giãn tốt. ' 
+        'Vải Nylon spandex rất dễ giặt, độ bền cao, giữ form tốt,' 
         ' không bị mất đi tính năng ban đầu và mang đến sự thoải mái cho người mặc',
         150000,
         452,
@@ -620,7 +620,7 @@ VALUES (142, 'product_images/ao_khoac_nam_Bomber_a.png'),
        (142 ,'product_images/ao_khoac_nam_Bomber_c.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (143, 'product_images/ao_khoac_Hoodie_nam_a.png'),
-       (143, 'product_images/ao_khoac_Hoodie_nam_b.png'),
+       (143, 'product_images/ao_khoac_Hoodie_nam_b.png');
 
 
 -- Ảnh cho Quần Short Nam (2 ảnh)

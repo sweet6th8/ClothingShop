@@ -89,42 +89,62 @@ class CartSerializer(serializers.ModelSerializer):
         return sum(item.quantity * item.product.price for item in cart.items.all())
 
 
-class  AddCartItemSerializer(serializers.ModelSerializer):
-    product_id = serializers.UUIDField()
+
+class AddCartItemSerializer(serializers.ModelSerializer):
+    product_id = serializers.IntegerField()
+
+    quantity = serializers.IntegerField(min_value=1, error_messages={
+        "min_value": "Quantity must be greater than zero."
+    })
 
     def validate_product_id(self, value):
+        """Kiểm tra sự tồn tại của sản phẩm"""
         if not Product.objects.filter(pk=value).exists():
             raise serializers.ValidationError("There is no product associated with the given ID")
-        
         return value
 
     def save(self, **kwargs):
+        """Lưu hoặc cập nhật CartItem"""
         cart_id = self.context["cart_id"]
         product_id = self.validated_data["product_id"]
         quantity = self.validated_data["quantity"]
-        try:
-            cartitem = Cartitems.objects.get(product_id=product_id,cart_id=cart_id)
+
+        # Kiểm tra và thêm hoặc cập nhật sản phẩm vào giỏ hàng
+        cartitem, created = Cartitems.objects.get_or_create(
+            product_id=product_id, cart_id=cart_id,
+            defaults={"quantity": quantity}
+        )
+
+        if not created:
             cartitem.quantity += quantity
             cartitem.save()
 
-            self.instance = cartitem
-            
-        except:
-            self.instance = Cartitems.objects.create(cart_id=cart_id, **self.validated_data)
-
+        self.instance = cartitem
         return self.instance
-    
 
     class Meta:
         model = Cartitems
         fields = ["id", "product_id", "quantity"]
 
 class UpdateCartItemSerializer(serializers.ModelSerializer):
-    # id = serializers.IntegerField(read_only=True)
+    """Serializer để cập nhật số lượng của một CartItem"""
+
+    quantity = serializers.IntegerField(min_value=1, error_messages={
+        "min_value": "Quantity must be greater than zero."
+    })
+
+    def validate_quantity(self, value):
+        """Kiểm tra logic bổ sung (ví dụ: tồn kho)."""
+        # Giả sử bạn có trường `product` trong CartItem
+        product = self.instance.product
+        if value > product.stock:
+            raise serializers.ValidationError(f"Only {product.stock} items available in stock.")
+        return value
+
     class Meta:
         model = Cartitems
-        fields = ["quantity"] # cập nhật số lượng
-
+        fields = ["quantity"]  # Cập nhật số lượng của CartItem
+        
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
