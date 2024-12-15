@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -253,4 +254,94 @@ SWAGGER_SETTINGS = {
     },
     'USE_SESSION_AUTH': False,
 }
+
+JAZZMIN_SETTINGS = {
+    "theme": "default",
+    "theme_toggle": True,
+    "site_title": "Admin",
+    "site_header": "Clothing shop",
+    "site_brand": "Clothing shop",
+    "welcome_sign": "Welcome to Clothing Shop Admin",
+
+    #logo
+    # "site_logo": "/media/logo.png",
+    "login_logo": None,
+    "login_logo_dark": None,
+    "site_logo_classes": "img-circle",
+
+    #top menu
+    "topmenu_links": [
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+
+        {"name": "Github", "url": "https://github.com/sweet6th8/ClothingShop", "new_window": True},
+
+        {"app": "clothingShop"},
+    ],
+
+    "search_model": ["clothing_shop.user", "auth.Group"],
+
+    #user menu
+    "usermenu_links": [
+        {"model": "clothing_shop.user"}
+    ],
+
+    # Custom links to append to app groups, keyed on app name
+    "custom_links": {
+        
+    },
+
+    # Custom icons for side menu apps/models
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "clothing_shop.cart": "fas fa-shopping-cart",
+        "clothing_shop.cartitems": "fas fa-box-open",
+        "clothing_shop.category": "fas fa-list-alt",
+        "clothing_shop.orderitem": "fas fa-box",
+        "clothing_shop.order": "fas fa-clipboard-list",
+        "clothing_shop.productimage": "fas fa-image",
+        "clothing_shop.product": "fas fa-boxes",
+        "clothing_shop.subcategory": "fas fa-list-alt",
+        "clothing_shop.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+
+    # "related_modal_active": True,
+    # "show_ui_builder": True,
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": "navbar-lightblue",
+    "accent": "accent-primary",
+    "navbar": "navbar-white navbar-light",
+    "no_navbar_border": True,
+    "navbar_fixed": True,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": True,
+    "sidebar": "sidebar-dark-lightblue",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": True,
+    "theme": "default",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    },
+    "actions_sticky_top": True
+}
+
 
