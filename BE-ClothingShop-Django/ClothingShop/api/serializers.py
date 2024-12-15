@@ -61,9 +61,19 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class SimpleProductSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
     class Meta:
         model = Product
-        fields = ["product_id", "product_name", "price"]
+        fields = ["product_id", "product_name", "price", "image"]
+
+    def get_image(self, obj):
+        """Lấy hình ảnh đầu tiên của sản phẩm."""
+        product_image = obj.images.first()  # Lấy hình ảnh đầu tiên của sản phẩm
+        if product_image and product_image.image:
+            return product_image.image.url  # Trả về đường dẫn URL của hình ảnh
+        return None  
+
 
 class CartItemSerializer(serializers.ModelSerializer):
     product = SimpleProductSerializer(many=False)
