@@ -44,13 +44,23 @@ try:
 except AlreadyRegistered:
     pass  # Nếu model đã được đăng ký, bỏ qua.
 
+# Hiển Thị Các Trạng Thái Thân Thiện Trong Admin
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ('id', 'owner', 'pending_status_display', 'placed_at', 'total_price')
+    
+    def pending_status_display(self, obj):
+        return obj.get_pending_status_display()
+    pending_status_display.short_description = 'Payment Status'
+
+
+
 # đã đăng ký rồi
 
 # admin.site.register(Category, CategoryAdmin)
 # admin.site.register(Product, ProductAdmin)
 admin.site.register(Cart)
 admin.site.register(Cartitems)
-admin.site.register(Order)
 admin.site.register(OrderItem)
 admin.site.register(Subcategory)
 admin.site.register(ProductImage)
+admin.site.register(Order, OrderAdmin)

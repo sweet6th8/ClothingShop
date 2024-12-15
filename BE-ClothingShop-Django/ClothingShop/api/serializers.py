@@ -173,22 +173,42 @@ class OrderSerializer(serializers.ModelSerializer):
         fields = ["id", "placed_at", "pending_status", "owner", "items"]
 
 class CreateOrderSerializer(serializers.Serializer):
-    cart_id = serializers.UUIDField()
+    item_ids = serializers.ListField(
+        child=serializers.IntegerField(),
+        write_only=True,
+        help_text="Danh sách các CartItem ID mà người dùng muốn thanh toán"
+    )
 
-    def save (self, **kwargs):
+
+    def save(self, **kwargs):
         with transaction.atomic():
-            cart_id = self.validated_data["cart_id"]
             user_id = self.context["user_id"]
-            order = Order.objects.create(owner_id = user_id)
-            cartitems = Cartitems.objects.filter(cart_id=cart_id)
-             # Tạo danh sách các đối tượng OrderItem từ các Cartitems
+
+            # Tìm cart của user
+            cart = Cart.objects.filter(user_id=user_id).first()
+            if not cart or not cart.items.exists():
+                raise serializers.ValidationError("Giỏ hàng không tồn tại hoặc trống.")
+            
+            # Lọc các CartItem mà user đã chọn
+            item_ids = self.validated_data["item_ids"]
+            cartitems = Cartitems.objects.filter(cart=cart, id__in=item_ids)
+
+            if not cartitems.exists():
+                raise serializers.ValidationError("Không tìm thấy sản phẩm hợp lệ trong giỏ hàng.")
+
+            # Tạo Order và OrderItems
+            order = Order.objects.create(owner_id=user_id)
             orderitems = [
                 OrderItem(order=order, product=item.product, quantity=item.quantity)
-            for item in cartitems
+                for item in cartitems
             ]
-             # Sử dụng bulk_create để chèn nhiều OrderItem vào cơ sở dữ liệu cùng một lúc, giúp tăng hiệu năng
             OrderItem.objects.bulk_create(orderitems)
-            Cart.objects.filter(id=cart_id).delete()
+
+            # Xóa các CartItem đã thanh toán
+            cartitems.delete()
+
+            return order
+
 
 class UpdateOrderSerializer(serializers.ModelSerializer):
     class Meta:

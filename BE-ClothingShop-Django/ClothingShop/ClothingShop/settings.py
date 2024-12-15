@@ -164,7 +164,7 @@ REST_FRAMEWORK = {
 # JWT Settings
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": True,
     "UPDATE_LAST_LOGIN": True,
@@ -237,8 +237,8 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 EMAIL_USE_TLS = True
 
-FLW_SEC_KEY  ='FLWSECK_TEST-825d260605a1fb0170d7af0cc15520f5-X'
-FLW_PUB_KEY = "FLWPUBK_TEST-617743b4ad9d84020bc285ed618887b3-X"
+FLW_SEC_KEY  ='FLWSECK_TEST-fade50af0051fad55c5db5d0063b39d7-X'
+FLW_PUB_KEY = "FLWPUBK_TEST-0732ebd993df7c9b4c3ce01158df156a-X"
 
 MEDIA_URL = '/media/'  # URL truy cập file media
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Đường dẫn lưu trữ file media

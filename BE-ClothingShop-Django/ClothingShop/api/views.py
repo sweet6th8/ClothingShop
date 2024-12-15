@@ -187,7 +187,6 @@ class ProfileViewSet(ModelViewSet):
     
 
 class OrderViewSet(ModelViewSet):
-    
     def get_serializer_class(self):
         if self.request.method == "POST":
             return CreateOrderSerializer
@@ -198,10 +197,10 @@ class OrderViewSet(ModelViewSet):
         if user.is_staff:
             return Order.objects.all()
         return Order.objects.filter(owner=user)
-    
+
     def get_serializer_context(self):
         return {"user_id": self.request.user.id}
-    
+
     
     @action(detail=True, methods=['POST'])
     def pay(self, request, pk):
@@ -212,31 +211,36 @@ class OrderViewSet(ModelViewSet):
         # redirect_url = "http://127.0.0.1:8000/confirm"
         return initiate_payment(amount, email, order_id)
     
-    @action(detail=False, methods=["POST"])
+    @action(detail=False,  methods=["GET", "POST"], permission_classes=[AllowAny])
     def confirm_payment(self, request):
         order_id = request.GET.get("o_id")
         order = Order.objects.get(id=order_id)
+        
+        # Cập nhật trạng thái đơn hàng là "Completed" (hoàn thành)
         order.pending_status = "C"
         order.save()
+
         serializer = OrderSerializer(order)
         
         data = {
-            "msg": "payment was successful",
+            "msg": "Payment was successful",
             "data": serializer.data
         }
         return Response(data)
+
     
 def initiate_payment(amount, email, order_id):
     url = "https://api.flutterwave.com/v3/payments"
     headers = {
         "Authorization": f"Bearer {settings.FLW_SEC_KEY}"
-        
     }
-    
+    # Giả sử tỷ giá là 1 USD = 24,000 VND
+    exchange_rate = 24000
+    amount_in_usd = round(amount / exchange_rate, 2)  # Chuyển đổi VND sang USD
     data = {
         "tx_ref": str(uuid.uuid4()),
-        "amount": str(amount), 
-        "currency": "USD",
+        "amount": str(amount_in_usd),  # Gửi số tiền đã chuyển đổi
+        "currency": "USD",   
         "redirect_url": "http:/127.0.0.1:8000/api/orders/confirm_payment/?o_id=" + order_id,
         "meta": {
             "consumer_id": 23,
@@ -253,15 +257,22 @@ def initiate_payment(amount, email, order_id):
         }
     }
     
-
     try:
         response = requests.post(url, headers=headers, json=data)
-        response_data = response.json()
-        return Response(response_data)
+        print("Response Status Code:", response.status_code)
+        print("Response Text:", response.text)
+        
+        # Kiểm tra nếu phản hồi không phải là JSON
+        if response.status_code == 200:
+            response_data = response.json()
+            return Response(response_data)
+        else:
+            return Response({"error": "Payment initiation failed", "details": response.text}, status=500)
     
     except requests.exceptions.RequestException as err:
-        print("the payment didn't go through")
+        print("The payment didn't go through:", err)
         return Response({"error": str(err)}, status=500)
+
 
 # Luồng hoạt động tổng quát của phần thanh toán:
 
