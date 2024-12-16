@@ -201,6 +201,16 @@ class OrderViewSet(ModelViewSet):
     def get_serializer_context(self):
         return {"user_id": self.request.user.id}
 
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        # Lấy id của Order từ serializer
+        order_id = serializer.save()
+
+        # Trả về id của Order
+        return Response({"order_id": order_id}, status=201)
+
     
     @action(detail=True, methods=['POST'])
     def pay(self, request, pk):

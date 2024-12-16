@@ -196,8 +196,10 @@ class CreateOrderSerializer(serializers.Serializer):
             if not cartitems.exists():
                 raise serializers.ValidationError("Không tìm thấy sản phẩm hợp lệ trong giỏ hàng.")
 
-            # Tạo Order và OrderItems
+            # Tạo Order
             order = Order.objects.create(owner_id=user_id)
+
+            # Tạo từng OrderItem và lưu
             orderitems = [
                 OrderItem(order=order, product=item.product, quantity=item.quantity)
                 for item in cartitems
@@ -207,7 +209,9 @@ class CreateOrderSerializer(serializers.Serializer):
             # Xóa các CartItem đã thanh toán
             cartitems.delete()
 
-            return order
+            return order.id  # Trả về id của Order
+
+
 
 
 class UpdateOrderSerializer(serializers.ModelSerializer):
