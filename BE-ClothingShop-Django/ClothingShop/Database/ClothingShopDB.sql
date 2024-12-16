@@ -438,12 +438,56 @@ VALUES (
         3
     ),
     (
+     222,
+        'Áo Thun AM BE Nữ In Hình Nhiều Họa Tiết',
+        'ao-thun-nu-am-be',
+        ' Loại áo này “khó tính” hơn áo thun nam nữ ngắn tay, nếu biết cách mix đồ, bạn sẽ trở nên thật cá tính với phong cách thời trang đậm chất Hàn Quốc,
+         nhưng nếu phối đồ không tốt trông bạn như đang “lọt thỏm” trong chiếc áo thun tay lỡ.',
+        86000,
+        100,
+        2,
+        3
+    ),
+    (
+     223,
+        'Áo phông fashion nữ local brand Salute',
+        'ao-thun-nu-salute',
+        '1.100% cotton, chất vải mềm mại mịn màng tinh tế,không bị co ngắn sau khi giặt.
+2.Toàn bộ hình ảnh của cửa hàng đều là ảnh thật do xưởng tự chụp.
+3.Sản phẩm của chúng tôi là dành cho cả nam và nữ,cặp đôi nhân tình và cặp đôi Chị Em đều có thể mặc được.',
+        95000,
+        350,
+        2,
+        3
+    ),
+    (
      231,
         'Áo Sơ Mi Nữ',
         'ao-so-mi-nu',
         'Áo sơ mi nữ thanh lịch, phù hợp với môi trường công sở.',
         350000,
         100,
+        2,
+        4
+    ),
+     (
+     232,
+        'Áo Sơ Mi Dài Tay Nữ CECI Kẻ Sọc Kèm Cà Vạt Cổ Bẻ ',
+        'ao-so-mi-nu-ceci',
+        'Áo xinh lắm nhé, chất liệu dày dặn, mặc đi học đi chơi ai cũng khen, chỉ có hơn 100k xíu thôi ý, quá hời.',
+        159000,
+        630,
+        2,
+        4
+    ),
+     (
+     233,
+        'Ethelgirl Mỹ Retro',
+        'ao-so-mi-nu-retro',
+        '◆Màu sắc thực của mặt hàng có thể hơi khác so với hình ảnh hiển thị trên trang web, do nhiều yếu tố như độ sáng của màn hình và độ sáng ánh sáng, Vui lòng cho phép độ lệch đo lường thủ công nhỏ (± 3cm) đối với dữ liệu ~
+◆Vui lòng kiểm tra để xác nhận [Sản phẩm của cửa hàng chúng tôi] Có hư hỏng không "trầy xước" hư hỏng "vết bẩn (Không phải yếu tố do con người gây ra) Nếu bạn có bất kỳ vấn đề gì, hãy giữ bên trong và bên ngoài đóng gói hàng hóa, hình ảnh hàng hóa và Liên hệ với chúng tôi ngay lập tức, sẽ có người xử lý nó cho bạn ~',
+        163000,
+        725,
         2,
         4
     ),
@@ -457,6 +501,40 @@ VALUES (
         2,
         5
     ),
+      (
+     241,
+        'Áo Len Nữ',
+        'ao-len-nu',
+        'Áo len nữ ấm áp, phong cách, thích hợp cho mùa thu đông.',
+        600000,
+        70,
+        2,
+        5
+    ),
+      (
+     242,
+        'Áo len Đỏ Năm Mới Giáng Sinh Slim Fit Cổ Tròn Micro Flare',
+        'ao-len-nu-micro-flare',
+        'Mặc đi chụp noel thì phải gọi là bá cháy bọ chét,Mặc lên dịu keo nha còn tôn dáng nữa
+Kích thước (CM)
+Chiều dài quần áo:	47	Tượng bán thân:	76	Chiều dài tay áo:	63	Chiều rộng vai:	36
+        Mê không lối thoát rồi ',
+        138000,
+        425,
+        2,
+        5
+    ),
+      (
+     243,
+        'RUICHE Áo Len áo khoác cardigan phổ biến Fashion',
+        'ao-len-nu-ruiche',
+        'Thiết kế độc đáo và nổi bật của chiếc áo len này chắc chắn sẽ thu hút sự chú ý từ mọi người xung quanh.
+        Màu sắc tươi sáng và họa tiết độc đáo tạo nên một phong cách cá nhân và sành điệu.',
+        149000,
+        530,
+        2,
+        5
+    ),
     (
      251,
         'Chân Váy Nữ',
@@ -464,6 +542,27 @@ VALUES (
         'Chân váy nữ trẻ trung, giúp tôn dáng và dễ dàng kết hợp với áo sơ mi hoặc áo thun.',
         300000,
         150,
+        2,
+        6
+    ),
+      (
+     252,
+        'Chân váy ngắn bí ngô MunMiu',
+        'chan-vay-nu-miu-miu',
+        'Chân váy ngắn bí ngô MunMiu 2 lớp có bảo hộ dáng xếp ly bồng đính nơ lưng chun có lớp lót phong cách Hàn Quốc',
+        154000,
+        535,
+        2,
+        6
+    ),
+      (
+     253,
+        'Chân Váy Jean Nữ Cạp Cao Dáng Dài LIMISU',
+        'chan-vay-nu-limisu',
+        'Quần áo này có chất liệu vải mềm mại, thoáng mát và thoải mái khi mặc.
+         Kiểu dáng hiện đại, phù hợp với nhiều phong cách khác nhau, từ công sở đến dạo phố. Màu sắc tươi sáng, dễ dàng kết hợp với các phụ kiện. ',
+        163000,
+        109,
         2,
         6
     );
@@ -489,12 +588,57 @@ VALUES (
         1
     ),
     (
+        302,
+        'Quần Jean Bé Gái Bé Gái Babimama',
+        'quan-jean-tre-em-babimama',
+        'Quần Jean Bé Gái Size Đại Quần Jean Ống Rộng, Quần Bò Ống Xuông Phong Cách Thời Trang Cho Các Bé Gái Babimama
+- Độ tuổi khuyến khích từ 4 - 18 tuổi
+- Kiểu dáng cách điệu vô cùng dễ thương.
+- Có các màu cho các mẹ lựa chọn cho các nàng công chúa, màu nào cũng quá đẹp luôn.',
+        142000,
+        100,
+        3,
+        1
+    ),
+    (
+        303,
+        'Quần bé trai TIINGXUYU Quần bò trẻ em',
+        'quan-jean-tre-em-tiingxuyu',
+        ' Quần bò trẻ em mẫu mới xuân thu quần dài hoạt hình thời trang trẻ em vừa và lớn rộng rãi phiên bản học sinh',
+        173000,
+        100,
+        3,
+        1
+    ),
+    (
      311,
         'Quần Short Trẻ Em',
         'quan-short-tre-em',
         'Quần short trẻ em dễ thương, thích hợp cho mùa hè hoặc khi đi chơi.',
         250000,
         150,
+        3,
+        2
+    ),
+      (
+     312,
+        'Combo 2 quần short bé trai BOBDOG',
+        'quan-short-tre-em-bobdog',
+        'Combo quần đùi cotton in hình cho bé là sự kết hợp tuyệt vời giữa phong cách thời trang và sự thoải mái cho bé yêu của bạn.
+        Với những họa tiết độc đáo và ngộ nghĩnh in trên chất liệu cotton mềm mịn và co giãn mang lại sự thoải mái tối đa cho bé trong mọi hoạt động.',
+        350000,
+        629,
+        3,
+        2
+    ),
+      (
+     313,
+        'Quần đùi bé trai BabyloveGO',
+        'quan-short-tre-em-babyloveGo',
+        'Quần đùi bé trai BabyloveGO quần đùi kaki đứng form túi hộp cho bé thiết kế theo kiểu dáng đơn giản nhưng vẫn cá tính,
+         dễ phối đồ phù hợp cho các bé đi học và đi chơi, bé thoải mái tự do chạy nhảy và vui chơi cả ngày.',
+        43000,
+        275,
         3,
         2
     ),
@@ -663,6 +807,7 @@ VALUES (203, 'product_images/quan_jean_lovito_nu_a.png'),
        (203 ,'product_images/quan_jean_lovito_nu_c.png');
 
 
+
 -- Ảnh cho Quần Legging Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (211, 'product_images/quan_legging_nu_uniqlo_a.png');
@@ -683,11 +828,30 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (221, 'product_images/ao_thun_nu_uniqlo_b.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (221, 'product_images/ao_thun_nu_uniqlo_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (222, 'product_images/ao_thun_nu_am_be_a.png'),
+       (222, 'product_images/ao_thun_nu_am_be_b.png'),
+       (222 ,'product_images/ao_thun_nu_am_be_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (223, 'product_images/ao_thun_nu_salute_a.png'),
+       (223, 'product_images/ao_thun_nu_salute_b.png'),
+       (223 ,'product_images/ao_thun_nu_salute_c.png');
+
 -- Ảnh cho Áo Sơ Mi Nữ (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (231, 'product_images/ao_so_mi_nu_uniqlo_a.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (231, 'product_images/ao_so_mi_nu_uniqlo_b.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (232, 'product_images/ao_so_mi_nu_ceci_a.png'),
+       (232, 'product_images/ao-so-mi-nu-ceci_b.png'),
+       (232,'product_images/ao-so-mi-nu-ceci_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (233, 'product_images/ao_so_mi_nu_retro_a.png'),
+       (233, 'product_images/ao_so_mi_nu_retro_b.png'),
+       (233,'product_images/ao_so_mi_nu_retro_c.png');
+
+
 -- Ảnh cho Áo Len Nữ (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (241, 'product_images/ao_len_nu_uniqlo_a.png');
@@ -697,6 +861,15 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (241, 'product_images/ao_len_nu_uniqlo_c.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (241, 'product_images/ao_len_nu_uniqlo_d.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (242, 'product_images/ao_len_nu_micro_flare_a.png'),
+       (242, 'product_images/ao_len_nu_micro_flare_b.png'),
+       (242,'product_images/ao_len_nu_micro_flare_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (243, 'product_images/ao_len_nu_ruiche_a.png'),
+       (243, 'product_images/ao_len_nu_ruiche_b.png'),
+       (243,'product_images/ao_len_nu_ruiche_c.png');
+
 -- Ảnh cho Chân Váy Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (251, 'product_images/chan_vay_nu_uniqlo_a.png');
@@ -704,6 +877,15 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (251, 'product_images/chan_vay_nu_uniqlo_b.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (251, 'product_images/chan_vay_nu_uniqlo_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (243, 'product_images/chan_vay_nu_miu_miu_a.png'),
+       (243, 'product_images/chan_vay_nu_miu_miu_b.png'),
+       (243,'product_images/chan_vay_nu_miu_miu_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (243, 'product_images/chan_vay_nu_limisu_a.png'),
+       (243, 'product_images/chan_vay_nu_limisu_b.png'),
+       (243,'product_images/chan_vay_nu_limisu_c.png');
+
 -- Cho các sản phẩm thuộc Subcategory "Trẻ Em":
 -- Ảnh cho Quần Jean Trẻ Em (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
@@ -712,6 +894,15 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (301, 'product_images/quan_jean_tre_em_uniqlo_a.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (301, 'product_images/quan_jean_tre_em_uniqlo_a.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (302, 'product_images/quan_jean_tre_em_babimama_a.png'),
+       (302, 'product_images/quan_jean_tre_em_babimama_b.png'),
+       (302,'product_images/quan_jean_tre_em_babimama_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (303, 'product_images/quan_jean_tre_em_tiingxuyu_a.png'),
+       (303, 'product_images/quan_jean_tre_em_tiingxuyu_b.png'),
+       (303,'product_images/quan_jean_tre_em_tiingxuyu_c.png');
+
 -- Ảnh cho Quần Short Trẻ Em (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (311, 'product_images/quan_short_tre_em_uniqlo_a.png');
@@ -721,6 +912,15 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (311, 'product_images/quan_short_tre_em_uniqlo_c.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (311, 'product_images/quan_short_tre_em_uniqlo_d.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (312, 'product_images/quan_short_tre_em_bobdog_a.png'),
+       (312, 'product_images/quan_short_tre_em_bobdog_b.png'),
+       (312,'product_images/quan_short_tre_em_bobdog_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (313, 'product_images/quan_short_tre_em_babyloveGo_a.png'),
+       (313, 'product_images/quan_short_tre_em_babyloveGo_b.png'),
+       (313,'product_images/quan_short_tre_em_babyloveGo_c.png');
+
 -- Ảnh cho Áo Thun Trẻ Em (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (321, 'product_images/ao_thun_tre_em_uniqlo_a.png');
