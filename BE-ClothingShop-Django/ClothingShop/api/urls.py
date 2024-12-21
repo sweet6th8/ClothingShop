@@ -40,6 +40,5 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshSlidingView.as_view(), name='token_refresh'),
     # path("predict/", predict_images, name="predict_images"),
     path('activate/<uid>/<token>/', CustomUserViewSet.as_view({'get': 'activate'}), name='user-activate'),  # Đăng ký view kích hoạt
-
-
+    path('products/recommended/<int:selected_product_id>/', RecommendedProductView.as_view(), name='recommended-products')
 ]

@@ -26,7 +26,7 @@ from djoser.views import UserViewSet
 from django.contrib.auth import get_user_model
 from django.utils.http import urlsafe_base64_decode
 from rest_framework.exceptions import PermissionDenied
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from rest_framework.exceptions import NotAuthenticated
 
 
@@ -36,6 +36,10 @@ from rest_framework.authtoken.models import Token
 import requests
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
 
 # Create your views here.
 
@@ -66,6 +70,7 @@ class ProductViewSet(ModelViewSet):
 
         # Lấy danh sách sản phẩm ngẫu nhiên, giới hạn theo 'count'
         random_products = Product.objects.order_by('?')[:count]
+        Product.objects.select_related
     
         page = self.paginate_queryset(random_products)  # Áp dụng phân trang
 
@@ -304,69 +309,71 @@ def initiate_payment(amount, email, order_id):
 # from rest_framework.decorators import api_view
 # from django.http import JsonResponse
 
-# # Tạo client Gradio
-# client = Client("https://f2edfb8f338119030b.gradio.live/")
 
-
-# @api_view(["POST"])
-# def predict_images(request):
-#     try:
-#         # Nhận file từ request
-#         cloth_image = request.FILES.get("cloth_image")
-#         human_image = request.FILES.get("human_image")
-
-#         if not cloth_image or not human_image:
-#             return JsonResponse({"error": "Both images are required."}, status=400)
-
-#         # Lưu file tạm thời để gửi đến API Gradio
-#         with open("temp_cloth.png", "wb") as f:
-#             for chunk in cloth_image.chunks():
-#                 f.write(chunk)
-
-#         with open("temp_human.png", "wb") as f:
-#             for chunk in human_image.chunks():
-#                 f.write(chunk)
-
-#         # Gửi request đến Gradio API
-#         result = client.predict(
-#             "temp_cloth.png",  # Đường dẫn đến ảnh quần áo
-#             "temp_human.png",  # Đường dẫn đến ảnh người
-#             fn_index=0
-#         )
-
-#         # Xóa file tạm nếu cần
-#         import os
-#         os.remove("temp_cloth.png")
-#         os.remove("temp_human.png")
-
-#         # Trả kết quả về frontend
-#         return JsonResponse({"result": result}, status=200)
-
-#     except Exception as e:
-#         return JsonResponse({"error": str(e)}, status=500)
 
 class CustomUserViewSet(UserViewSet):
-    permission_classes = [AllowAny] 
+    permission_classes = [AllowAny]  # Cấp quyền truy cập cho tất cả
 
-    @action(detail=True, methods=["get"], url_path=r"activate/(?P<uid>[\w-]+)/(?P<token>[\w-]+)")
+    @action(detail=False, methods=["get"], url_path="activate/(?P<uid>[\w-]+)/(?P<token>[\w-]+)")
     def activate(self, request, uid, token):
+        print(f"uid: {uid}, token: {token}")
         try:
-            # Giải mã UID từ base64
-            uid = urlsafe_base64_decode(uid).decode()
-            # Lấy người dùng từ DB theo ID
-            user = get_user_model().objects.get(pk=uid)
+            # Gọi API kích hoạt người dùng qua POST request
+            response = requests.post(
+                'http://127.0.0.1:8000/auth/users/activation/',  # Đảm bảo URL chính xác
+                data={'uid': uid, 'token': token}
+            )
 
-            # Kiểm tra token kích hoạt
-            if user.activation_token == token:
-                user.is_active = True  # Đánh dấu tài khoản đã kích hoạt
-                user.save()
-                return Response({"detail": "Account activated successfully."}, status=status.HTTP_200_OK)
+            if response.status_code == 204:
+                # Nếu thành công, chuyển hướng đến trang login của frontend
+                return redirect("http://localhost:3000/login")
             else:
-                return Response({"detail": "Invalid activation link."}, status=status.HTTP_400_BAD_REQUEST)
+                # Nếu có lỗi, trả về thông báo lỗi
+                return JsonResponse({"error": "Không thể kích hoạt tài khoản. Vui lòng thử lại."}, status=400)
 
-        except get_user_model().DoesNotExist:
-            # Nếu không tìm thấy người dùng
-            return Response({"detail": "User not found."}, status=status.HTTP_404_NOT_FOUND)
-        except Exception as e:
-            # Log lỗi chi tiết nếu có
-            return Response({"detail": f"Error: {str(e)}"}, status=status.HTTP_400_BAD_REQUEST)
+        except requests.exceptions.RequestException as e:
+            # Nếu có lỗi trong quá trình gọi API, trả về lỗi
+            return JsonResponse({"error": "Có lỗi xảy ra. Vui lòng thử lại sau."}, status=500)
+
+class RecommendedProductView(APIView):
+    permission_classes = [AllowAny]
+    def get(self, request, selected_product_id, top_n=12):
+        print("selected_product_id", selected_product_id)
+        try:
+            # Lấy sản phẩm đã chọn
+            selected_product = Product.objects.select_related('category', 'subcategory').get(product_id=selected_product_id)
+            
+            # Lấy tất cả sản phẩm trong cùng danh mục, loại bỏ sản phẩm đã chọn
+            products = Product.objects.select_related('category', 'subcategory').exclude(product_id=selected_product_id).filter(
+                category_id=selected_product.category_id
+            )
+            
+            # Tạo danh sách mô tả kết hợp cho sản phẩm đã chọn và các sản phẩm trong cùng danh mục
+            descriptions = [
+                f"{selected_product.product_name} {selected_product.category.title} {selected_product.subcategory.title} {selected_product.description}"
+            ]
+            for product in products:
+                description = f"{product.product_name} {product.category.title} {product.subcategory.title} {product.description}"
+                descriptions.append(description)
+            
+            # Tính TF-IDF cho mô tả của các sản phẩm
+            vectorizer = TfidfVectorizer()
+            tfidf_matrix = vectorizer.fit_transform(descriptions)
+            
+            # Tính độ tương đồng cosine giữa sản phẩm đã chọn và các sản phẩm còn lại
+            similarity_scores = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:]).flatten()
+            
+            # Sắp xếp sản phẩm theo độ tương đồng từ cao đến thấp
+            sorted_indices = np.argsort(similarity_scores)[::-1]
+            
+            # Lấy top_n sản phẩm gợi ý
+            products_list = list(products) # Chuyển QuerySet thành danh sách
+            recommended_products = [products_list[index] for index in sorted_indices[:top_n]]
+
+            # Chuyển đổi các sản phẩm gợi ý thành dữ liệu có thể trả về dưới dạng JSON
+            serializer = ProductSerializer(recommended_products, many=True)
+            
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
+        except Product.DoesNotExist:
+            return Response({"detail": "Sản phẩm không tồn tại."}, status=status.HTTP_404_NOT_FOUND)
