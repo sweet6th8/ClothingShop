@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="8beaeb33-a035-40d2-bdeb-f5f542e8702a" name="Changes" comment="" />
+=======
+    <list default="true" id="2aa3ba1f-2568-4212-baff-489c900b3ae6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/media/product_images/ao_so_mi_tre_em_BERNIE_kids_a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/media/product_images/ao_so_mi_tre_em_BERNIE_kids_b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/media/product_images/ao_so_mi_tre_em_BERNIE_kids_c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/media/product_images/ao_so_mi_tre_em_bibo_a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/media/product_images/ao_so_mi_tre_em_bibo_b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/media/product_images/ao_so_mi_tre_em_bibo_c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/media/product_images/ao_thun_tre_em_jayja_a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/media/product_images/ao_thun_tre_em_jayja_b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/media/product_images/ao_thun_tre_em_jayja_c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/media/product_images/ao_thun_tre_em_nasa_a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/media/product_images/ao_thun_tre_em_nasa_b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/media/product_images/ao_thun_tre_em_nasa_c.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/Database/ClothingShopDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/Database/ClothingShopDB.sql" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +30,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+<<<<<<< Updated upstream
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
@@ -30,10 +49,21 @@
   "associatedIndex": 3
 }]]></component>
   <component name="ProjectId" id="2qWHpwp2ODrjgmUwkUXAxPQHWJr" />
+=======
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2pLdipg9iz1BcheJBVd5CJsTfcx" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+>>>>>>> Stashed changes
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< Updated upstream
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -68,12 +98,96 @@
       <option name="presentableId" value="Default" />
       <updated>1734771598147</updated>
       <workItem from="1734771599294" duration="1438000" />
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Django Server.ClothingShop.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Python/pjPython/ClothingShop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Python\pjPython\ClothingShop\BE-ClothingShop-Django\ClothingShop\media\img\product_images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ClothingShop" type="Python.DjangoServer" factoryName="Django server">
+      <module name="ClothingShop" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="ClothingShop.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="localhost" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23726.102" />
+        <option value="bundled-python-sdk-5e1850174b45-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23726.102" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2aa3ba1f-2568-4212-baff-489c900b3ae6" name="Changes" comment="" />
+      <created>1732549419594</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732549419594</updated>
+      <workItem from="1732549420744" duration="6444000" />
+      <workItem from="1733155110359" duration="4978000" />
+      <workItem from="1733161018567" duration="3000" />
+      <workItem from="1733209765408" duration="8381000" />
+      <workItem from="1733647527919" duration="6049000" />
+      <workItem from="1733732060784" duration="9289000" />
+      <workItem from="1733757535511" duration="2111000" />
+      <workItem from="1733761338823" duration="1000" />
+      <workItem from="1733798733902" duration="4304000" />
+      <workItem from="1733811748516" duration="2518000" />
+      <workItem from="1733826947234" duration="784000" />
+      <workItem from="1733827775083" duration="1514000" />
+      <workItem from="1733919907196" duration="1499000" />
+      <workItem from="1734354991189" duration="77000" />
+      <workItem from="1734355201958" duration="4000" />
+      <workItem from="1734360121069" duration="12872000" />
+      <workItem from="1734791552266" duration="1159000" />
+      <workItem from="1734970996614" duration="4793000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+<<<<<<< Updated upstream
   <component name="Vcs.Log.Tabs.Properties">
     <option name="OPEN_GENERIC_TABS">
       <map>
@@ -106,5 +220,16 @@
         </entry>
       </map>
     </option>
+=======
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/BE-ClothingShop-Django/ClothingShop/clothing_shop/service.py</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+>>>>>>> Stashed changes
   </component>
 </project>

@@ -644,6 +644,27 @@ VALUES (
         3
     ),
     (
+     322,
+        'Áo thun ngắn tay Jayja',
+        'ao-thun-tre-em-jayja',
+        'Áo thun ngắn tay Cotton nguyên chất cho bé trai phiên bản Hàn Quốc dáng rộng phong cách mới cho trẻ em Áo đẹp trai in hình',
+        63000,
+        193,
+        3,
+        3
+    ),
+    (
+     323,
+        'NASA áo thun cotton trẻ em 2024',
+        'ao-thun-tre-em-nasa',
+        'Chất liệu rất thoải mái và màu sắc thì đẹp tuyệt vời. Tôi đã mua thêm vài món nữa và hoàn toàn hài lòng. Bé tự chọn sản phẩm này, ngay từ lần đầu nhìn đã thích ngay họa tiết phía trước.
+        Nhận hàng không hề thất vọng, sản phẩm thực tế còn đẹp hơn cả trong ảnh. Chất liệu mềm mại, dễ chịu, khi mặc lên người rất thời trang và thanh lịch.',
+        88000,
+        642,
+        3,
+        3
+    ),
+    (
      331,
         'Áo Sơ Mi Trẻ Em',
         'ao-so-mi-tre-em',
@@ -653,8 +674,48 @@ VALUES (
         3,
         4
     ),
+     (
+     332,
+        'Set sơ mi cộc tay cho bé trai đi tiệc kèm cà vạt 1 đến 7 tuổi BERNIE kids',
+        'ao-so-mi-tre-em-BERNIE-kids',
+        'sơ mi cho bé trai, bộ quần áo sơ mi kèm cà vạt cho bé trai dự sinh nhật, đi tiệc với gam màu basic, vintage, nổi bật nhưng không hề kén da bé mặc',
+        180000,
+        78,
+        3,
+        4
+    ),
+     (
+     333,
+        'Áo Sơ Mi Dài Tay BiBo',
+        'ao-so-mi-tre-em-bibo',
+        'Set sơ m dài tay cho bé trai mặc đi tiệc, đi đám cưới, sinh nhật, tất niên siêu thanh lịch, với thiết kế kèm cà vạt rời tiện lợi, tag kim loại nổi bật trưởng thành, quần lưng chun nhẹ nhàng, có túi thật 2 bên sườn, thoải mái cho bé yêu',
+        430000,
+        31,
+        3,
+        4
+    ),
     (
      341,
+        'Áo Khoác Trẻ Em',
+        'ao-khoac-tre-em',
+        'Áo khoác trẻ em giữ ấm, kiểu dáng dễ thương và phong cách.',
+        500000,
+        60,
+        3,
+        5
+    ),
+     (
+     342,
+        'Áo Khoác Trẻ Em',
+        'ao-khoac-tre-em',
+        'Áo khoác trẻ em giữ ấm, kiểu dáng dễ thương và phong cách.',
+        500000,
+        60,
+        3,
+        5
+    ),
+     (
+     343 ,
         'Áo Khoác Trẻ Em',
         'ao-khoac-tre-em',
         'Áo khoác trẻ em giữ ấm, kiểu dáng dễ thương và phong cách.',
@@ -723,9 +784,9 @@ VALUES (122, 'product_images/ao_thun_nam_polo_a.png'),
        (122, 'product_images/ao_thun_nam_polo_b.png'),
        (122, 'product_images/ao_thun_nam_polo_c.png');
 INSERT INTO ProductImage (product_id, image)
-VALUES (122, 'product_images/ao_thun_nam_tay_lo_a.png'),
-       (122, 'product_images/ao_thun_nam_tay_lo_b.png'),
-       (122, 'product_images/ao_thun_nam_tay_lo_c.png');
+VALUES (123, 'product_images/ao_thun_nam_tay_lo_a.png'),
+       (123, 'product_images/ao_thun_nam_tay_lo_b.png'),
+       (123, 'product_images/ao_thun_nam_tay_lo_c.png');
 
 -- Ảnh cho Áo Sơ Mi Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
@@ -903,6 +964,7 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (311, 'product_images/quan_short_tre_em_uniqlo_c.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (311, 'product_images/quan_short_tre_em_uniqlo_d.png');
+
 INSERT INTO ProductImage (product_id, image)
 VALUES (312, 'product_images/quan_short_tre_em_bobdog_a.png'),
        (312, 'product_images/quan_short_tre_em_bobdog_b.png'),
@@ -919,11 +981,29 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (321, 'product_images/ao_thun_tre_em_uniqlo_b.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (321, 'product_images/ao_thun_tre_em_uniqlo_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (322, 'product_images/ao_thun_tre_em_jayja_a.png'),
+       (322, 'product_images/ao_thun_tre_em_jayja_b.png'),
+       (322,'product_images/ao_thun_tre_em_jayja_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (323, 'product_images/ao_thun_tre_em_nasa_a.png'),
+       (323, 'product_images/ao_thun_tre_em_nasa_b.png'),
+       (323, 'product_images/ao_thun_tre_em_nasa_c.png');
+
 -- Ảnh cho Áo Sơ Mi Trẻ Em (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (331, 'product_images/ao_so_mi_tre_em_uniqlo_a.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (331, 'product_images/ao_so_mi_tre_em_uniqlo_b.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (332, 'product_images/ao_so_mi_tre_em_BERNIE_kids_a.png'),
+       (332, 'product_images/ao_so_mi_tre_em_BERNIE_kids_b.png'),
+       (332, 'product_images/ao_so_mi_tre_em_BERNIE_kids_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (333, 'product_images/ao_so_mi_tre_em_bibo_a.png'),
+       (333, 'product_images/ao_so_mi_tre_em_bibo_b.png'),
+       (333, 'product_images/ao_so_mi_tre_em_bibo_c.png');
+
 -- Ảnh cho Áo Khoác Trẻ Em (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_a.png');
@@ -931,6 +1011,8 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_b.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_c.png');
+
+
 -- Ảnh cho Váy Nữ Trẻ Em (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (351, 'product_images/vay_nu_tre_em_uniqlo_a.png');
