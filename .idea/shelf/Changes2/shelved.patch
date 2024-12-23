@@ -1,0 +1,65 @@
+Index: BE-ClothingShop-Django/ClothingShop/api/views.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BE-ClothingShop-Django/ClothingShop/api/views.py b/BE-ClothingShop-Django/ClothingShop/api/views.py
+--- a/BE-ClothingShop-Django/ClothingShop/api/views.py	(revision 4685bf8c9385b3413062cb61ce8dce0afae91eca)
++++ b/BE-ClothingShop-Django/ClothingShop/api/views.py	(date 1734368383897)
+@@ -345,28 +345,35 @@
+ #     except Exception as e:
+ #         return JsonResponse({"error": str(e)}, status=500)
+ 
++import requests
++from rest_framework.response import Response
++from rest_framework.decorators import action
++from rest_framework import status
++
+ class CustomUserViewSet(UserViewSet):
+-    permission_classes = [AllowAny] 
++    permission_classes = [AllowAny]  # Cấp quyền truy cập cho tất cả
+ 
+-    @action(detail=True, methods=["get"], url_path=r"activate/(?P<uid>[\w-]+)/(?P<token>[\w-]+)")
++    @action(detail=False, methods=["get"], url_path="activate/(?P<uid>[\w-]+)/(?P<token>[\w-]+)")
+     def activate(self, request, uid, token):
++        print(f"uid: {uid}, token: {token}")
+         try:
+-            # Giải mã UID từ base64
+-            uid = urlsafe_base64_decode(uid).decode()
+-            # Lấy người dùng từ DB theo ID
+-            user = get_user_model().objects.get(pk=uid)
+-
+-            # Kiểm tra token kích hoạt
+-            if user.activation_token == token:
+-                user.is_active = True  # Đánh dấu tài khoản đã kích hoạt
+-                user.save()
+-                return Response({"detail": "Account activated successfully."}, status=status.HTTP_200_OK)
++            # Gửi POST request tới endpoint kích hoạt người dùng
++            response = requests.post(
++                'http://127.0.0.1:8000/auth/users/activation/',  # Đảm bảo URL chính xác
++                data={'uid': uid, 'token': token}
++            )
++            
++            # Kiểm tra phản hồi từ API kích hoạt
++            if response.status_code == 204:  # HTTP 204 No Content (trường hợp kích hoạt thành công)
++                return Response({"message": "Kích hoạt thành công"}, status=status.HTTP_200_OK)
+             else:
+-                return Response({"detail": "Invalid activation link."}, status=status.HTTP_400_BAD_REQUEST)
+-
+-        except get_user_model().DoesNotExist:
+-            # Nếu không tìm thấy người dùng
+-            return Response({"detail": "User not found."}, status=status.HTTP_404_NOT_FOUND)
+-        except Exception as e:
+-            # Log lỗi chi tiết nếu có
+-            return Response({"detail": f"Error: {str(e)}"}, status=status.HTTP_400_BAD_REQUEST)
+\ No newline at end of file
++                return Response(
++                    {"error": "Kích hoạt thất bại", "details": response.json()},
++                    status=response.status_code
++                )
++        except requests.exceptions.RequestException as e:
++            # Xử lý ngoại lệ trong quá trình gửi request
++            return Response(
++                {"error": "Có lỗi xảy ra khi kết nối đến API kích hoạt", "details": str(e)},
++                status=status.HTTP_500_INTERNAL_SERVER_ERROR
++            )

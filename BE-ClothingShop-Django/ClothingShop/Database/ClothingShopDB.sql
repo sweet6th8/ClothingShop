@@ -14,7 +14,7 @@ SELECT * FROM ProductImage;
 SELECT * FROM Category
 SELECT * FROM SubCategory
 SELECT * FROM Product
-
+SELECT * FROM User
 INSERT INTO `Category` (`title`, `slug`, `description`)
 VALUES (
         'Nam',
@@ -501,16 +501,7 @@ VALUES (
         2,
         5
     ),
-      (
-     241,
-        'Áo Len Nữ',
-        'ao-len-nu',
-        'Áo len nữ ấm áp, phong cách, thích hợp cho mùa thu đông.',
-        600000,
-        70,
-        2,
-        5
-    ),
+     
       (
      242,
         'Áo len Đỏ Năm Mới Giáng Sinh Slim Fit Cổ Tròn Micro Flare',

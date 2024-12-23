@@ -118,19 +118,19 @@ class CartViewSet(GenericViewSet, CreateModelMixin):
     serializer_class = CartSerializer
 
     def get_queryset(self):
-        """Lấy cart của user đã đăng nhập"""
+       # """Lấy cart của user đã đăng nhập"""
         return Cart.objects.filter(user=self.request.user)
 
     @action(detail=False, methods=["get"], url_path="mine", permission_classes=[IsAuthenticated])
     def get_user_cart(self, request):
-        """Lấy hoặc tạo cart của user"""
+       # """Lấy hoặc tạo cart của user"""
         cart, created = Cart.objects.get_or_create(user=request.user)
-        serializer = self.get_serializer(cart)
+        serializer = self.get_serializer(cart, context={'request': request})  # Truyền request vào context
         return Response(serializer.data)
 
     @action(detail=False, methods=['get'], url_path='total-quantity', permission_classes=[IsAuthenticated])
     def get_total_quantity(self, request):
-        """Trả về tổng số lượng sản phẩm trong giỏ hàng."""
+       # """Trả về tổng số lượng sản phẩm trong giỏ hàng."""
         cart = Cart.objects.filter(user=request.user).first()
         if not cart:
             return Response({"total_quantity": 0})
@@ -143,7 +143,7 @@ class CartitemViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        """Trả về danh sách các sản phẩm trong giỏ hàng của user."""
+        #"""Trả về danh sách các sản phẩm trong giỏ hàng của user."""
         if not self.request.user.is_authenticated:
             raise NotAuthenticated("Bạn cần đăng nhập để thực hiện thao tác này.")
         
@@ -156,7 +156,7 @@ class CartitemViewSet(ModelViewSet):
 
 
     def get_serializer_class(self):
-        """Chọn serializer tương ứng với phương thức HTTP"""
+        #"""Chọn serializer tương ứng với phương thức HTTP"""
         if self.request.method == "POST":
             return AddCartItemSerializer
         elif self.request.method == "PATCH":
@@ -164,14 +164,19 @@ class CartitemViewSet(ModelViewSet):
         return CartItemSerializer
 
     def get_serializer_context(self):
-        """Truyền cart_id từ user vào context của serializer."""
+       # """Truyền cart_id từ user vào context của serializer."""
         if not self.request.user.is_authenticated:
             raise NotAuthenticated("Bạn cần đăng nhập để thực hiện thao tác này.")
-        
+       # """Truyền thêm request và cart_id vào context của serializer."""
+        context = super().get_serializer_context()
         cart = Cart.objects.filter(user=self.request.user).first()
         if not cart:
             raise NotFound("Giỏ hàng không tồn tại.")
-        return {"cart_id": cart.id}
+        context.update({
+            "cart_id": cart.id,
+            "request": self.request  # Truyền thêm request vào context
+        })
+        return context
 
 
     
@@ -204,7 +209,10 @@ class OrderViewSet(ModelViewSet):
         return Order.objects.filter(owner=user)
 
     def get_serializer_context(self):
-        return {"user_id": self.request.user.id}
+        return {
+            "user_id": self.request.user.id,
+            "request": self.request,  # Thêm request vào context
+        }
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -301,13 +309,6 @@ def initiate_payment(amount, email, order_id):
 # Endpoint /api/orders/confirm_payment/ được gọi.
 # Hệ thống cập nhật trạng thái đơn hàng và trả về thông báo thành công.
 
-    
-
-
-# import tempfile
-# from gradio_client import Client
-# from rest_framework.decorators import api_view
-# from django.http import JsonResponse
 
 
 

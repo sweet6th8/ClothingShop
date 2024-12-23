@@ -68,11 +68,13 @@ class SimpleProductSerializer(serializers.ModelSerializer):
         fields = ["product_id", "product_name", "price", "image"]
 
     def get_image(self, obj):
-        """Lấy hình ảnh đầu tiên của sản phẩm."""
+        """Lấy URL đầy đủ của hình ảnh đầu tiên."""
+        request = self.context.get('request')
         product_image = obj.images.first()  # Lấy hình ảnh đầu tiên của sản phẩm
         if product_image and product_image.image:
-            return product_image.image.url  # Trả về đường dẫn URL của hình ảnh
-        return None  
+            # Tạo URL đầy đủ từ request
+            return request.build_absolute_uri(product_image.image.url) if request else product_image.image.url
+        return None
 
 
 class CartItemSerializer(serializers.ModelSerializer):
@@ -161,7 +163,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = ["id", "name", "bio", "picture"]
 
 class OrderItemSerializer(serializers.ModelSerializer):
-    product = SimpleProductSerializer()
+    product = SimpleProductSerializer(many=False)
     class Meta:
         model = OrderItem
         fields = ["id", "product", "quantity"]
@@ -170,7 +172,7 @@ class OrderSerializer(serializers.ModelSerializer):
     items = OrderItemSerializer(many=True, read_only=True)
     class Meta:
         model = Order
-        fields = ["id", "placed_at", "pending_status", "owner", "items"]
+        fields = ["id", "placed_at", "pending_status", "owner", "total_price", "items"]
 
 class CreateOrderSerializer(serializers.Serializer):
     item_ids = serializers.ListField(

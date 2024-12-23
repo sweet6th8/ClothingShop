@@ -1,0 +1,17 @@
+Index: BE-ClothingShop-Django/ClothingShop/ClothingShop/settings.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BE-ClothingShop-Django/ClothingShop/ClothingShop/settings.py b/BE-ClothingShop-Django/ClothingShop/ClothingShop/settings.py
+--- a/BE-ClothingShop-Django/ClothingShop/ClothingShop/settings.py	(revision 4685bf8c9385b3413062cb61ce8dce0afae91eca)
++++ b/BE-ClothingShop-Django/ClothingShop/ClothingShop/settings.py	(date 1734422608552)
+@@ -205,7 +205,7 @@
+     'SERIALIZERS':{
+         'user_create': 'api.serializers.MyUserCreateSerializer',
+         'user': 'api.serializers.MyUserCreateSerializer',
+-        'user_delete': 'djoser.serializers.UserDeleteSerializer',
++        'user_delete': 'djoser.serializers.UserDeleteS [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[ơerializer',
+     },
+     # 'EMAIL': {
+     #     'activation': 'api.email.ActivationEmail',

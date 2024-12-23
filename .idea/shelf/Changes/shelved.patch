@@ -1,0 +1,17 @@
+Index: BE-ClothingShop-Django/ClothingShop/api/serializers.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BE-ClothingShop-Django/ClothingShop/api/serializers.py b/BE-ClothingShop-Django/ClothingShop/api/serializers.py
+--- a/BE-ClothingShop-Django/ClothingShop/api/serializers.py	(revision 4685bf8c9385b3413062cb61ce8dce0afae91eca)
++++ b/BE-ClothingShop-Django/ClothingShop/api/serializers.py	(date 1734759261775)
+@@ -63,6 +63,8 @@
+ class SimpleProductSerializer(serializers.ModelSerializer):
+     image = serializers.SerializerMethodField()
+ 
++    image = serializers.SerializerMethodField()
++
+     class Meta:
+         model = Product
+         fields = ["product_id", "product_name", "price", "image"]
