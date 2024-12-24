@@ -193,6 +193,36 @@ VALUES (
         1
     ),
     (
+        104,
+        ' quần jean nam cạp chun quần jean baggy',
+        'quan-jean-nam-cap-chun',
+        'Chúng Tôi Là Quần Jean Làm Bằng Tay Chuyên Nghiệp, Bán Tất Cả Các Loại Quần Áo Nam Thời Trang, Tất Cả Các Sản Phẩm Là Hàng Mới Và Hoàn Hảo, Hãy Yên Tâm Mua Hàng.',
+        324000,
+        730,
+        1,
+        1
+    ),
+    (
+        105,
+        'Quần Jean Túi Hộp Nam ',
+        'quan-jean-nam-tui-hop',
+        ' Quần Jean Túi Hộp 8 Túi Nam Nữ Kèm Dây Đai Phong Cách Đường Phố Quần Chất Lương Cao Ống Đứng Dáng Dài MIAA',
+        173000,
+        53,
+        1,
+        1
+    ),
+    (
+        106,
+        'Quần jean nam ROWAY',
+        'quan-jean-nam-ROWAY',
+        ' vải denim cotton, form suông | Jean suông trắng',
+        299000,
+        252,
+        1,
+        1
+    ),
+    (
      111,
         'Quần Kaki Nam',
         'quan-kaki-nam',
@@ -219,6 +249,36 @@ VALUES (
         'Quần dài nam kaki chất vải kaki gân chéo dày dặn, Dáng: Phom rộng mặc thoải phái, Phù hợp: Mặc đi làm, công sở, các hoạt động dã ngoại ngoài trời, dạo phố.',
         332000,
         100 ,
+        1,
+        2
+    ),
+    (
+     114,
+        'Quần Dài Kaki GUPO Unisex Túi Hộp',
+        'quan-kaki-nam-tui-hop',
+        'Dáng quần bigsize ống rộng và suông mang lại cảm giác mặc thoải mái.Túi hộp có thể giúp bạn mang theo những vật dụng cần thiết như điện thoại di động, chìa khóa, ví tiền...',
+        332000,
+        100 ,
+        1,
+        2
+    ),
+    (
+     115,
+        'Quần kaki cạp chun tăng giảm thông minh trung niên ANCHI',
+        'quan-kaki-nam-Anchi',
+        ' Quần kaki cạp chun tăng giảm thông minh trung niên nam ANCHI được may từ chất vải cotton nhập khẩu cao cấp, thân thiện với làn da, thoáng mát và thấm hút mồ hôi tốt. Công nghệ cách nhiệt, chống tia UV, bảo vệ da trước cái nắng gay gắt của mùa hè. Chất kaki mềm, chống nhăn tối đa, co giãn nhẹ mang đến sự thoải mái cho người mặc.',
+        335000,
+        85 ,
+        1,
+        2
+    ),
+    (
+     116,
+        'Quần baggy kaki nam FABUMAN',
+        'quan-kaki-nam-FABUMAN',
+        'ống suông rộng dáng đứng trơn cạp chun unisex phong cách Hàn quốc 2023 hot trend',
+        209000,
+        158 ,
         1,
         2
     ),
@@ -252,6 +312,36 @@ VALUES (
         ', áo thun tay lỡ mới thực sự làm điên đảo giới trẻ trong thời điểm này.',
         85000,
         250,
+        1,
+        3
+    ),
+    (
+     124,
+         'Áo Thun Nam SAIGONESE',
+        'ao-thun-nam-SAIGONESE',
+        'Vải Cotton Phối Jean Denim Hoạ Tiết Shuriken Form Rộng Unisex Nam',
+        143000,
+        492,
+        1,
+        3
+    ),
+    (
+     125,
+         'Áo thun TEESHARKBUY tay ngắn dáng rộng in chữ phong cách',
+        'ao-thun-TEESHARKBUY',
+        'Hàm lượng chất liệu: 71% (Bao gồm) -80% (Bao gồm). Yếu tố phổ biến: Chữ cái, Cũ, thời trang .Phong cách: Văn học Retro / Phong cách cổ điển',
+        103000,
+        97,
+        1,
+        3
+    ),
+    (
+     126,
+         'Áo thun LIFE \ MONSTER X STREET',
+        'ao-thun-nam-LIFE',
+        'Chất liệu: thun cotton 95% - 5% spandex co giãn 4 chiều, vải mềm, vải mịn, thoáng mát, không xù lông.',
+        65000,
+        931,
         1,
         3
     ),
@@ -772,6 +862,18 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (103, 'product_images/quan_jean_thoi_trang_a.png'),
        (103, 'product_images/quan_jean_thoi_trang_b.png'),
        (103, 'product_images/quan_jean_thoi_trang_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (104, 'product_images/quan_jean_nam_cap_chun_a.png'),
+       (104, 'product_images/quan_jean_nam_cap_chun_b.png'),
+       (104, 'product_images/quan_jean_nam_cap_chun_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (105, 'product_images/quan_jean_nam_tui_hop_a.png'),
+       (105, 'product_images/quan_jean_nam_tui_hop_b.png'),
+       (105, 'product_images/quan_jean_nam_tui_hop_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (106, 'product_images/quan_jean_nam_ROWAY_a.png'),
+       (106, 'product_images/quan_jean_nam_ROWAY_b.png'),
+       (106, 'product_images/quan_jean_nam_ROWAY_c.png');
 
 -- Ảnh cho Quần Kaki Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
@@ -783,11 +885,23 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (112, 'product_images/quan_kaki_nam_cao_cap_a.png'),
        (112, 'product_images/quan_kaki_nam_cao_cap_b.png'),
        (112, 'product_images/quan_kaki_nam_cao_cap_c.png');
-
 INSERT INTO ProductImage (product_id, image)
 VALUES (113, 'product_images/quan_kaki_nam_hanlu_a.png'),
        (113, 'product_images/quan_kaki_nam_hanlu_b.png'),
        (113, 'product_images/quan_kaki_nam_hanlu_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (114, 'product_images/quan_kaki_nam_tui_hop_a.png'),
+       (114, 'product_images/quan_kaki_nam_tui_hop_b.png'),
+       (114, 'product_images/quan_kaki_nam_tui_hop_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (115, 'product_images/quan_kaki_nam_Anchi_a.png'),
+       (115, 'product_images/quan_kaki_nam_Anchi_b.png'),
+       (115, 'product_images/quan_kaki_nam_Anchi_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (116, 'product_images/quan_kaki_nam_FABUMAN_a.png'),
+       (116, 'product_images/quan_kaki_nam_FABUMAN_b.png'),
+       (116, 'product_images/quan_kaki_nam_FABUMAN_c.png');
+
 
 -- Ảnh cho Áo Thun Nam (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
@@ -802,10 +916,25 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (122, 'product_images/ao_thun_nam_polo_a.png'),
        (122, 'product_images/ao_thun_nam_polo_b.png'),
        (122, 'product_images/ao_thun_nam_polo_c.png');
+
 INSERT INTO ProductImage (product_id, image)
 VALUES (123, 'product_images/ao_thun_nam_tay_lo_a.png'),
        (123, 'product_images/ao_thun_nam_tay_lo_b.png'),
        (123, 'product_images/ao_thun_nam_tay_lo_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (124, 'product_images/ao_thun_nam_SAIGONESE_a.png'),
+       (124, 'product_images/ao_thun_nam_SAIGONESE_b.png'),
+       (124, 'product_images/ao_thun_nam_SAIGONESE_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (125, 'product_images/ao_thun_TEESHARKBUY_a.png'),
+       (125, 'product_images/ao_thun_TEESHARKBUY_b.png'),
+       (125, 'product_images/ao_thun_TEESHARKBUY_c.png');
+
+INSERT INTO ProductImage (product_id, image)
+VALUES (126, 'product_images/ao_thun_nam_LIFE_a.png'),
+       (126, 'product_images/ao_thun_nam_LIFE_b.png'),
+       (126, 'product_images/ao_thun_nam_LIFE_c.png');
+
 
 -- Ảnh cho Áo Sơ Mi Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
