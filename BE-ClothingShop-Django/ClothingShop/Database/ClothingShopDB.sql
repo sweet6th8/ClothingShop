@@ -706,21 +706,21 @@ VALUES (
     ),
      (
      342,
-        'Áo Khoác Trẻ Em',
-        'ao-khoac-tre-em',
-        'Áo khoác trẻ em giữ ấm, kiểu dáng dễ thương và phong cách.',
-        500000,
-        60,
+        'Áo khoác Hoodie zip cho bé,chất liệu nỉ cotton,in hình sinh nhật Capy Bara',
+        'ao-khoac-tre-em-Capy-Bara',
+        'Áo khoác Hoodie zip chất liệu nỉ cotton in hình  Capy Bara với chất liệu thoáng mát giúp bé năng động hòa cuộc chơi',
+        142000,
+        43,
         3,
         5
     ),
      (
      343 ,
-        'Áo Khoác Trẻ Em',
-        'ao-khoac-tre-em',
-        'Áo khoác trẻ em giữ ấm, kiểu dáng dễ thương và phong cách.',
-        500000,
-        60,
+        'Áo khoác jean bé trai',
+        'ao-khoac-tre-em-jean',
+        'Áo khoác jean cho bé trai là hàng CAO CẤP, áo khoác bò dài tay khoác ngoài cho bé_T31 mặc cực kì thoải mái là sản phẩm chất lượng cao do Việt Nam sản xuất.',
+        258000,
+        24,
         3,
         5
     ),
@@ -731,6 +731,25 @@ VALUES (
         'Váy nữ trẻ em, phong cách dễ thương và thoải mái cho các bé gái.',
         350000,
         120,
+        3,
+        6
+    ),
+    (
+     352,
+        'Váy Thô Cotton bé gái thêu hoa tay bồng size từ 8kg-25kg IK2323 - I am Kids',
+        'vay-nu-tre-em-im-kids',
+        'Chất liệu mát mẻ mùa hè dành cho bé, đi du lịch, đi học , đi chơi đều rất đẹp và xinh xắn.',
+        790000,
+        40,
+        3,
+        6
+    ),(
+     353,
+        'Set yếm lụa hoa sen cho bé gái dễ thương chất lụa sần BERNIE kids',
+        'vay-nu-tre-em-BERNIE',
+        'Yếm lụa hoa sen cho bé gái chất liệu lụa sần cao cấp, đanh mịn, mềm mại, thấm hút mồ hôi vượt trội, cho bé yêu cảm giác thoải mái vui chơi hoạt động',
+        253000,
+        10,
         3,
         6
     );
@@ -1011,6 +1030,14 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_b.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (342, 'product_images/ao_khoac_tre_em_Capy_Bara_a'),
+       (342, 'product_images/ao_khoac_tre_em_Capy_Bara_b.png'),
+       (342, 'product_images/ao_khoac_tre_em_Capy_Bara_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (343, 'product_images/ao_khoac_tre_em_jean_a.png'),
+       (343, 'product_images/ao_khoac_tre_em_jean_b.png'),
+       (343, 'product_images/ao_khoac_tre_em_jean_c.png');
 
 
 -- Ảnh cho Váy Nữ Trẻ Em (2 ảnh)
@@ -1018,3 +1045,11 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (351, 'product_images/vay_nu_tre_em_uniqlo_a.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (351, 'product_images/vay_nu_tre_em_uniqlo_b.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (352, 'product_images/vay_nu_tre_em_im_kids_a.png'),
+       (352, 'product_images/vay_nu_tre_em_im_kids_b.png'),
+       (352, 'product_images/vay_nu_tre_em_im_kids_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (353, 'product_images/vay_nu_tre_em_BERNIE_a.png'),
+       (353, 'product_images/vay_nu_tre_em_BERNIE_b.png'),
+       (353, 'product_images/vay_nu_tre_em_BERNIE_c.png');
