@@ -377,6 +377,38 @@ VALUES (
         1,
         4
     ),
+
+     (
+     134,
+        'Áo Sơ Mi Tay Ngắn Teelab Eco Oxford Signature',
+        'ao-so-mi-nam-Teelab',
+        'Không chỉ là thời trang, TEELAB còn là “phòng thí nghiệm” của tuổi trẻ - nơi nghiên cứu và cho ra đời năng lượng mang tên “Youth”. Chúng mình luôn muốn tạo nên những trải nghiệm vui vẻ, năng động và trẻ trung',
+        179000,
+        2460,
+        1,
+        4
+    ),
+     (
+     135,
+        'Áo Sơ Mi Tay Dài Kẻ Sọc Oversize ',
+        'ao-so-mi-nam-ke-soc',
+        'Lấy cảm hứng từ giới trẻ, sáng tạo liên tục, bắt kịp xu hướng và phát triển đa dạng các dòng sản phẩm là cách mà chúng mình hoạt động để tạo nên phong cách sống hằng ngày của bạn. ',
+        255000,
+        100,
+        1,
+        4
+    ),
+     (
+     136,
+        'Áo sơ mi đũi nam cổ trụ 2 túi cúc áo sơ mi cổ tàu ZUTEE',
+        'ao-so-mi-co-tau-ZUTEE',
+        'Sơ mi nam cổ tàu là kiểu áo cách tân mới được nhiều bạn nam yêu thích vì sự trẻ trung, năng động, phá cách nó mang lại.',
+        160000,
+        100,
+        1,
+        4
+    ),
+
     (
      141,
         'Áo Khoác Nam',
@@ -949,6 +981,19 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (133, 'product_images/ao_so_mi_nam_tay_ngan_a.png'),
        (133, 'product_images/ao_so_mi_nam_tay_ngan_b.png'),
        (133 ,'product_images/ao_so_mi_nam_tay_ngan_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (134, 'product_images/ao_so_mi_nam_Teelab_a.png'),
+       (134 ,'product_images/ao_so_mi_nam_Teelab_b.png');
+
+INSERT INTO ProductImage (product_id, image)
+VALUES (135, 'product_images/ao_so_mi_nam_ke_soc_a.png'),
+       (135, 'product_images/ao_so_mi_nam_ke_soc_b.png'),
+       (135 ,'product_images/ao_so_mi_nam_ke_soc_c.png');
+
+INSERT INTO ProductImage (product_id, image)
+VALUES (136, 'product_images/ao_so_mi_co_tau_ZUTEE_a.png'),
+       (136, 'product_images/ao_so_mi_co_tau_ZUTEE_b.png'),
+       (136 ,'product_images/ao_so_mi_co_tau_ZUTEE_c.png');
 
 
 -- Ảnh cho Áo Khoác Nam (3 ảnh)
