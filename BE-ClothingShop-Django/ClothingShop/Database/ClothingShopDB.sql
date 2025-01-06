@@ -193,6 +193,36 @@ VALUES (
         1
     ),
     (
+        104,
+        ' quần jean nam cạp chun quần jean baggy',
+        'quan-jean-nam-cap-chun',
+        'Chúng Tôi Là Quần Jean Làm Bằng Tay Chuyên Nghiệp, Bán Tất Cả Các Loại Quần Áo Nam Thời Trang, Tất Cả Các Sản Phẩm Là Hàng Mới Và Hoàn Hảo, Hãy Yên Tâm Mua Hàng.',
+        324000,
+        730,
+        1,
+        1
+    ),
+    (
+        105,
+        'Quần Jean Túi Hộp Nam ',
+        'quan-jean-nam-tui-hop',
+        ' Quần Jean Túi Hộp 8 Túi Nam Nữ Kèm Dây Đai Phong Cách Đường Phố Quần Chất Lương Cao Ống Đứng Dáng Dài MIAA',
+        173000,
+        53,
+        1,
+        1
+    ),
+    (
+        106,
+        'Quần jean nam ROWAY',
+        'quan-jean-nam-ROWAY',
+        ' vải denim cotton, form suông | Jean suông trắng',
+        299000,
+        252,
+        1,
+        1
+    ),
+    (
      111,
         'Quần Kaki Nam',
         'quan-kaki-nam',
@@ -219,6 +249,36 @@ VALUES (
         'Quần dài nam kaki chất vải kaki gân chéo dày dặn, Dáng: Phom rộng mặc thoải phái, Phù hợp: Mặc đi làm, công sở, các hoạt động dã ngoại ngoài trời, dạo phố.',
         332000,
         100 ,
+        1,
+        2
+    ),
+    (
+     114,
+        'Quần Dài Kaki GUPO Unisex Túi Hộp',
+        'quan-kaki-nam-tui-hop',
+        'Dáng quần bigsize ống rộng và suông mang lại cảm giác mặc thoải mái.Túi hộp có thể giúp bạn mang theo những vật dụng cần thiết như điện thoại di động, chìa khóa, ví tiền...',
+        332000,
+        100 ,
+        1,
+        2
+    ),
+    (
+     115,
+        'Quần kaki cạp chun tăng giảm thông minh trung niên ANCHI',
+        'quan-kaki-nam-Anchi',
+        ' Quần kaki cạp chun tăng giảm thông minh trung niên nam ANCHI được may từ chất vải cotton nhập khẩu cao cấp, thân thiện với làn da, thoáng mát và thấm hút mồ hôi tốt. Công nghệ cách nhiệt, chống tia UV, bảo vệ da trước cái nắng gay gắt của mùa hè. Chất kaki mềm, chống nhăn tối đa, co giãn nhẹ mang đến sự thoải mái cho người mặc.',
+        335000,
+        85 ,
+        1,
+        2
+    ),
+    (
+     116,
+        'Quần baggy kaki nam FABUMAN',
+        'quan-kaki-nam-FABUMAN',
+        'ống suông rộng dáng đứng trơn cạp chun unisex phong cách Hàn quốc 2023 hot trend',
+        209000,
+        158 ,
         1,
         2
     ),
@@ -256,6 +316,36 @@ VALUES (
         3
     ),
     (
+     124,
+         'Áo Thun Nam SAIGONESE',
+        'ao-thun-nam-SAIGONESE',
+        'Vải Cotton Phối Jean Denim Hoạ Tiết Shuriken Form Rộng Unisex Nam',
+        143000,
+        492,
+        1,
+        3
+    ),
+    (
+     125,
+         'Áo thun TEESHARKBUY tay ngắn dáng rộng in chữ phong cách',
+        'ao-thun-TEESHARKBUY',
+        'Hàm lượng chất liệu: 71% (Bao gồm) -80% (Bao gồm). Yếu tố phổ biến: Chữ cái, Cũ, thời trang .Phong cách: Văn học Retro / Phong cách cổ điển',
+        103000,
+        97,
+        1,
+        3
+    ),
+    (
+     126,
+         'Áo thun LIFE \ MONSTER X STREET',
+        'ao-thun-nam-LIFE',
+        'Chất liệu: thun cotton 95% - 5% spandex co giãn 4 chiều, vải mềm, vải mịn, thoáng mát, không xù lông.',
+        65000,
+        931,
+        1,
+        3
+    ),
+    (
      131,
         'Áo Sơ Mi Nam',
         'ao-so-mi-nam',
@@ -287,6 +377,38 @@ VALUES (
         1,
         4
     ),
+
+     (
+     134,
+        'Áo Sơ Mi Tay Ngắn Teelab Eco Oxford Signature',
+        'ao-so-mi-nam-Teelab',
+        'Không chỉ là thời trang, TEELAB còn là “phòng thí nghiệm” của tuổi trẻ - nơi nghiên cứu và cho ra đời năng lượng mang tên “Youth”. Chúng mình luôn muốn tạo nên những trải nghiệm vui vẻ, năng động và trẻ trung',
+        179000,
+        2460,
+        1,
+        4
+    ),
+     (
+     135,
+        'Áo Sơ Mi Tay Dài Kẻ Sọc Oversize ',
+        'ao-so-mi-nam-ke-soc',
+        'Lấy cảm hứng từ giới trẻ, sáng tạo liên tục, bắt kịp xu hướng và phát triển đa dạng các dòng sản phẩm là cách mà chúng mình hoạt động để tạo nên phong cách sống hằng ngày của bạn. ',
+        255000,
+        100,
+        1,
+        4
+    ),
+     (
+     136,
+        'Áo sơ mi đũi nam cổ trụ 2 túi cúc áo sơ mi cổ tàu ZUTEE',
+        'ao-so-mi-co-tau-ZUTEE',
+        'Sơ mi nam cổ tàu là kiểu áo cách tân mới được nhiều bạn nam yêu thích vì sự trẻ trung, năng động, phá cách nó mang lại.',
+        160000,
+        100,
+        1,
+        4
+    ),
+
     (
      141,
         'Áo Khoác Nam',
@@ -644,12 +766,53 @@ VALUES (
         3
     ),
     (
+     322,
+        'Áo thun ngắn tay Jayja',
+        'ao-thun-tre-em-jayja',
+        'Áo thun ngắn tay Cotton nguyên chất cho bé trai phiên bản Hàn Quốc dáng rộng phong cách mới cho trẻ em Áo đẹp trai in hình',
+        63000,
+        193,
+        3,
+        3
+    ),
+    (
+     323,
+        'NASA áo thun cotton trẻ em 2024',
+        'ao-thun-tre-em-nasa',
+        'Chất liệu rất thoải mái và màu sắc thì đẹp tuyệt vời. Tôi đã mua thêm vài món nữa và hoàn toàn hài lòng. Bé tự chọn sản phẩm này, ngay từ lần đầu nhìn đã thích ngay họa tiết phía trước.
+        Nhận hàng không hề thất vọng, sản phẩm thực tế còn đẹp hơn cả trong ảnh. Chất liệu mềm mại, dễ chịu, khi mặc lên người rất thời trang và thanh lịch.',
+        88000,
+        642,
+        3,
+        3
+    ),
+    (
      331,
         'Áo Sơ Mi Trẻ Em',
         'ao-so-mi-tre-em',
         'Áo sơ mi trẻ em dễ thương, thích hợp cho các dịp đặc biệt hoặc tiệc tùng.',
         300000,
         80,
+        3,
+        4
+    ),
+     (
+     332,
+        'Set sơ mi cộc tay cho bé trai đi tiệc kèm cà vạt 1 đến 7 tuổi BERNIE kids',
+        'ao-so-mi-tre-em-BERNIE-kids',
+        'sơ mi cho bé trai, bộ quần áo sơ mi kèm cà vạt cho bé trai dự sinh nhật, đi tiệc với gam màu basic, vintage, nổi bật nhưng không hề kén da bé mặc',
+        180000,
+        78,
+        3,
+        4
+    ),
+     (
+     333,
+        'Áo Sơ Mi Dài Tay BiBo',
+        'ao-so-mi-tre-em-bibo',
+        'Set sơ m dài tay cho bé trai mặc đi tiệc, đi đám cưới, sinh nhật, tất niên siêu thanh lịch, với thiết kế kèm cà vạt rời tiện lợi, tag kim loại nổi bật trưởng thành, quần lưng chun nhẹ nhàng, có túi thật 2 bên sườn, thoải mái cho bé yêu',
+        430000,
+        31,
         3,
         4
     ),
@@ -663,6 +826,26 @@ VALUES (
         3,
         5
     ),
+     (
+     342,
+        'Áo khoác Hoodie zip cho bé,chất liệu nỉ cotton,in hình sinh nhật Capy Bara',
+        'ao-khoac-tre-em-Capy-Bara',
+        'Áo khoác Hoodie zip chất liệu nỉ cotton in hình  Capy Bara với chất liệu thoáng mát giúp bé năng động hòa cuộc chơi',
+        142000,
+        43,
+        3,
+        5
+    ),
+     (
+     343 ,
+        'Áo khoác jean bé trai',
+        'ao-khoac-tre-em-jean',
+        'Áo khoác jean cho bé trai là hàng CAO CẤP, áo khoác bò dài tay khoác ngoài cho bé_T31 mặc cực kì thoải mái là sản phẩm chất lượng cao do Việt Nam sản xuất.',
+        258000,
+        24,
+        3,
+        5
+    ),
     (
      351,
         'Váy Nữ Trẻ Em',
@@ -670,6 +853,25 @@ VALUES (
         'Váy nữ trẻ em, phong cách dễ thương và thoải mái cho các bé gái.',
         350000,
         120,
+        3,
+        6
+    ),
+    (
+     352,
+        'Váy Thô Cotton bé gái thêu hoa tay bồng size từ 8kg-25kg IK2323 - I am Kids',
+        'vay-nu-tre-em-im-kids',
+        'Chất liệu mát mẻ mùa hè dành cho bé, đi du lịch, đi học , đi chơi đều rất đẹp và xinh xắn.',
+        790000,
+        40,
+        3,
+        6
+    ),(
+     353,
+        'Set yếm lụa hoa sen cho bé gái dễ thương chất lụa sần BERNIE kids',
+        'vay-nu-tre-em-BERNIE',
+        'Yếm lụa hoa sen cho bé gái chất liệu lụa sần cao cấp, đanh mịn, mềm mại, thấm hút mồ hôi vượt trội, cho bé yêu cảm giác thoải mái vui chơi hoạt động',
+        253000,
+        10,
         3,
         6
     );
@@ -692,6 +894,18 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (103, 'product_images/quan_jean_thoi_trang_a.png'),
        (103, 'product_images/quan_jean_thoi_trang_b.png'),
        (103, 'product_images/quan_jean_thoi_trang_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (104, 'product_images/quan_jean_nam_cap_chun_a.png'),
+       (104, 'product_images/quan_jean_nam_cap_chun_b.png'),
+       (104, 'product_images/quan_jean_nam_cap_chun_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (105, 'product_images/quan_jean_nam_tui_hop_a.png'),
+       (105, 'product_images/quan_jean_nam_tui_hop_b.png'),
+       (105, 'product_images/quan_jean_nam_tui_hop_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (106, 'product_images/quan_jean_nam_ROWAY_a.png'),
+       (106, 'product_images/quan_jean_nam_ROWAY_b.png'),
+       (106, 'product_images/quan_jean_nam_ROWAY_c.png');
 
 -- Ảnh cho Quần Kaki Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
@@ -703,11 +917,23 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (112, 'product_images/quan_kaki_nam_cao_cap_a.png'),
        (112, 'product_images/quan_kaki_nam_cao_cap_b.png'),
        (112, 'product_images/quan_kaki_nam_cao_cap_c.png');
-
 INSERT INTO ProductImage (product_id, image)
 VALUES (113, 'product_images/quan_kaki_nam_hanlu_a.png'),
        (113, 'product_images/quan_kaki_nam_hanlu_b.png'),
        (113, 'product_images/quan_kaki_nam_hanlu_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (114, 'product_images/quan_kaki_nam_tui_hop_a.png'),
+       (114, 'product_images/quan_kaki_nam_tui_hop_b.png'),
+       (114, 'product_images/quan_kaki_nam_tui_hop_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (115, 'product_images/quan_kaki_nam_Anchi_a.png'),
+       (115, 'product_images/quan_kaki_nam_Anchi_b.png'),
+       (115, 'product_images/quan_kaki_nam_Anchi_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (116, 'product_images/quan_kaki_nam_FABUMAN_a.png'),
+       (116, 'product_images/quan_kaki_nam_FABUMAN_b.png'),
+       (116, 'product_images/quan_kaki_nam_FABUMAN_c.png');
+
 
 -- Ảnh cho Áo Thun Nam (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
@@ -722,10 +948,25 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (122, 'product_images/ao_thun_nam_polo_a.png'),
        (122, 'product_images/ao_thun_nam_polo_b.png'),
        (122, 'product_images/ao_thun_nam_polo_c.png');
+
 INSERT INTO ProductImage (product_id, image)
-VALUES (122, 'product_images/ao_thun_nam_tay_lo_a.png'),
-       (122, 'product_images/ao_thun_nam_tay_lo_b.png'),
-       (122, 'product_images/ao_thun_nam_tay_lo_c.png');
+VALUES (123, 'product_images/ao_thun_nam_tay_lo_a.png'),
+       (123, 'product_images/ao_thun_nam_tay_lo_b.png'),
+       (123, 'product_images/ao_thun_nam_tay_lo_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (124, 'product_images/ao_thun_nam_SAIGONESE_a.png'),
+       (124, 'product_images/ao_thun_nam_SAIGONESE_b.png'),
+       (124, 'product_images/ao_thun_nam_SAIGONESE_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (125, 'product_images/ao_thun_TEESHARKBUY_a.png'),
+       (125, 'product_images/ao_thun_TEESHARKBUY_b.png'),
+       (125, 'product_images/ao_thun_TEESHARKBUY_c.png');
+
+INSERT INTO ProductImage (product_id, image)
+VALUES (126, 'product_images/ao_thun_nam_LIFE_a.png'),
+       (126, 'product_images/ao_thun_nam_LIFE_b.png'),
+       (126, 'product_images/ao_thun_nam_LIFE_c.png');
+
 
 -- Ảnh cho Áo Sơ Mi Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
@@ -740,6 +981,19 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (133, 'product_images/ao_so_mi_nam_tay_ngan_a.png'),
        (133, 'product_images/ao_so_mi_nam_tay_ngan_b.png'),
        (133 ,'product_images/ao_so_mi_nam_tay_ngan_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (134, 'product_images/ao_so_mi_nam_Teelab_a.png'),
+       (134 ,'product_images/ao_so_mi_nam_Teelab_b.png');
+
+INSERT INTO ProductImage (product_id, image)
+VALUES (135, 'product_images/ao_so_mi_nam_ke_soc_a.png'),
+       (135, 'product_images/ao_so_mi_nam_ke_soc_b.png'),
+       (135 ,'product_images/ao_so_mi_nam_ke_soc_c.png');
+
+INSERT INTO ProductImage (product_id, image)
+VALUES (136, 'product_images/ao_so_mi_co_tau_ZUTEE_a.png'),
+       (136, 'product_images/ao_so_mi_co_tau_ZUTEE_b.png'),
+       (136 ,'product_images/ao_so_mi_co_tau_ZUTEE_c.png');
 
 
 -- Ảnh cho Áo Khoác Nam (3 ảnh)
@@ -903,6 +1157,7 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (311, 'product_images/quan_short_tre_em_uniqlo_c.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (311, 'product_images/quan_short_tre_em_uniqlo_d.png');
+
 INSERT INTO ProductImage (product_id, image)
 VALUES (312, 'product_images/quan_short_tre_em_bobdog_a.png'),
        (312, 'product_images/quan_short_tre_em_bobdog_b.png'),
@@ -919,11 +1174,29 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (321, 'product_images/ao_thun_tre_em_uniqlo_b.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (321, 'product_images/ao_thun_tre_em_uniqlo_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (322, 'product_images/ao_thun_tre_em_jayja_a.png'),
+       (322, 'product_images/ao_thun_tre_em_jayja_b.png'),
+       (322,'product_images/ao_thun_tre_em_jayja_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (323, 'product_images/ao_thun_tre_em_nasa_a.png'),
+       (323, 'product_images/ao_thun_tre_em_nasa_b.png'),
+       (323, 'product_images/ao_thun_tre_em_nasa_c.png');
+
 -- Ảnh cho Áo Sơ Mi Trẻ Em (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (331, 'product_images/ao_so_mi_tre_em_uniqlo_a.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (331, 'product_images/ao_so_mi_tre_em_uniqlo_b.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (332, 'product_images/ao_so_mi_tre_em_BERNIE_kids_a.png'),
+       (332, 'product_images/ao_so_mi_tre_em_BERNIE_kids_b.png'),
+       (332, 'product_images/ao_so_mi_tre_em_BERNIE_kids_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (333, 'product_images/ao_so_mi_tre_em_bibo_a.png'),
+       (333, 'product_images/ao_so_mi_tre_em_bibo_b.png'),
+       (333, 'product_images/ao_so_mi_tre_em_bibo_c.png');
+
 -- Ảnh cho Áo Khoác Trẻ Em (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_a.png');
@@ -931,8 +1204,26 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_b.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (342, 'product_images/ao_khoac_tre_em_Capy_Bara_a'),
+       (342, 'product_images/ao_khoac_tre_em_Capy_Bara_b.png'),
+       (342, 'product_images/ao_khoac_tre_em_Capy_Bara_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (343, 'product_images/ao_khoac_tre_em_jean_a.png'),
+       (343, 'product_images/ao_khoac_tre_em_jean_b.png'),
+       (343, 'product_images/ao_khoac_tre_em_jean_c.png');
+
+
 -- Ảnh cho Váy Nữ Trẻ Em (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (351, 'product_images/vay_nu_tre_em_uniqlo_a.png');
 INSERT INTO ProductImage (product_id, image)
 VALUES (351, 'product_images/vay_nu_tre_em_uniqlo_b.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (352, 'product_images/vay_nu_tre_em_im_kids_a.png'),
+       (352, 'product_images/vay_nu_tre_em_im_kids_b.png'),
+       (352, 'product_images/vay_nu_tre_em_im_kids_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (353, 'product_images/vay_nu_tre_em_BERNIE_a.png'),
+       (353, 'product_images/vay_nu_tre_em_BERNIE_b.png'),
+       (353, 'product_images/vay_nu_tre_em_BERNIE_c.png');
