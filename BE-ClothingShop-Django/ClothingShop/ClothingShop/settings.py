@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'rest_framework',
     'api.apps.ApiConfig',   #sử dụng AppConfig của 'api'
     'clothing_shop',
@@ -51,6 +52,12 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_extensions',
     'drf_yasg',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
+    'dj_rest_auth',
 ]
 
 
@@ -65,6 +72,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'api.middleware.CartMiddleware', # Đặt ở sau những tác vụ như xác thực
+    'allauth.account.middleware.AccountMiddleware',
     
 ]
 
@@ -130,6 +138,31 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 AUTH_USER_MODEL = "clothing_shop.User"
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '1054340593759-qujai5gu4cth1mim4bupamj08ch5ke9b.apps.googleusercontent.com',
+            'secret': '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'
+        },
+        'SCOPE': ['profile', 'email',],
+        'AUTH_PARAMS': {'access_type': 'online'},
+        'METHOD': 'oauth2',
+        'VERIFIED_EMAIL': True,
+    },
+
+    'facebook': {
+        'APP': {
+            'client_id': '',
+            'secret': ''
+        }
+    }
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -147,6 +180,33 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+#Allauth
+
+# django-allauth yêu cầu cấu hình SITE_ID
+SITE_ID = 1
+
+# Đặt trang chủ sau khi đăng nhập
+LOGIN_REDIRECT_URL = '/'
+
+# Đặt trang chủ sau khi đăng xuất
+LOGOUT_REDIRECT_URL = '/'
+
+# Email là bắt buộc khi đăng ký
+ACCOUNT_EMAIL_REQUIRED = True
+
+# Xác thực email (True nếu muốn gửi email xác nhận)
+ACCOUNT_EMAIL_VERIFICATION = True  # Hoặc 'mandatory'
+
+# Cho phép đăng nhập bằng email
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+
+SOCIALACCOUNT_LOGIN_ON_GET=True
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+
+ACCOUNT_USERNAME_REQUIRED = False
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -159,6 +219,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    'TOKEN_MODEL': None,
 }
 
 # JWT Settings

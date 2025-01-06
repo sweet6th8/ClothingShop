@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+import allauth.urls
+
 # from djoser.views import ActivationView  # Djoser cung cấp view này cho việc kích hoạt tài khoản
 
 
@@ -42,7 +44,12 @@ urlpatterns = [
     path('api/', include('api.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),  # Đăng ký các URL JWT riêng
-    
+
+    # allauth
+    path('api/auth/', include('dj_rest_auth.urls')),
+    path('api/auth/google/', include('allauth.socialaccount.urls')),
+    path('accounts/', include(allauth.urls)),
+    # path('accounts/facebook/', include(facebook_urls)),
    
 
 
