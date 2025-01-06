@@ -137,6 +137,27 @@ class CartViewSet(GenericViewSet, CreateModelMixin):
         total_quantity = sum(item.quantity for item in cart.items.all())
         return Response({"total_quantity": total_quantity})
 
+    @action(detail=False, methods=["get"], url_path="shirts", permission_classes=[IsAuthenticated])
+    def get_shirts_in_cart(self, request):
+        # Lọc sản phẩm áo trong giỏ hàng của người dùng
+        cart = Cart.objects.filter(user=request.user).first()
+        if not cart:
+            return Response({"message": "Giỏ hàng không tồn tại."}, status=status.HTTP_404_NOT_FOUND)
+        
+        # Lọc các sản phẩm áo trong giỏ hàng
+        shirts = Cartitems.objects.filter(cart=cart, product__subcategory__title__icontains="Áo")
+        
+        # Dùng serializer chỉ trả về tên và ảnh của sản phẩm
+        serializer = SimpleProductForShirtCartSerializer(
+            [item.product for item in shirts], 
+            many=True, 
+            context={'request': request}
+        )
+        
+        return Response(serializer.data)
+
+
+
 
 class CartitemViewSet(ModelViewSet):
     http_method_names = ["get", "post", "patch", "delete"]
@@ -378,3 +399,4 @@ class RecommendedProductView(APIView):
         
         except Product.DoesNotExist:
             return Response({"detail": "Sản phẩm không tồn tại."}, status=status.HTTP_404_NOT_FOUND)
+

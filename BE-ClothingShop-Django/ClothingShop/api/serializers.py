@@ -76,6 +76,19 @@ class SimpleProductSerializer(serializers.ModelSerializer):
             return request.build_absolute_uri(product_image.image.url) if request else product_image.image.url
         return None
 
+class SimpleProductForShirtCartSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Product
+        fields = ['product_name', 'image']
+
+    def get_image(self, obj):
+        request = self.context.get('request')
+        if obj.images.first():  # Lấy ảnh đầu tiên của sản phẩm
+            return request.build_absolute_uri(obj.images.first().image.url) if request else obj.images.first().image.url
+        return None
+
 
 class CartItemSerializer(serializers.ModelSerializer):
     product = SimpleProductSerializer(many=False)
