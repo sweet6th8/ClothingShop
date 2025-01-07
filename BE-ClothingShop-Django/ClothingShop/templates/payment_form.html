@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập Số tiền cần thanh toán </title>
+</head>
+<body>
+<form method="POST" action="{% url 'create_payment' %}">
+    {% csrf_token %}
+    <label for="amount">Số tiền (VNĐ):</label>
+    <input type="number" id="amount" name="amount" required>
+    <button type="submit">Thanh toán</button>
+</form>
+</body>
+</html>

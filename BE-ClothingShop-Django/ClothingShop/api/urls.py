@@ -7,6 +7,18 @@ from rest_framework_simplejwt.views import (
     TokenObtainSlidingView,
     TokenRefreshSlidingView,
 )
+
+#vnpay
+from django.urls import path
+from .views import CreatePaymentView
+urlpatterns = [
+    path('payment/create/', CreatePaymentView.as_view(), name='create_payment'),
+]
+
+urlpatterns = [
+    path('payment/return/', PaymentReturnView.as_view(), name='payment_return'),
+]
+
 # from .views import predict_images
 
 
