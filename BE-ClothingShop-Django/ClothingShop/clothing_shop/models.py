@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 import uuid
@@ -11,6 +13,9 @@ from  django.conf import settings
 #   * Remove `# managed = False ` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+
+from api import vnpay
+
 
 class UserManager(BaseUserManager):
    # """Define a model manager for User model with no username field."""
@@ -190,3 +195,11 @@ class OrderItem(models.Model):
     class Meta:
         db_table = 'OrderItem'
 
+class Payment(models.Model):
+    amount = models.IntegerField()  # Số tiền thanh toán
+    status = models.CharField(max_length=20, default='pending')  # Trạng thái giao dịch
+    created_at = models.DateTimeField(auto_now_add=True)  # Thời gian tạo giao dịch
+    updated_at = models.DateTimeField(auto_now=True)  # Thời gian cập nhật giao dịch
+
+    def __str__(self):
+        return f'Payment {self.id} - {self.status}'

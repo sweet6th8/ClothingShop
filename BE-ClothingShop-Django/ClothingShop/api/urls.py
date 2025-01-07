@@ -10,13 +10,10 @@ from rest_framework_simplejwt.views import (
 
 #vnpay
 from django.urls import path
-from .views import CreatePaymentView
+from .views import CreatePaymentAPIView, PaymentReturnAPIView
 urlpatterns = [
-    path('payment/create/', CreatePaymentView.as_view(), name='create_payment'),
-]
-
-urlpatterns = [
-    path('payment/return/', PaymentReturnView.as_view(), name='payment_return'),
+    path('api/payment/create/', CreatePaymentAPIView.as_view(), name='create_payment'),
+    path('api/payment/return/', PaymentReturnAPIView.as_view(), name='payment_return'),
 ]
 
 # from .views import predict_images

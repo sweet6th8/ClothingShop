@@ -44,11 +44,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 # import of vnpay
-from django.shortcuts import render, redirect
-from django.http import JsonResponse
-from django.http import HttpResponseBadRequest
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 from .vnpay import VNPay
-
 # Create your views here.
 
 class ProductViewSet(ModelViewSet):
@@ -408,63 +407,65 @@ class RecommendedProductView(APIView):
         except Product.DoesNotExist:
             return Response({"detail": "Sản phẩm không tồn tại."}, status=status.HTTP_404_NOT_FOUND)
 #vnpay
-class CreatePaymentView(View):
-    vnp_TmnCode = '2QXUI4J4'  # Mã TMN Sandbox hoặc mã thực tế của bạn
-    vnp_HashSecret = 'RFU6NAY6EFHA7YSF8OS8G59P7KF2A7YO'  # Khóa bí mật Sandbox hoặc thực tế
-    vnp_Url = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html'  # URL VNPay
+class CreatePaymentAPIView(APIView):
+    vnp_TmnCode = '2QXUI4J4'  # Thay bằng mã TmnCode của bạn
+    vnp_HashSecret = 'RFU6NAY6EFHA7YSF8OS8G59P7KF2A7YO'  # Thay bằng HashSecret của bạn
+    vnp_Url = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html'
 
     def post(self, request):
-        # Lấy thông tin số tiền từ form (POST data)
-        amount = request.POST.get('amount')
-        if not amount:
-            return HttpResponseBadRequest("Số tiền không hợp lệ")
+        # Lấy số tiền từ request
+        amount = request.data.get('amount')
+        if not amount or not str(amount).isdigit():
+            return Response({'error': 'Số tiền không hợp lệ'}, status=status.HTTP_400_BAD_REQUEST)
 
-        try:
-            amount = int(amount) * 100  # VNPay yêu cầu số tiền theo đơn vị VNĐ x 100
-        except ValueError:
-            return HttpResponseBadRequest("Số tiền phải là số hợp lệ")
+        amount = int(amount) * 100  # Chuyển số tiền sang đơn vị VNPay (x100)
 
-        # Tạo đối tượng VNPay
+        # Tạo bản ghi giao dịch
+        payment = Payment.objects.create(
+            amount=amount // 100,  # Lưu số tiền theo đơn vị gốc
+            status='pending'  # Trạng thái giao dịch ban đầu
+        )
+
+        # Sử dụng ID làm mã giao dịch
         vnp = VNPay(
             vnp_TmnCode=self.vnp_TmnCode,
             vnp_HashSecret=self.vnp_HashSecret,
             vnp_Url=self.vnp_Url
         )
-
-        # Thêm các tham số cần thiết
         vnp.add_param('vnp_Version', '2.1.0')
         vnp.add_param('vnp_Command', 'pay')
         vnp.add_param('vnp_TmnCode', self.vnp_TmnCode)
-        vnp.add_param('vnp_Amount', amount)
-        vnp.add_param('vnp_CurrCode', 'VND')
-        vnp.add_param('vnp_TxnRef', 'ORDER123')  # Thay bằng mã đơn hàng thực tế
+        vnp.add_param('vnp_Amount', amount)  # Số tiền đã chuyển đổi
+        vnp.add_param('vnp_TxnRef', str(payment.id))  # Sử dụng ID từ cơ sở dữ liệu
         vnp.add_param('vnp_OrderInfo', 'Thanh toán hóa đơn')
         vnp.add_param('vnp_Locale', 'vn')
-        vnp.add_param('vnp_ReturnUrl', 'http://127.0.0.1:8000/payment/return/')
+        vnp.add_param('vnp_ReturnUrl', 'http://127.0.0.1:8000/api/payment/return/')
         vnp.add_param('vnp_IpAddr', request.META['REMOTE_ADDR'])
 
         # Tạo URL thanh toán
         payment_url = vnp.get_payment_url()
 
-        # Chuyển hướng đến URL thanh toán của VNPay
-        return redirect(payment_url)
-
-
-class PaymentReturnView(View):
-    template_name_success = 'templates/payment_failed.html'
-    template_name_failed = 'templates/payment_success.html'
-    vnp_HashSecret = 'RFU6NAY6EFHA7YSF8OS8G59P7KF2A7YO'
-
+        return Response({'payment_url': payment_url}, status=status.HTTP_200_OK)
+class PaymentReturnAPIView(APIView):
     def get(self, request):
-        response_params = request.GET.dict()
+        from .vnpay import VNPay
+        vnp = VNPay(
+            vnp_TmnCode='2QXUI4J4',
+            vnp_HashSecret='RFU6NAY6EFHA7YSF8OS8G59P7KF2A7YO',
+        )
 
-        # Xác thực chữ ký (secure hash)
-        is_valid = VNPay.verify_response(response_params, self.vnp_HashSecret)
+        # Lấy tất cả tham số từ URL trả về
+        params = request.query_params
+        if vnp.validate_response(params):
+            txn_ref = params.get('vnp_TxnRef')  # Lấy mã giao dịch (ID)
+            payment = Payment.objects.filter(id=txn_ref).first()
+            if payment:
+                if params.get('vnp_ResponseCode') == '00':  # Thành công
+                    payment.status = 'success'
+                else:  # Thất bại
+                    payment.status = 'failed'
+                payment.save()
 
-        # Xử lý kết quả
-        if is_valid:
-            # Thành công: Trả về trang hiển thị kết quả giao dịch thành công
-            return render(request, self.template_name_success, {'params': response_params})
+            return Response({'message': 'Giao dịch hoàn tất'}, status=status.HTTP_200_OK)
         else:
-            # Thất bại: Trả về trang thông báo lỗi
-            return render(request, self.template_name_failed, {'params': response_params})
+            return Response({'error': 'Xác thực thất bại'}, status=status.HTTP_400_BAD_REQUEST)

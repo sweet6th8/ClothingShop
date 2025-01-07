@@ -36,3 +36,5 @@ class VNPay:
         )
         secure_hash = hmac_obj.hexdigest()
         return secure_hash == vnp_SecureHash
+
+
