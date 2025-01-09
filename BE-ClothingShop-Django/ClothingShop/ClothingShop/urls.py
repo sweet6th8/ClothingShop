@@ -41,6 +41,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin_tools/', include('admin_tools.urls')),
     path('api/', include('api.urls')),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),  # Đăng ký các URL JWT riêng
@@ -50,7 +51,6 @@ urlpatterns = [
     path('api/auth/google/', include('allauth.socialaccount.urls')),
     path('accounts/', include(allauth.urls)),
     # path('accounts/facebook/', include(facebook_urls)),
-   
 
 
     # hiển thị tài liệu API dưới dạng giao diện Swagger UI

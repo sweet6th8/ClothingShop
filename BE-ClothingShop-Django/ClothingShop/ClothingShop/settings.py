@@ -15,7 +15,6 @@ from pathlib import Path
 from datetime import timedelta
 import os
 
-
 load_dotenv()  # Tải biến môi trường từ file .env
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'rest_framework',
     'api.apps.ApiConfig',   #sử dụng AppConfig của 'api'
-    'clothing_shop',
     'django_filters',
     'djoser',
     'corsheaders',
@@ -58,9 +56,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
     'dj_rest_auth',
+    'clothing_shop',
 ]
-
-
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # Đặt ở đầu
@@ -88,7 +85,7 @@ ROOT_URLCONF = 'ClothingShop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -205,7 +202,6 @@ SOCIALACCOUNT_LOGIN_ON_GET=True
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
 ACCOUNT_USERNAME_REQUIRED = False
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -404,5 +400,3 @@ JAZZMIN_UI_TWEAKS = {
     },
     "actions_sticky_top": True
 }
-
-

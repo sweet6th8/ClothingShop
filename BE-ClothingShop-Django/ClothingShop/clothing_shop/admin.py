@@ -53,7 +53,6 @@ class OrderAdmin(admin.ModelAdmin):
     pending_status_display.short_description = 'Payment Status'
 
 
-
 # đã đăng ký rồi
 
 # admin.site.register(Category, CategoryAdmin)
