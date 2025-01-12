@@ -4,7 +4,11 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth import get_user_model
 from django.contrib.admin.sites import AlreadyRegistered
 from django.utils.translation import gettext_lazy as _
-
+from django.urls import path
+from django.utils.safestring import mark_safe 
+from django.template.response import TemplateResponse
+from . import admin_views
+from .models import OrderItem, Cart, Cartitems, Subcategory, ProductImage, Order
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -20,6 +24,8 @@ class ProductAdmin(admin.ModelAdmin):
 
 class CustomUserAdmin(UserAdmin):
     """Define admin model for custom User model with no username field."""
+    def index(self):
+        return self.render('admin/index.html', stats=admin_views.products_by_category_view())
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name')}),
@@ -54,12 +60,9 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 # đã đăng ký rồi
-
-# admin.site.register(Category, CategoryAdmin)
-# admin.site.register(Product, ProductAdmin)
+admin.site.register(OrderItem)
 admin.site.register(Cart)
 admin.site.register(Cartitems)
-admin.site.register(OrderItem)
 admin.site.register(Subcategory)
 admin.site.register(ProductImage)
 admin.site.register(Order, OrderAdmin)

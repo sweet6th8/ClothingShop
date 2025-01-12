@@ -1,8 +1,8 @@
 from django.http import JsonResponse
-from django.db.models import Sum
-from .models import OrderItem
+from django.db.models import Count
+from .models import Product
 
-def sales_by_category_view(request):
-    sales_data = OrderItem.objects.values('product__category__title').annotate(total_sales=Sum('quantity'))
-    data = list(sales_data)
+def products_by_category_view(request):
+    product_data = Product.objects.values('category__title').annotate(total_products=Count('product_id'))
+    data = list(product_data)
     return JsonResponse(data, safe=False)

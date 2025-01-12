@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from clothing_shop import admin_views
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
@@ -61,6 +62,7 @@ urlpatterns = [
     # hiển thị tài liệu API dưới dạng giao diện ReDoc UI
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     # path('activate/<uid>/<token>/', ActivationView.as_view(), name='user-activate'),
+
 
 ]
 
