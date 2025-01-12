@@ -22,6 +22,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 import allauth.urls
+from .views import GoogleLogin, FacebookLogin
 
 # from djoser.views import ActivationView  # Djoser cung cấp view này cho việc kích hoạt tài khoản
 
@@ -48,9 +49,10 @@ urlpatterns = [
 
     # allauth
     path('api/auth/', include('dj_rest_auth.urls')),
-    path('api/auth/google/', include('allauth.socialaccount.urls')),
+    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
     path('accounts/', include(allauth.urls)),
-    # path('accounts/facebook/', include(facebook_urls)),
+    path('auth/google/', GoogleLogin.as_view(), name='google_login'),
+    path('auth/facebook/', FacebookLogin.as_view(), name='facebook_login'),
 
 
     # hiển thị tài liệu API dưới dạng giao diện Swagger UI
