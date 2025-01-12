@@ -284,7 +284,7 @@ VALUES (
     ),
     (
      121,
-         'Áo Thun Nam',
+         'Áo Thun Nam ORGLS ',
         'ao-thun-nam',
         'Áo thun nam chất liệu cotton mềm mại, dễ chịu, phù hợp với mọi hoạt động.',
         250000,
@@ -294,7 +294,7 @@ VALUES (
     ),
     (
      122,
-         'Áo Thun-Polo Nam ',
+         'Áo Thun TOMMY ',
         'ao-thun-nam-polo',
         'Áo thun nam là trang phục cơ bản và tiện dụng nhất đối với phái mạnh. Hầu như người đàn ông nào cũng' 
                 ' đều phải có vài chiếc áo pull nam trong tủ áo của mình. ',
@@ -305,7 +305,7 @@ VALUES (
     ),
     (
      123,
-         'Áo Thun Nam tay lỡ',
+         'Áo Thun Nam tay lỡ LEVIS ',
         'ao-thun-nam-tay-lo',
         'Dù là ai, bạn cũng nên thử nghĩ đến áo thun tay lỡ – một items mới mẻ mang đến style năng động và “chất lừ” cho bất cứ ai sở hữu nó.' 
         ' Không phải áo thun freesize hay tay dài nữa'
@@ -317,7 +317,7 @@ VALUES (
     ),
     (
      124,
-         'Áo Thun Nam SAIGONESE',
+         'Áo ÁO POLO LEVIS  ',
         'ao-thun-nam-SAIGONESE',
         'Vải Cotton Phối Jean Denim Hoạ Tiết Shuriken Form Rộng Unisex Nam',
         143000,
@@ -327,7 +327,7 @@ VALUES (
     ),
     (
      125,
-         'Áo thun TEESHARKBUY tay ngắn dáng rộng in chữ phong cách',
+         'Áo thun JACK JONES',
         'ao-thun-TEESHARKBUY',
         'Hàm lượng chất liệu: 71% (Bao gồm) -80% (Bao gồm). Yếu tố phổ biến: Chữ cái, Cũ, thời trang .Phong cách: Văn học Retro / Phong cách cổ điển',
         103000,
@@ -337,7 +337,7 @@ VALUES (
     ),
     (
      126,
-         'Áo thun LIFE \ MONSTER X STREET',
+         'Áo thun ORIGINALS',
         'ao-thun-nam-LIFE',
         'Chất liệu: thun cotton 95% - 5% spandex co giãn 4 chiều, vải mềm, vải mịn, thoáng mát, không xù lông.',
         65000,
@@ -377,6 +377,7 @@ VALUES (
         1,
         4
     ),
+<<<<<<< Updated upstream
 
      (
      134,
@@ -404,11 +405,42 @@ VALUES (
         'ao-so-mi-co-tau-ZUTEE',
         'Sơ mi nam cổ tàu là kiểu áo cách tân mới được nhiều bạn nam yêu thích vì sự trẻ trung, năng động, phá cách nó mang lại.',
         160000,
+=======
+     (
+     134,
+        'Áo Sơ Mi Nam Nữ JAMINE HOUSE Lụa',
+        'ao-so-mi-JAMINE-HOUSE',
+        'Lụa MANGO CAO CẤP, mềm mịn, Không nhăn, thấm hút  mồ hôi tốt. Giúp người mặc thoáng mát, không gò bó hay hầm bí. Cam kết không ra màu không bai nhão',
+        143000,
+        88,
+        1,
+        4
+    ),
+       (
+     135,
+        'Áo Sơ Mi Dài Tay Raglan',
+        'ao-so-mi-Raglan',
+        'Áo Sơ Mi Dài Tay Raglan Form Rộng Chất Dày Dặn Mềm Mại Phong Cách Hàn Quốc,Sơ Mi Nam Phối Tay Thoáng Mát Cao Cấp',
+        149000,
+        453,
+        1,
+        4
+    ),
+       (
+     136,
+        'Tianlesiwei American Street College Style',
+        'ao-so-mi-nam-Tianlesiwei',
+        'Để bạn mặc với sự tự tin và phong cách. Chú ý đến từng chi tiết và chất lượng tạo ra trang phục độc đáo, chất lượng cao sẽ khiến bạn nổi bật giữa đám đông.',
+        87000,
+>>>>>>> Stashed changes
         100,
         1,
         4
     ),
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     (
      141,
         'Áo Khoác Nam',
@@ -441,6 +473,36 @@ VALUES (
         1,
         5
     ),
+    (
+     144,
+        'Áo khoác Varsity Teelab Academy Colorific',
+        'ao-khoac-Hoodie-Academy',
+        'You will never be younger than you are at this very moment “Enjoy Your Youth!” ',
+        320000,
+        211,
+        1,
+        5
+    ),
+    (
+     145,
+        'Áo Khoác Varsity Bóng Chày ATINO',
+        'ao-khoac-Hoodie-ATINO',
+        'Áo Hoodie form rộng Tay Lỡ với chất nỉ bông mịn, ấm với đường may kỹ, lên dáng đẹp . ',
+        250000,
+        45,
+        1,
+        5
+    ),
+    (
+     146,
+        'Áo Khoác Gió Unisex DYPOISON NAD',
+        'ao-khoac-DYPOISON',
+        'Chống Gió Chống Nước Chống Bụi - Áo khoác dù nam nữ 2 lớp form rộng ',
+        175000,
+        288,
+        1,
+        5
+    ),
     (151,
         'Quần Short Nam',
         'quan-short-nam',
@@ -469,6 +531,33 @@ VALUES (
          Đảm bảo vải chuẩn Nỉ cotton 100% chất lượng',
         95000,
         210,
+        1,
+        6
+    ),
+     (154,
+        'Quần Short Phong Cách Harajuku',
+        'quan-short-Harajuku',
+        'Quần short nam thoải mái cho các hoạt động thể thao và du lịch.',
+        76000,
+        140,
+        1,
+        6
+    ),
+     (155,
+        'Quần short nam ESEA',
+        'quan-short-ESEA',
+        'Quần short nam ESEA mùa hè mới phong cách Hàn Quốc cổ điển đơn giản thời trang nhiều túi dáng rộng thoải mái giản dị đa năng quần',
+        184000,
+        154,
+        1,
+        6
+    ),
+     (156,
+        'Quần Short denim',
+        'quan-short-denim',
+        'Quần short nam thoải mái cho các hoạt động thể thao và du lịch.',
+        127000,
+        124,
         1,
         6
     );
@@ -515,6 +604,36 @@ VALUES (
         2,
         1
     ),
+      (
+        204,
+        'Quần Jean Hari',
+        'quan-jean-Hari',
+        ' Quần được làm từ vải jean cao cấp, dày dặn và bền bỉ, mang lại cảm giác thoải mái và chắc chắn khi mặc.',
+        147000,
+        120,
+        2,
+        1
+    ),
+      (
+        205,
+        'Sinransinya Quần jean',
+        'quan-jean-Sinransinya',
+        'Chúng tôi có kinh nghiệm phong phú và sản phẩm chất lượng cao, tập trung vào chất lượng và giá cả thấp!Mang đến cho bạn trải nghiệm mua sắm tốt nhất!',
+        243000,
+        157,
+        2,
+        1
+    ),
+      (
+        206,
+        'Quần jean mới Retro ',
+        'quan-jean-Retro',
+        ' quần jean nam mới retro Phong Cách Đường Phố Cao Cấp Thích Hợp Dây Kéo Chia Bò Thiết Kế Cảm Giác Rời Đường Phố Cao Cấp Thi',
+        235000,
+        72,
+        2,
+        1
+    ),
     (
      211,
         'Quần Legging Nữ',
@@ -549,10 +668,40 @@ VALUES (
         2,
         2
     ),
+     (
+     214,
+        'Quần legging Lovito',
+        'quan-legging-Lovito',
+        'Thành phần: 95% Polyester + 5% Spandex, Độ vừa vặn: Vừa vặn thông thường',
+        78000,
+        154,
+        2,
+        2
+    ),
+     (
+     215,
+        'Quần Legging Cạp cao',
+        'quan-legging-tam',
+        'Quần legging nữ co giãn tốt, dễ dàng kết hợp với nhiều trang phục khác.',
+        75100,
+        91,
+        2,
+        2
+    ),
+     (
+     216,
+        'tập gym yoga chất liệu su đúc định hình nâng mông dáng ôm siêu co dãn',
+        'quan-legging-yoga',
+        'Quần legging nữ co giãn tốt, dễ dàng kết hợp với nhiều trang phục khác.',
+        250000,
+        200,
+        2,
+        2
+    ),
     (
      221,
-        'Áo Thun Nữ',
-        'ao-thun-nu',
+        'Áo Thun Nữ jdypisa',
+        'ao-thun-nu-jdypisa',
         'Áo thun nữ dễ thương, chất liệu vải mát mẻ, thích hợp cho mùa hè.',
         180000,
         250,
@@ -561,8 +710,8 @@ VALUES (
     ),
     (
      222,
-        'Áo Thun AM BE Nữ In Hình Nhiều Họa Tiết',
-        'ao-thun-nu-am-be',
+        'Áo Thun onlravenna',
+        'ao-thun-nu-onlravenna',
         ' Loại áo này “khó tính” hơn áo thun nam nữ ngắn tay, nếu biết cách mix đồ, bạn sẽ trở nên thật cá tính với phong cách thời trang đậm chất Hàn Quốc,
          nhưng nếu phối đồ không tốt trông bạn như đang “lọt thỏm” trong chiếc áo thun tay lỡ.',
         86000,
@@ -572,13 +721,43 @@ VALUES (
     ),
     (
      223,
-        'Áo phông fashion nữ local brand Salute',
-        'ao-thun-nu-salute',
+        'Áo phông deloris',
+        'ao-thun-nu-deloris',
         '1.100% cotton, chất vải mềm mại mịn màng tinh tế,không bị co ngắn sau khi giặt.
 2.Toàn bộ hình ảnh của cửa hàng đều là ảnh thật do xưởng tự chụp.
 3.Sản phẩm của chúng tôi là dành cho cả nam và nữ,cặp đôi nhân tình và cặp đôi Chị Em đều có thể mặc được.',
         95000,
         350,
+        2,
+        3
+    ),
+     (
+     224,
+        'Áo Thun Nữ Calvin Klein',
+        'ao-thun-nu-Calvin-Klein',
+        'Áo thun nữ dễ thương, chất liệu vải mát mẻ, thích hợp cho mùa hè.',
+        180000,
+        250,
+        2,
+        3
+    ),
+     (
+     225,
+        'Áo Thun Nữ HERO',
+        'ao-thun-nu-HERO',
+        'Áo thun nữ dễ thương, chất liệu vải mát mẻ, thích hợp cho mùa hè.',
+        180000,
+        250,
+        2,
+        3
+    ),
+     (
+     226,
+        'Áo Thun Nữ Light Brown',
+        'ao-thun-nu-Light',
+        'Áo thun nữ dễ thương, chất liệu vải mát mẻ, thích hợp cho mùa hè.',
+        180000,
+        250,
         2,
         3
     ),
@@ -937,35 +1116,32 @@ VALUES (116, 'product_images/quan_kaki_nam_FABUMAN_a.png'),
 
 -- Ảnh cho Áo Thun Nam (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (121, 'product_images/ao_thun_BAD_HABITS_a.png');
+VALUES (121, 'product_images/ao_thun_1_a.png');
 INSERT INTO ProductImage (product_id, image)
-VALUES (121, 'product_images/ao_thun_BAD_HABITS_b.png');
+VALUES (121, 'product_images/ao_thun_1_b.png');
 INSERT INTO ProductImage (product_id, image)
-VALUES (121, 'product_images/ao_thun_BAD_HABITS_c.png');
+VALUES (121, 'product_images/ao_thun_1_c.png');
 INSERT INTO ProductImage (product_id, image)
-VALUES (121 , 'product_images/ao_thun_BAD_HABITS_d.png');
+VALUES (122, 'product_images/ao_thun_nam_2_a.png'),
+       (122, 'product_images/ao_thun_nam_2_b.png'),
+       (122, 'product_images/ao_thun_nam_2_c.png');
 INSERT INTO ProductImage (product_id, image)
-VALUES (122, 'product_images/ao_thun_nam_polo_a.png'),
-       (122, 'product_images/ao_thun_nam_polo_b.png'),
-       (122, 'product_images/ao_thun_nam_polo_c.png');
+VALUES (123, 'product_images/ao_thun_nam_3_a.png'),
+       (123, 'product_images/ao_thun_nam_3_b.png'),
+       (123, 'product_images/ao_thun_nam_3_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (124, 'product_images/ao_thun_nam_4a.png'),
+       (124, 'product_images/ao_thun_nam_4c.png'),
+       (124, 'product_images/ao_thun_nam_4b.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (125, 'product_images/ao_thun_nam_5a.png'),
+       (125, 'product_images/ao_thun_nam_5b.png'),
+       (125, 'product_images/ao_thun_nam_5c .png');
 
 INSERT INTO ProductImage (product_id, image)
-VALUES (123, 'product_images/ao_thun_nam_tay_lo_a.png'),
-       (123, 'product_images/ao_thun_nam_tay_lo_b.png'),
-       (123, 'product_images/ao_thun_nam_tay_lo_c.png');
-INSERT INTO ProductImage (product_id, image)
-VALUES (124, 'product_images/ao_thun_nam_SAIGONESE_a.png'),
-       (124, 'product_images/ao_thun_nam_SAIGONESE_b.png'),
-       (124, 'product_images/ao_thun_nam_SAIGONESE_c.png');
-INSERT INTO ProductImage (product_id, image)
-VALUES (125, 'product_images/ao_thun_TEESHARKBUY_a.png'),
-       (125, 'product_images/ao_thun_TEESHARKBUY_b.png'),
-       (125, 'product_images/ao_thun_TEESHARKBUY_c.png');
-
-INSERT INTO ProductImage (product_id, image)
-VALUES (126, 'product_images/ao_thun_nam_LIFE_a.png'),
-       (126, 'product_images/ao_thun_nam_LIFE_b.png'),
-       (126, 'product_images/ao_thun_nam_LIFE_c.png');
+VALUES (126, 'product_images/ao_thun_nam_6a.png'),
+       (126, 'product_images/ao_thun_nam_6b.png'),
+       (126, 'product_images/ao_thun_nam_6c.png');
 
 
 -- Ảnh cho Áo Sơ Mi Nam (2 ảnh)
@@ -982,6 +1158,7 @@ VALUES (133, 'product_images/ao_so_mi_nam_tay_ngan_a.png'),
        (133, 'product_images/ao_so_mi_nam_tay_ngan_b.png'),
        (133 ,'product_images/ao_so_mi_nam_tay_ngan_c.png');
 INSERT INTO ProductImage (product_id, image)
+<<<<<<< Updated upstream
 VALUES (134, 'product_images/ao_so_mi_nam_Teelab_a.png'),
        (134 ,'product_images/ao_so_mi_nam_Teelab_b.png');
 
@@ -994,6 +1171,19 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (136, 'product_images/ao_so_mi_co_tau_ZUTEE_a.png'),
        (136, 'product_images/ao_so_mi_co_tau_ZUTEE_b.png'),
        (136 ,'product_images/ao_so_mi_co_tau_ZUTEE_c.png');
+=======
+VALUES (134, 'product_images/ao_so_mi_JAMINE_HOUSE_a.png'),
+       (134, 'product_images/ao_so_mi_JAMINE_HOUSE_b.png'),
+       (134 ,'product_images/ao_so_mi_JAMINE_HOUSE_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (135, 'product_images/ao_so_mi_Raglan_a.png'),
+       (135, 'product_images/ao_so_mi_Raglan_b.png'),
+       (135 ,'product_images/ao_so_mi_Raglan_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (136, 'product_images/ao_so_mi_nam_Tianlesiwei_a.png'),
+       (136, 'product_images/ao_so_mi_nam_Tianlesiwei_b.png'),
+       (136 ,'product_images/ao_so_mi_nam_Tianlesiwei_c.png');
+>>>>>>> Stashed changes
 
 
 -- Ảnh cho Áo Khoác Nam (3 ảnh)
@@ -1012,7 +1202,18 @@ VALUES (142, 'product_images/ao_khoac_nam_Bomber_a.png'),
 INSERT INTO ProductImage (product_id, image)
 VALUES (143, 'product_images/ao_khoac_Hoodie_nam_a.png'),
        (143, 'product_images/ao_khoac_Hoodie_nam_b.png');
-
+INSERT INTO ProductImage (product_id, image)
+VALUES (144, 'product_images/ao_khoac_Hoodie_Academy_a.png'),
+       (144, 'product_images/ao_khoac_Hoodie_Academy_b.png'),
+       (144 ,'product_images/ao_khoac_Hoodie_Academy_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (145, 'product_images/ao_khoac_ATINO_a.png'),
+       (145, 'product_images/ao_khoac_ATINO_b.png'),
+       (145 ,'product_images/ao_khoac_ATINO_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (146, 'product_images/ao_khoac_DYPOISON_a.png'),
+       (146, 'product_images/ao_khoac_DYPOISON_b.png'),
+       (146 ,'product_images/ao_khoac_DYPOISON_c.png');
 
 -- Ảnh cho Quần Short Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
@@ -1032,7 +1233,18 @@ VALUES (152, 'product_images/quan_short_tui_hop_nam_a.png'),
 INSERT INTO ProductImage (product_id, image)
 VALUES (153, 'product_images/quan_short_JOGGER_nam_a.png'),
        (153, 'product_images/quan_short_JOGGER_nam_b.png');
-
+INSERT INTO ProductImage (product_id, image)
+VALUES (154, 'product_images/quan_short_Harajuku_a.png'),
+       (154, 'product_images/quan_short_Harajuku_b.png'),
+       (154, 'product_images/quan_short_Harajuku_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (155, 'product_images/quan_short_ESEA_a.png'),
+       (155, 'product_images/quan_short_ESEA_b.png'),
+       (155, 'product_images/quan_short_ESEA_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (156, 'product_images/quan_short_denim_a.png'),
+       (156, 'product_images/quan_short_denim_b.png'),
+       (156, 'product_images/quan_short_denim_c.png');
 
 -- Cho các sản phẩm thuộc Subcategory "Nữ":
 -- Ảnh cho Quần Jean Nữ (3 ảnh)
@@ -1050,8 +1262,18 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (203, 'product_images/quan_jean_lovito_nu_a.png'),
        (203, 'product_images/quan_jean_lovito_nu_b.png'),
        (203 ,'product_images/quan_jean_lovito_nu_c.png');
-
-
+INSERT INTO ProductImage (product_id, image)
+VALUES (204, 'product_images/quan_jean_Hari_a.png'),
+       (204, 'product_images/quan_jean_Hari_b.png'),
+       (204 ,'product_images/quan_jean_Hari_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (205, 'product_images/quan_jean_Sinransinya_a.png'),
+       (205, 'product_images/quan_jean_Sinransinya_b.png'),
+       (205 ,'product_images/quan_jean_Sinransinya_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (206, 'product_images/quan_jean_Retro_a.png'),
+       (206, 'product_images/quan_jean_Retro_b.png'),
+       (206 ,'product_images/quan_jean_Retro_c.png');
 
 -- Ảnh cho Quần Legging Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
@@ -1065,22 +1287,47 @@ VALUES (212, 'product_images/quan_legging_ECOCHIC_nu_a.png'),
 INSERT INTO ProductImage (product_id, image)
 VALUES (213, 'product_images/quan_legging_Fitme_Zeta_nu_a.png'),
        (213 ,'product_images/quan_legging_Fitme_Zeta_nu_b.png');
-
+INSERT INTO ProductImage (product_id, image)
+VALUES (214, 'product_images/quan_legging_Lovito_a.png'),
+       (214, 'product_images/quan_legging_Lovito_b.png'),
+       (214 ,'product_images/quan_legging_Lovito_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (215, 'product_images/quan_legging_tam_a.png'),
+       (215, 'product_images/quan_legging_tam_b.png'),
+       (215 ,'product_images/quan_legging_tam_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (216, 'product_images/quan_jean_Retro_a.png'),
+       (216, 'product_images/quan_jean_Retro_b.png'),
+       (216 ,'product_images/quan_jean_Retro_c.png');
 -- Ảnh cho Áo Thun Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (221, 'product_images/ao_thun_nu_uniqlo_a.png');
+VALUES (221, 'product_images/ao_nu_jdypisa_a.png');
 INSERT INTO ProductImage (product_id, image)
-VALUES (221, 'product_images/ao_thun_nu_uniqlo_b.png');
+VALUES (221, 'product_images/ao_nu_jdypisa_b.png');
 INSERT INTO ProductImage (product_id, image)
-VALUES (221, 'product_images/ao_thun_nu_uniqlo_c.png');
+VALUES (221, 'product_images/ao_nu_jdypisa_c.png');
 INSERT INTO ProductImage (product_id, image)
-VALUES (222, 'product_images/ao_thun_nu_am_be_a.png'),
-       (222, 'product_images/ao_thun_nu_am_be_b.png'),
-       (222 ,'product_images/ao_thun_nu_am_be_c.png');
+VALUES (222, 'product_images/ao_nu_onlravenna_a.png'),
+       (222, 'product_images/ao_nu_onlravenna_b.png'),
+       (222 ,'product_images/ao_nu_onlravenna_c.png');
 INSERT INTO ProductImage (product_id, image)
-VALUES (223, 'product_images/ao_thun_nu_salute_a.png'),
-       (223, 'product_images/ao_thun_nu_salute_b.png'),
-       (223 ,'product_images/ao_thun_nu_salute_c.png');
+VALUES (223, 'product_images/ao_nu_deloris_a.png'),
+       (223, 'product_images/ao_nu_deloris_b.png'),
+       (223 ,'product_images/ao_nu_deloris_c.png');
+INSERT INTO ProductImage (product_id, image)
+VALUES (224, 'product_images/ao_thun_nu_Calvin_Klein_a.png'),
+       (224, 'product_images/ao_thun_nu_Calvin_Klein_b.png'),
+       (224 ,'product_images/ao_thun_nu_Calvin_Klein_c.png');
+
+INSERT INTO ProductImage (product_id, image)
+VALUES (225, 'product_images/ao_thun_nu_HERO_a.png'),
+       (225, 'product_images/ao_thun_nu_HERO_a.png'),
+       (225 ,'product_images/ao_thun_nu_HERO_a.png');
+
+INSERT INTO ProductImage (product_id, image)
+VALUES (226, 'product_images/ao_thun_nu_Light_a.png'),
+       (226, 'product_images/ao_thun_nu_Light_b.png'),
+       (226 ,'product_images/ao_thun_nu_Light_c.png');
 
 -- Ảnh cho Áo Sơ Mi Nữ (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
