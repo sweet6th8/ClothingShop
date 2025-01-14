@@ -915,6 +915,36 @@ GIỚI THIỆU VỀ BẠN cung cấp giao hàng miễn phí cho các đơn hàng
         109,
         2,
         6
+    ),
+          (
+     254,
+        'Chân váy xếp ly da bóng EDITED ',
+        'chan-vay-nu-EDITED',
+        'EDITED tự hào là một trong những xưởng may số 1 Việt Nam, chuyên cung cấp sản phẩm cho các hãng thời trang cao cấp nên chúng tôi hiểu được chất liệu và quy trình của một sản phẩm đắt tiền',
+        154000,
+        535,
+        2,
+        6
+    ),
+          (
+     255,
+        'Chân váy TOM TAILOR DENIM',
+        'chan-vay-nu-TAILOR',
+        'Chân váy jean xếp ly KABICO chân váy bò ngắn nữ cạp cao đó đai điều chỉnh eo kèm quần trong ',
+        154000,
+        535,
+        2,
+        6
+    ),
+          (
+     256,
+        'Chân váy ONLAMAZING',
+        'chan-vay-ONLAMAZING',
+        'Chân váy ngắn bí ngô MunMiu 2 lớp có bảo hộ dáng xếp ly bồng đính nơ lưng chun có lớp lót phong cách Hàn Quốc',
+        154000,
+        535,
+        2,
+        6
     );
 -- Thêm vào bảng `Product` cho các sản phẩm thuộc Subcategory "Trẻ Em"
 INSERT INTO `Product` (
@@ -1458,6 +1488,18 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (243, 'product_images/chan_vay_nu_limisu_a.png'),
        (243, 'product_images/chan_vay_nu_limisu_b.png'),
        (243,'product_images/chan_vay_nu_limisu_c.png');
+    INSERT INTO ProductImage (product_id, image)
+VALUES (244, 'product_images/chan_vay_nu_EDITED_a.png'),
+       (244, 'product_images/chan_vay_nu_EDITED_b.png'),
+       (244,'product_images/chan_vay_nu_EDITED_c.png');
+    INSERT INTO ProductImage (product_id, image)
+VALUES (245, 'product_images/chan_vay_nu_TAILOR_a.png'),
+       (245, 'product_images/chan_vay_nu_TAILOR_b.png'),
+       (245,'product_images/chan_vay_nu_TAILOR_c.png');
+    INSERT INTO ProductImage (product_id, image)
+VALUES (246, 'product_images/chan_vay_ONLAMAZING_a.png'),
+       (246, 'product_images/chan_vay_ONLAMAZING_b.png'),
+       (246,'product_images/chan_vay_ONLAMAZING_c.png');
 
 -- Cho các sản phẩm thuộc Subcategory "Trẻ Em":
 -- Ảnh cho Quần Jean Trẻ Em (3 ảnh)
