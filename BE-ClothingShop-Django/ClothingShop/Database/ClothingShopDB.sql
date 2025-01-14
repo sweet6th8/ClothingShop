@@ -378,6 +378,7 @@ VALUES (
         4
     ),
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
      (
      134,
@@ -406,6 +407,8 @@ VALUES (
         'Sơ mi nam cổ tàu là kiểu áo cách tân mới được nhiều bạn nam yêu thích vì sự trẻ trung, năng động, phá cách nó mang lại.',
         160000,
 =======
+=======
+>>>>>>> Stashed changes
      (
      134,
         'Áo Sơ Mi Nam Nữ JAMINE HOUSE Lụa',
@@ -432,13 +435,19 @@ VALUES (
         'ao-so-mi-nam-Tianlesiwei',
         'Để bạn mặc với sự tự tin và phong cách. Chú ý đến từng chi tiết và chất lượng tạo ra trang phục độc đáo, chất lượng cao sẽ khiến bạn nổi bật giữa đám đông.',
         87000,
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         100,
         1,
         4
     ),
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     (
@@ -915,36 +924,6 @@ GIỚI THIỆU VỀ BẠN cung cấp giao hàng miễn phí cho các đơn hàng
         109,
         2,
         6
-    ),
-          (
-     254,
-        'Chân váy xếp ly da bóng EDITED ',
-        'chan-vay-nu-EDITED',
-        'EDITED tự hào là một trong những xưởng may số 1 Việt Nam, chuyên cung cấp sản phẩm cho các hãng thời trang cao cấp nên chúng tôi hiểu được chất liệu và quy trình của một sản phẩm đắt tiền',
-        154000,
-        535,
-        2,
-        6
-    ),
-          (
-     255,
-        'Chân váy TOM TAILOR DENIM',
-        'chan-vay-nu-TAILOR',
-        'Chân váy jean xếp ly KABICO chân váy bò ngắn nữ cạp cao đó đai điều chỉnh eo kèm quần trong ',
-        154000,
-        535,
-        2,
-        6
-    ),
-          (
-     256,
-        'Chân váy ONLAMAZING',
-        'chan-vay-ONLAMAZING',
-        'Chân váy ngắn bí ngô MunMiu 2 lớp có bảo hộ dáng xếp ly bồng đính nơ lưng chun có lớp lót phong cách Hàn Quốc',
-        154000,
-        535,
-        2,
-        6
     );
 -- Thêm vào bảng `Product` cho các sản phẩm thuộc Subcategory "Trẻ Em"
 INSERT INTO `Product` (
@@ -1148,452 +1127,446 @@ VALUES (
 -- Cho các sản phẩm thuộc Subcategory "Nam": 
 -- Ảnh cho Quần Jean Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (101, 'product_images/quan_jean_nam_G_Jeans_a.png');
+VALUES (101, 'product_images/quan_jean_nam_G_Jeans_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (101, 'product_images/quan_jean_nam_G_Jeans_b.png');
+VALUES (101, 'product_images/quan_jean_nam_G_Jeans_b.jpg');
 
 INSERT INTO ProductImage (product_id, image)
-VALUES (102, 'product_images/quan_jean_nam_wash_retro_a.png'),
-       (102, 'product_images/quan_jean_nam_wash_retro_b.png'),
-       (102, 'product_images/quan_jean_nam_wash_retro_c.png');
+VALUES (102, 'product_images/quan_jean_nam_wash_retro_a.jpg'),
+       (102, 'product_images/quan_jean_nam_wash_retro_b.jpg'),
+       (102, 'product_images/quan_jean_nam_wash_retro_c.jpg');
 
 INSERT INTO ProductImage (product_id, image)
-VALUES (103, 'product_images/quan_jean_thoi_trang_a.png'),
-       (103, 'product_images/quan_jean_thoi_trang_b.png'),
-       (103, 'product_images/quan_jean_thoi_trang_c.png');
+VALUES (103, 'product_images/quan_jean_thoi_trang_a.jpg'),
+       (103, 'product_images/quan_jean_thoi_trang_b.jpg'),
+       (103, 'product_images/quan_jean_thoi_trang_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (104, 'product_images/quan_jean_nam_cap_chun_a.png'),
-       (104, 'product_images/quan_jean_nam_cap_chun_b.png'),
-       (104, 'product_images/quan_jean_nam_cap_chun_c.png');
+VALUES (104, 'product_images/quan_jean_nam_cap_chun_a.jpg'),
+       (104, 'product_images/quan_jean_nam_cap_chun_b.jpg'),
+       (104, 'product_images/quan_jean_nam_cap_chun_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (105, 'product_images/quan_jean_nam_tui_hop_a.png'),
-       (105, 'product_images/quan_jean_nam_tui_hop_b.png'),
-       (105, 'product_images/quan_jean_nam_tui_hop_c.png');
+VALUES (105, 'product_images/quan_jean_nam_tui_hop_a.jpg'),
+       (105, 'product_images/quan_jean_nam_tui_hop_b.jpg'),
+       (105, 'product_images/quan_jean_nam_tui_hop_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (106, 'product_images/quan_jean_nam_ROWAY_a.png'),
-       (106, 'product_images/quan_jean_nam_ROWAY_b.png'),
-       (106, 'product_images/quan_jean_nam_ROWAY_c.png');
+VALUES (106, 'product_images/quan_jean_nam_ROWAY_a.jpg'),
+       (106, 'product_images/quan_jean_nam_ROWAY_b.jpg'),
+       (106, 'product_images/quan_jean_nam_ROWAY_c.jpg');
 
 -- Ảnh cho Quần Kaki Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (111, 'product_images/quan_kaki_nam_Gen_Viet_a.png');
+VALUES (111, 'product_images/quan_kaki_nam_Gen_Viet_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (111, 'product_images/quan_kaki_nam_Gen_Viet_b.png');
+VALUES (111, 'product_images/quan_kaki_nam_Gen_Viet_b.jpg');
 
 INSERT INTO ProductImage (product_id, image)
-VALUES (112, 'product_images/quan_kaki_nam_cao_cap_a.png'),
-       (112, 'product_images/quan_kaki_nam_cao_cap_b.png'),
-       (112, 'product_images/quan_kaki_nam_cao_cap_c.png');
+VALUES (112, 'product_images/quan_kaki_nam_cao_cap_a.jpg'),
+       (112, 'product_images/quan_kaki_nam_cao_cap_b.jpg'),
+       (112, 'product_images/quan_kaki_nam_cao_cap_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (113, 'product_images/quan_kaki_nam_hanlu_a.png'),
-       (113, 'product_images/quan_kaki_nam_hanlu_b.png'),
-       (113, 'product_images/quan_kaki_nam_hanlu_c.png');
+VALUES (113, 'product_images/quan_kaki_nam_hanlu_a.jpg'),
+       (113, 'product_images/quan_kaki_nam_hanlu_b.jpg'),
+       (113, 'product_images/quan_kaki_nam_hanlu_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (114, 'product_images/quan_kaki_nam_tui_hop_a.png'),
-       (114, 'product_images/quan_kaki_nam_tui_hop_b.png'),
-       (114, 'product_images/quan_kaki_nam_tui_hop_c.png');
+VALUES (114, 'product_images/quan_kaki_nam_tui_hop_a.jpg'),
+       (114, 'product_images/quan_kaki_nam_tui_hop_b.jpg'),
+       (114, 'product_images/quan_kaki_nam_tui_hop_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (115, 'product_images/quan_kaki_nam_Anchi_a.png'),
-       (115, 'product_images/quan_kaki_nam_Anchi_b.png'),
-       (115, 'product_images/quan_kaki_nam_Anchi_c.png');
+VALUES (115, 'product_images/quan_kaki_nam_Anchi_a.jpg'),
+       (115, 'product_images/quan_kaki_nam_Anchi_b.jpg'),
+       (115, 'product_images/quan_kaki_nam_Anchi_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (116, 'product_images/quan_kaki_nam_FABUMAN_a.png'),
-       (116, 'product_images/quan_kaki_nam_FABUMAN_b.png'),
-       (116, 'product_images/quan_kaki_nam_FABUMAN_c.png');
+VALUES (116, 'product_images/quan_kaki_nam_FABUMAN_a.jpg'),
+       (116, 'product_images/quan_kaki_nam_FABUMAN_b.jpg'),
+       (116, 'product_images/quan_kaki_nam_FABUMAN_c.jpg');
 
 
 -- Ảnh cho Áo Thun Nam (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (121, 'product_images/ao_thun_1_a.png');
+VALUES (121, 'product_images/ao_thun_1_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (121, 'product_images/ao_thun_1_b.png');
+VALUES (121, 'product_images/ao_thun_1_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (121, 'product_images/ao_thun_1_c.png');
+VALUES (121, 'product_images/ao_thun_1_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (122, 'product_images/ao_thun_nam_2_a.png'),
-       (122, 'product_images/ao_thun_nam_2_b.png'),
-       (122, 'product_images/ao_thun_nam_2_c.png');
+VALUES (122, 'product_images/ao_thun_nam_2_a.jpg'),
+       (122, 'product_images/ao_thun_nam_2_b.jpg'),
+       (122, 'product_images/ao_thun_nam_2_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (123, 'product_images/ao_thun_nam_3_a.png'),
-       (123, 'product_images/ao_thun_nam_3_b.png'),
-       (123, 'product_images/ao_thun_nam_3_c.png');
+VALUES (123, 'product_images/ao_thun_nam_3_a.jpg'),
+       (123, 'product_images/ao_thun_nam_3_b.jpg'),
+       (123, 'product_images/ao_thun_nam_3_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (124, 'product_images/ao_thun_nam_4a.png'),
-       (124, 'product_images/ao_thun_nam_4c.png'),
-       (124, 'product_images/ao_thun_nam_4b.png');
+VALUES (124, 'product_images/ao_thun_nam_4a.jpg'),
+       (124, 'product_images/ao_thun_nam_4c.jpg'),
+       (124, 'product_images/ao_thun_nam_4b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (125, 'product_images/ao_thun_nam_5a.png'),
-       (125, 'product_images/ao_thun_nam_5b.png'),
-       (125, 'product_images/ao_thun_nam_5c .png');
+VALUES (125, 'product_images/ao_thun_nam_5a.jpg'),
+       (125, 'product_images/ao_thun_nam_5b.jpg'),
+       (125, 'product_images/ao_thun_nam_5c .jpg');
 
 INSERT INTO ProductImage (product_id, image)
-VALUES (126, 'product_images/ao_thun_nam_6a.png'),
-       (126, 'product_images/ao_thun_nam_6b.png'),
-       (126, 'product_images/ao_thun_nam_6c.png');
+VALUES (126, 'product_images/ao_thun_nam_6a.jpg'),
+       (126, 'product_images/ao_thun_nam_6b.jpg'),
+       (126, 'product_images/ao_thun_nam_6c.jpg');
 
 
 -- Ảnh cho Áo Sơ Mi Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (131, 'product_images/ao_so_mi_nam_GenViet_a.png');
+VALUES (131, 'product_images/ao_so_mi_nam_GenViet_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (131, 'product_images/ao_so_mi_nam_GenViet_b.png');
+VALUES (131, 'product_images/ao_so_mi_nam_GenViet_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (132, 'product_images/ao_so_mi_nam_Pastel_Premium_a.png'),
-       (132, 'product_images/ao_so_mi_nam_Pastel_Premium_b.png'),
-       (132, 'product_images/ao_so_mi_nam_Pastel_Premium_c.png');
+VALUES (132, 'product_images/ao_so_mi_nam_Pastel_Premium_a.jpg'),
+       (132, 'product_images/ao_so_mi_nam_Pastel_Premium_b.jpg'),
+       (132, 'product_images/ao_so_mi_nam_Pastel_Premium_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (133, 'product_images/ao_so_mi_nam_tay_ngan_a.png'),
-       (133, 'product_images/ao_so_mi_nam_tay_ngan_b.png'),
-       (133 ,'product_images/ao_so_mi_nam_tay_ngan_c.png');
+VALUES (133, 'product_images/ao_so_mi_nam_tay_ngan_a.jpg'),
+       (133, 'product_images/ao_so_mi_nam_tay_ngan_b.jpg'),
+       (133 ,'product_images/ao_so_mi_nam_tay_ngan_c.jpg');
 INSERT INTO ProductImage (product_id, image)
 <<<<<<< Updated upstream
-VALUES (134, 'product_images/ao_so_mi_nam_Teelab_a.png'),
-       (134 ,'product_images/ao_so_mi_nam_Teelab_b.png');
+<<<<<<< Updated upstream
+VALUES (134, 'product_images/ao_so_mi_nam_Teelab_a.jpg'),
+       (134 ,'product_images/ao_so_mi_nam_Teelab_b.jpg');
 
 INSERT INTO ProductImage (product_id, image)
-VALUES (135, 'product_images/ao_so_mi_nam_ke_soc_a.png'),
-       (135, 'product_images/ao_so_mi_nam_ke_soc_b.png'),
-       (135 ,'product_images/ao_so_mi_nam_ke_soc_c.png');
+VALUES (135, 'product_images/ao_so_mi_nam_ke_soc_a.jpg'),
+       (135, 'product_images/ao_so_mi_nam_ke_soc_b.jpg'),
+       (135 ,'product_images/ao_so_mi_nam_ke_soc_c.jpg');
 
 INSERT INTO ProductImage (product_id, image)
-VALUES (136, 'product_images/ao_so_mi_co_tau_ZUTEE_a.png'),
-       (136, 'product_images/ao_so_mi_co_tau_ZUTEE_b.png'),
-       (136 ,'product_images/ao_so_mi_co_tau_ZUTEE_c.png');
+VALUES (136, 'product_images/ao_so_mi_co_tau_ZUTEE_a.jpg'),
+       (136, 'product_images/ao_so_mi_co_tau_ZUTEE_b.jpg'),
+       (136 ,'product_images/ao_so_mi_co_tau_ZUTEE_c.jpg');
 =======
-VALUES (134, 'product_images/ao_so_mi_JAMINE_HOUSE_a.png'),
-       (134, 'product_images/ao_so_mi_JAMINE_HOUSE_b.png'),
-       (134 ,'product_images/ao_so_mi_JAMINE_HOUSE_c.png');
+=======
+>>>>>>> Stashed changes
+VALUES (134, 'product_images/ao_so_mi_JAMINE_HOUSE_a.jpg'),
+       (134, 'product_images/ao_so_mi_JAMINE_HOUSE_b.jpg'),
+       (134 ,'product_images/ao_so_mi_JAMINE_HOUSE_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (135, 'product_images/ao_so_mi_Raglan_a.png'),
-       (135, 'product_images/ao_so_mi_Raglan_b.png'),
-       (135 ,'product_images/ao_so_mi_Raglan_c.png');
+VALUES (135, 'product_images/ao_so_mi_Raglan_a.jpg'),
+       (135, 'product_images/ao_so_mi_Raglan_b.jpg'),
+       (135 ,'product_images/ao_so_mi_Raglan_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (136, 'product_images/ao_so_mi_nam_Tianlesiwei_a.png'),
-       (136, 'product_images/ao_so_mi_nam_Tianlesiwei_b.png'),
-       (136 ,'product_images/ao_so_mi_nam_Tianlesiwei_c.png');
+VALUES (136, 'product_images/ao_so_mi_nam_Tianlesiwei_a.jpg'),
+       (136, 'product_images/ao_so_mi_nam_Tianlesiwei_b.jpg'),
+       (136 ,'product_images/ao_so_mi_nam_Tianlesiwei_c.jpg');
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 
 -- Ảnh cho Áo Khoác Nam (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (141, 'product_images/ao_khoac_gio_BAD_HABITS_a.png');
+VALUES (141, 'product_images/ao_khoac_gio_BAD_HABITS_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (141, 'product_images/ao_khoac_gio_BAD_HABITS_b.png');
+VALUES (141, 'product_images/ao_khoac_gio_BAD_HABITS_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (141, 'product_images/ao_khoac_gio_BAD_HABITS_c.png');
+VALUES (141, 'product_images/ao_khoac_gio_BAD_HABITS_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (141 , 'product_images/ao_khoac_gio_BAD_HABITS_d.png');
+VALUES (141 , 'product_images/ao_khoac_gio_BAD_HABITS_d.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (142, 'product_images/ao_khoac_nam_Bomber_a.png'),
-       (142, 'product_images/ao_khoac_nam_Bomber_b.png'),
-       (142 ,'product_images/ao_khoac_nam_Bomber_c.png');
+VALUES (142, 'product_images/ao_khoac_nam_Bomber_a.jpg'),
+       (142, 'product_images/ao_khoac_nam_Bomber_b.jpg'),
+       (142 ,'product_images/ao_khoac_nam_Bomber_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (143, 'product_images/ao_khoac_Hoodie_nam_a.png'),
-       (143, 'product_images/ao_khoac_Hoodie_nam_b.png');
+VALUES (143, 'product_images/ao_khoac_Hoodie_nam_a.jpg'),
+       (143, 'product_images/ao_khoac_Hoodie_nam_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (144, 'product_images/ao_khoac_Hoodie_Academy_a.png'),
-       (144, 'product_images/ao_khoac_Hoodie_Academy_b.png'),
-       (144 ,'product_images/ao_khoac_Hoodie_Academy_c.png');
+VALUES (144, 'product_images/ao_khoac_Hoodie_Academy_a.jpg'),
+       (144, 'product_images/ao_khoac_Hoodie_Academy_b.jpg'),
+       (144 ,'product_images/ao_khoac_Hoodie_Academy_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (145, 'product_images/ao_khoac_ATINO_a.png'),
-       (145, 'product_images/ao_khoac_ATINO_b.png'),
-       (145 ,'product_images/ao_khoac_ATINO_c.png');
+VALUES (145, 'product_images/ao_khoac_ATINO_a.jpg'),
+       (145, 'product_images/ao_khoac_ATINO_b.jpg'),
+       (145 ,'product_images/ao_khoac_ATINO_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (146, 'product_images/ao_khoac_DYPOISON_a.png'),
-       (146, 'product_images/ao_khoac_DYPOISON_b.png'),
-       (146 ,'product_images/ao_khoac_DYPOISON_c.png');
+VALUES (146, 'product_images/ao_khoac_DYPOISON_a.jpg'),
+       (146, 'product_images/ao_khoac_DYPOISON_b.jpg'),
+       (146 ,'product_images/ao_khoac_DYPOISON_c.jpg');
 
 -- Ảnh cho Quần Short Nam (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (151, 'product_images/quan_short_nam_BAD_HABITS_a.png');
+VALUES (151, 'product_images/quan_short_nam_BAD_HABITS_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (151, 'product_images/quan_short_nam_BAD_HABITS_b.png');
+VALUES (151, 'product_images/quan_short_nam_BAD_HABITS_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (151, 'product_images/quan_short_nam_BAD_HABITS_c.png');
+VALUES (151, 'product_images/quan_short_nam_BAD_HABITS_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (151, 'product_images/quan_short_nam_BAD_HABITS_d.png');
+VALUES (151, 'product_images/quan_short_nam_BAD_HABITS_d.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (152, 'product_images/quan_short_tui_hop_nam_a.png'),
-       (152, 'product_images/quan_short_tui_hop_nam_b.png'),
-       (152, 'product_images/quan_short_tui_hop_nam_c.png'),
-       (152, 'product_images/quan_short_tui_hop_nam_d.png'),
-       (152 ,'product_images/quan_short_tui_hop_nam_e.png');
+VALUES (152, 'product_images/quan_short_tui_hop_nam_a.jpg'),
+       (152, 'product_images/quan_short_tui_hop_nam_b.jpg'),
+       (152, 'product_images/quan_short_tui_hop_nam_c.jpg'),
+       (152, 'product_images/quan_short_tui_hop_nam_d.jpg'),
+       (152 ,'product_images/quan_short_tui_hop_nam_e.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (153, 'product_images/quan_short_JOGGER_nam_a.png'),
-       (153, 'product_images/quan_short_JOGGER_nam_b.png');
+VALUES (153, 'product_images/quan_short_JOGGER_nam_a.jpg'),
+       (153, 'product_images/quan_short_JOGGER_nam_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (154, 'product_images/quan_short_Harajuku_a.png'),
-       (154, 'product_images/quan_short_Harajuku_b.png'),
-       (154, 'product_images/quan_short_Harajuku_c.png');
+VALUES (154, 'product_images/quan_short_Harajuku_a.jpg'),
+       (154, 'product_images/quan_short_Harajuku_b.jpg'),
+       (154, 'product_images/quan_short_Harajuku_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (155, 'product_images/quan_short_ESEA_a.png'),
-       (155, 'product_images/quan_short_ESEA_b.png'),
-       (155, 'product_images/quan_short_ESEA_c.png');
+VALUES (155, 'product_images/quan_short_ESEA_a.jpg'),
+       (155, 'product_images/quan_short_ESEA_b.jpg'),
+       (155, 'product_images/quan_short_ESEA_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (156, 'product_images/quan_short_denim_a.png'),
-       (156, 'product_images/quan_short_denim_b.png'),
-       (156, 'product_images/quan_short_denim_c.png');
+VALUES (156, 'product_images/quan_short_denim_a.jpg'),
+       (156, 'product_images/quan_short_denim_b.jpg'),
+       (156, 'product_images/quan_short_denim_c.jpg');
 
 -- Cho các sản phẩm thuộc Subcategory "Nữ":
 -- Ảnh cho Quần Jean Nữ (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (201, 'product_images/quan_jean_nu_uniqlo_a.png');
+VALUES (201, 'product_images/quan_jean_nu_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (201, 'product_images/quan_jean_nu_uniqlo_b.png');
+VALUES (201, 'product_images/quan_jean_nu_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (201, 'product_images/quan_jean_nu_uniqlo_c.png');
+VALUES (201, 'product_images/quan_jean_nu_uniqlo_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (202, 'product_images/quan_jean_SUNAIXUE_nu_a.png'),
-       (202, 'product_images/quan_jean_SUNAIXUE_nu_b.png'),
-       (202 ,'product_images/quan_jean_SUNAIXUE_nu_c.png');
+VALUES (202, 'product_images/quan_jean_SUNAIXUE_nu_a.jpg'),
+       (202, 'product_images/quan_jean_SUNAIXUE_nu_b.jpg'),
+       (202 ,'product_images/quan_jean_SUNAIXUE_nu_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (203, 'product_images/quan_jean_lovito_nu_a.png'),
-       (203, 'product_images/quan_jean_lovito_nu_b.png'),
-       (203 ,'product_images/quan_jean_lovito_nu_c.png');
+VALUES (203, 'product_images/quan_jean_lovito_nu_a.jpg'),
+       (203, 'product_images/quan_jean_lovito_nu_b.jpg'),
+       (203 ,'product_images/quan_jean_lovito_nu_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (204, 'product_images/quan_jean_Hari_a.png'),
-       (204, 'product_images/quan_jean_Hari_b.png'),
-       (204 ,'product_images/quan_jean_Hari_c.png');
+VALUES (204, 'product_images/quan_jean_Hari_a.jpg'),
+       (204, 'product_images/quan_jean_Hari_b.jpg'),
+       (204 ,'product_images/quan_jean_Hari_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (205, 'product_images/quan_jean_Sinransinya_a.png'),
-       (205, 'product_images/quan_jean_Sinransinya_b.png'),
-       (205 ,'product_images/quan_jean_Sinransinya_c.png');
+VALUES (205, 'product_images/quan_jean_Sinransinya_a.jpg'),
+       (205, 'product_images/quan_jean_Sinransinya_b.jpg'),
+       (205 ,'product_images/quan_jean_Sinransinya_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (206, 'product_images/quan_jean_Retro_a.png'),
-       (206, 'product_images/quan_jean_Retro_b.png'),
-       (206 ,'product_images/quan_jean_Retro_c.png');
+VALUES (206, 'product_images/quan_jean_Retro_a.jpg'),
+       (206, 'product_images/quan_jean_Retro_b.jpg'),
+       (206 ,'product_images/quan_jean_Retro_c.jpg');
 
 -- Ảnh cho Quần Legging Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (211, 'product_images/quan_legging_nu_uniqlo_a.png');
+VALUES (211, 'product_images/quan_legging_nu_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (211, 'product_images/quan_legging_nu_uniqlo_b.png');
+VALUES (211, 'product_images/quan_legging_nu_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (212, 'product_images/quan_legging_ECOCHIC_nu_a.png'),
-       (212, 'product_images/quan_legging_ECOCHIC_nu_b.png'),
-       (212 ,'product_images/quan_legging_ECOCHIC_nu_c.png');
+VALUES (212, 'product_images/quan_legging_ECOCHIC_nu_a.jpg'),
+       (212, 'product_images/quan_legging_ECOCHIC_nu_b.jpg'),
+       (212 ,'product_images/quan_legging_ECOCHIC_nu_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (213, 'product_images/quan_legging_Fitme_Zeta_nu_a.png'),
-       (213 ,'product_images/quan_legging_Fitme_Zeta_nu_b.png');
+VALUES (213, 'product_images/quan_legging_Fitme_Zeta_nu_a.jpg'),
+       (213 ,'product_images/quan_legging_Fitme_Zeta_nu_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (214, 'product_images/quan_legging_Lovito_a.png'),
-       (214, 'product_images/quan_legging_Lovito_b.png'),
-       (214 ,'product_images/quan_legging_Lovito_c.png');
+VALUES (214, 'product_images/quan_legging_Lovito_a.jpg'),
+       (214, 'product_images/quan_legging_Lovito_b.jpg'),
+       (214 ,'product_images/quan_legging_Lovito_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (215, 'product_images/quan_legging_tam_a.png'),
-       (215, 'product_images/quan_legging_tam_b.png'),
-       (215 ,'product_images/quan_legging_tam_c.png');
+VALUES (215, 'product_images/quan_legging_tam_a.jpg'),
+       (215, 'product_images/quan_legging_tam_b.jpg'),
+       (215 ,'product_images/quan_legging_tam_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (216, 'product_images/quan_jean_Retro_a.png'),
-       (216, 'product_images/quan_jean_Retro_b.png'),
-       (216 ,'product_images/quan_jean_Retro_c.png');
+VALUES (216, 'product_images/quan_jean_Retro_a.jpg'),
+       (216, 'product_images/quan_jean_Retro_b.jpg'),
+       (216 ,'product_images/quan_jean_Retro_c.jpg');
 -- Ảnh cho Áo Thun Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (221, 'product_images/ao_nu_jdypisa_a.png');
+VALUES (221, 'product_images/ao_nu_jdypisa_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (221, 'product_images/ao_nu_jdypisa_b.png');
+VALUES (221, 'product_images/ao_nu_jdypisa_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (221, 'product_images/ao_nu_jdypisa_c.png');
+VALUES (221, 'product_images/ao_nu_jdypisa_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (222, 'product_images/ao_nu_onlravenna_a.png'),
-       (222, 'product_images/ao_nu_onlravenna_b.png'),
-       (222 ,'product_images/ao_nu_onlravenna_c.png');
+VALUES (222, 'product_images/ao_nu_onlravenna_a.jpg'),
+       (222, 'product_images/ao_nu_onlravenna_b.jpg'),
+       (222 ,'product_images/ao_nu_onlravenna_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (223, 'product_images/ao_nu_deloris_a.png'),
-       (223, 'product_images/ao_nu_deloris_b.png'),
-       (223 ,'product_images/ao_nu_deloris_c.png');
+VALUES (223, 'product_images/ao_nu_deloris_a.jpg'),
+       (223, 'product_images/ao_nu_deloris_b.jpg'),
+       (223 ,'product_images/ao_nu_deloris_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (224, 'product_images/ao_thun_nu_Calvin_Klein_a.png'),
-       (224, 'product_images/ao_thun_nu_Calvin_Klein_b.png'),
-       (224 ,'product_images/ao_thun_nu_Calvin_Klein_c.png');
+VALUES (224, 'product_images/ao_thun_nu_Calvin_Klein_a.jpg'),
+       (224, 'product_images/ao_thun_nu_Calvin_Klein_b.jpg'),
+       (224 ,'product_images/ao_thun_nu_Calvin_Klein_c.jpg');
 
 INSERT INTO ProductImage (product_id, image)
-VALUES (225, 'product_images/ao_thun_nu_HERO_a.png'),
-       (225, 'product_images/ao_thun_nu_HERO_a.png'),
-       (225 ,'product_images/ao_thun_nu_HERO_a.png');
+VALUES (225, 'product_images/ao_thun_nu_HERO_a.jpg'),
+       (225, 'product_images/ao_thun_nu_HERO_a.jpg'),
+       (225 ,'product_images/ao_thun_nu_HERO_a.jpg');
 
 INSERT INTO ProductImage (product_id, image)
-VALUES (226, 'product_images/ao_thun_nu_Light_a.png'),
-       (226, 'product_images/ao_thun_nu_Light_b.png'),
-       (226 ,'product_images/ao_thun_nu_Light_c.png');
+VALUES (226, 'product_images/ao_thun_nu_Light_a.jpg'),
+       (226, 'product_images/ao_thun_nu_Light_b.jpg'),
+       (226 ,'product_images/ao_thun_nu_Light_c.jpg');
 
 -- Ảnh cho Áo Sơ Mi Nữ (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (231, 'product_images/ao_so_mi_nu_uniqlo_a.png');
+VALUES (231, 'product_images/ao_so_mi_nu_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (231, 'product_images/ao_so_mi_nu_uniqlo_b.png');
+VALUES (231, 'product_images/ao_so_mi_nu_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (232, 'product_images/ao_so_mi_nu_ceci_a.png'),
-       (232, 'product_images/ao-so-mi-nu-ceci_b.png'),
-       (232,'product_images/ao-so-mi-nu-ceci_c.png');
+VALUES (232, 'product_images/ao_so_mi_nu_ceci_a.jpg'),
+       (232, 'product_images/ao-so-mi-nu-ceci_b.jpg'),
+       (232,'product_images/ao-so-mi-nu-ceci_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (233, 'product_images/ao_so_mi_nu_retro_a.png'),
-       (233, 'product_images/ao_so_mi_nu_retro_b.png'),
-       (233,'product_images/ao_so_mi_nu_retro_c.png');
+VALUES (233, 'product_images/ao_so_mi_nu_retro_a.jpg'),
+       (233, 'product_images/ao_so_mi_nu_retro_b.jpg'),
+       (233,'product_images/ao_so_mi_nu_retro_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (234, 'product_images/ao_so_mi_nu_Oxford_a.png'),
-       (234, 'product_images/ao_so_mi_nu_Oxford_b.png'),
-       (234,'product_images/ao_so_mi_nu_Oxford_c.png');
+VALUES (234, 'product_images/ao_so_mi_nu_Oxford_a.jpg'),
+       (234, 'product_images/ao_so_mi_nu_Oxford_b.jpg'),
+       (234,'product_images/ao_so_mi_nu_Oxford_c.jpg');
     INSERT INTO ProductImage (product_id, image)
-VALUES (235, 'product_images/ao_so_mi_nu_Rayon_a.png'),
-       (235, 'product_images/ao_so_mi_nu_Rayon_b.png'),
-       (235,'product_images/ao_so_mi_nu_Rayon_c.png');
+VALUES (235, 'product_images/ao_so_mi_nu_Rayon_a.jpg'),
+       (235, 'product_images/ao_so_mi_nu_Rayon_b.jpg'),
+       (235,'product_images/ao_so_mi_nu_Rayon_c.jpg');
     INSERT INTO ProductImage (product_id, image)
-VALUES (236, 'product_images/ao_so_mi_nu_v_a.png'),
-       (236, 'product_images/ao_so_mi_nu_v_b.png'),
-       (236,'product_images/ao_so_mi_nu_v_c.png');
+VALUES (236, 'product_images/ao_so_mi_nu_v_a.jpg'),
+       (236, 'product_images/ao_so_mi_nu_v_b.jpg'),
+       (236,'product_images/ao_so_mi_nu_v_c.jpg');
 
 -- Ảnh cho Áo Len Nữ (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (241, 'product_images/ao_len_nu_uniqlo_a.png');
+VALUES (241, 'product_images/ao_len_nu_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (241, 'product_images/ao_len_nu_uniqlo_b.png');
+VALUES (241, 'product_images/ao_len_nu_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (241, 'product_images/ao_len_nu_uniqlo_c.png');
+VALUES (241, 'product_images/ao_len_nu_uniqlo_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (241, 'product_images/ao_len_nu_uniqlo_d.png');
+VALUES (241, 'product_images/ao_len_nu_uniqlo_d.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (242, 'product_images/ao_len_nu_micro_flare_a.png'),
-       (242, 'product_images/ao_len_nu_micro_flare_b.png'),
-       (242,'product_images/ao_len_nu_micro_flare_c.png');
+VALUES (242, 'product_images/ao_len_nu_micro_flare_a.jpg'),
+       (242, 'product_images/ao_len_nu_micro_flare_b.jpg'),
+       (242,'product_images/ao_len_nu_micro_flare_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (243, 'product_images/ao_len_nu_ruiche_a.png'),
-       (243, 'product_images/ao_len_nu_ruiche_b.png'),
-       (243,'product_images/ao_len_nu_ruiche_c.png');
+VALUES (243, 'product_images/ao_len_nu_ruiche_a.jpg'),
+       (243, 'product_images/ao_len_nu_ruiche_b.jpg'),
+       (243,'product_images/ao_len_nu_ruiche_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (244, 'product_images/ao_len_nu_millane_a.png'),
-       (244, 'product_images/ao_len_nu_millane_b.png'),
-       (244,'product_images/ao_len_nu_millane_c.png');
+VALUES (244, 'product_images/ao_len_nu_millane_a.jpg'),
+       (244, 'product_images/ao_len_nu_millane_b.jpg'),
+       (244,'product_images/ao_len_nu_millane_c.jpg');
     INSERT INTO ProductImage (product_id, image)
-VALUES (245, 'product_images/ao_len_nu_urban_a.png'),
-       (245, 'product_images/ao_len_nu_urban_b.png'),
-       (245,'product_images/ao_len_nu_urban_c.png');
+VALUES (245, 'product_images/ao_len_nu_urban_a.jpg'),
+       (245, 'product_images/ao_len_nu_urban_b.jpg'),
+       (245,'product_images/ao_len_nu_urban_c.jpg');
     INSERT INTO ProductImage (product_id, image)
-VALUES (246, 'product_images/ao_len_nu_MYLAVIE_a.png'),
-       (246, 'product_images/ao_len_nu_MYLAVIE_b.png'),
-       (246,'product_images/ao_len_nu_MYLAVIE_c.png');
+VALUES (246, 'product_images/ao_len_nu_MYLAVIE_a.jpg'),
+       (246, 'product_images/ao_len_nu_MYLAVIE_b.jpg'),
+       (246,'product_images/ao_len_nu_MYLAVIE_c.jpg');
     
 -- Ảnh cho Chân Váy Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (251, 'product_images/chan_vay_nu_uniqlo_a.png');
+VALUES (251, 'product_images/chan_vay_nu_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (251, 'product_images/chan_vay_nu_uniqlo_b.png');
+VALUES (251, 'product_images/chan_vay_nu_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (251, 'product_images/chan_vay_nu_uniqlo_c.png');
+VALUES (251, 'product_images/chan_vay_nu_uniqlo_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (243, 'product_images/chan_vay_nu_miu_miu_a.png'),
-       (243, 'product_images/chan_vay_nu_miu_miu_b.png'),
-       (243,'product_images/chan_vay_nu_miu_miu_c.png');
+VALUES (243, 'product_images/chan_vay_nu_miu_miu_a.jpg'),
+       (243, 'product_images/chan_vay_nu_miu_miu_b.jpg'),
+       (243,'product_images/chan_vay_nu_miu_miu_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (243, 'product_images/chan_vay_nu_limisu_a.png'),
-       (243, 'product_images/chan_vay_nu_limisu_b.png'),
-       (243,'product_images/chan_vay_nu_limisu_c.png');
-    INSERT INTO ProductImage (product_id, image)
-VALUES (244, 'product_images/chan_vay_nu_EDITED_a.png'),
-       (244, 'product_images/chan_vay_nu_EDITED_b.png'),
-       (244,'product_images/chan_vay_nu_EDITED_c.png');
-    INSERT INTO ProductImage (product_id, image)
-VALUES (245, 'product_images/chan_vay_nu_TAILOR_a.png'),
-       (245, 'product_images/chan_vay_nu_TAILOR_b.png'),
-       (245,'product_images/chan_vay_nu_TAILOR_c.png');
-    INSERT INTO ProductImage (product_id, image)
-VALUES (246, 'product_images/chan_vay_ONLAMAZING_a.png'),
-       (246, 'product_images/chan_vay_ONLAMAZING_b.png'),
-       (246,'product_images/chan_vay_ONLAMAZING_c.png');
+VALUES (243, 'product_images/chan_vay_nu_limisu_a.jpg'),
+       (243, 'product_images/chan_vay_nu_limisu_b.jpg'),
+       (243,'product_images/chan_vay_nu_limisu_c.jpg');
 
 -- Cho các sản phẩm thuộc Subcategory "Trẻ Em":
 -- Ảnh cho Quần Jean Trẻ Em (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (301, 'product_images/quan_jean_tre_em_uniqlo_a.png');
+VALUES (301, 'product_images/quan_jean_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (301, 'product_images/quan_jean_tre_em_uniqlo_a.png');
+VALUES (301, 'product_images/quan_jean_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (301, 'product_images/quan_jean_tre_em_uniqlo_a.png');
+VALUES (301, 'product_images/quan_jean_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (302, 'product_images/quan_jean_tre_em_babimama_a.png'),
-       (302, 'product_images/quan_jean_tre_em_babimama_b.png'),
-       (302,'product_images/quan_jean_tre_em_babimama_c.png');
+VALUES (302, 'product_images/quan_jean_tre_em_babimama_a.jpg'),
+       (302, 'product_images/quan_jean_tre_em_babimama_b.jpg'),
+       (302,'product_images/quan_jean_tre_em_babimama_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (303, 'product_images/quan_jean_tre_em_tiingxuyu_a.png'),
-       (303, 'product_images/quan_jean_tre_em_tiingxuyu_b.png'),
-       (303,'product_images/quan_jean_tre_em_tiingxuyu_c.png');
+VALUES (303, 'product_images/quan_jean_tre_em_tiingxuyu_a.jpg'),
+       (303, 'product_images/quan_jean_tre_em_tiingxuyu_b.jpg'),
+       (303,'product_images/quan_jean_tre_em_tiingxuyu_c.jpg');
 
 -- Ảnh cho Quần Short Trẻ Em (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (311, 'product_images/quan_short_tre_em_uniqlo_a.png');
+VALUES (311, 'product_images/quan_short_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (311, 'product_images/quan_short_tre_em_uniqlo_b.png');
+VALUES (311, 'product_images/quan_short_tre_em_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (311, 'product_images/quan_short_tre_em_uniqlo_c.png');
+VALUES (311, 'product_images/quan_short_tre_em_uniqlo_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (311, 'product_images/quan_short_tre_em_uniqlo_d.png');
+VALUES (311, 'product_images/quan_short_tre_em_uniqlo_d.jpg');
 
 INSERT INTO ProductImage (product_id, image)
-VALUES (312, 'product_images/quan_short_tre_em_bobdog_a.png'),
-       (312, 'product_images/quan_short_tre_em_bobdog_b.png'),
-       (312,'product_images/quan_short_tre_em_bobdog_c.png');
+VALUES (312, 'product_images/quan_short_tre_em_bobdog_a.jpg'),
+       (312, 'product_images/quan_short_tre_em_bobdog_b.jpg'),
+       (312,'product_images/quan_short_tre_em_bobdog_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (313, 'product_images/quan_short_tre_em_babyloveGo_a.png'),
-       (313, 'product_images/quan_short_tre_em_babyloveGo_b.png'),
-       (313,'product_images/quan_short_tre_em_babyloveGo_c.png');
+VALUES (313, 'product_images/quan_short_tre_em_babyloveGo_a.jpg'),
+       (313, 'product_images/quan_short_tre_em_babyloveGo_b.jpg'),
+       (313,'product_images/quan_short_tre_em_babyloveGo_c.jpg');
 
 -- Ảnh cho Áo Thun Trẻ Em (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (321, 'product_images/ao_thun_tre_em_uniqlo_a.png');
+VALUES (321, 'product_images/ao_thun_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (321, 'product_images/ao_thun_tre_em_uniqlo_b.png');
+VALUES (321, 'product_images/ao_thun_tre_em_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (321, 'product_images/ao_thun_tre_em_uniqlo_c.png');
+VALUES (321, 'product_images/ao_thun_tre_em_uniqlo_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (322, 'product_images/ao_thun_tre_em_jayja_a.png'),
-       (322, 'product_images/ao_thun_tre_em_jayja_b.png'),
-       (322,'product_images/ao_thun_tre_em_jayja_c.png');
+VALUES (322, 'product_images/ao_thun_tre_em_jayja_a.jpg'),
+       (322, 'product_images/ao_thun_tre_em_jayja_b.jpg'),
+       (322,'product_images/ao_thun_tre_em_jayja_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (323, 'product_images/ao_thun_tre_em_nasa_a.png'),
-       (323, 'product_images/ao_thun_tre_em_nasa_b.png'),
-       (323, 'product_images/ao_thun_tre_em_nasa_c.png');
+VALUES (323, 'product_images/ao_thun_tre_em_nasa_a.jpg'),
+       (323, 'product_images/ao_thun_tre_em_nasa_b.jpg'),
+       (323, 'product_images/ao_thun_tre_em_nasa_c.jpg');
 
 -- Ảnh cho Áo Sơ Mi Trẻ Em (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (331, 'product_images/ao_so_mi_tre_em_uniqlo_a.png');
+VALUES (331, 'product_images/ao_so_mi_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (331, 'product_images/ao_so_mi_tre_em_uniqlo_b.png');
+VALUES (331, 'product_images/ao_so_mi_tre_em_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (332, 'product_images/ao_so_mi_tre_em_BERNIE_kids_a.png'),
-       (332, 'product_images/ao_so_mi_tre_em_BERNIE_kids_b.png'),
-       (332, 'product_images/ao_so_mi_tre_em_BERNIE_kids_c.png');
+VALUES (332, 'product_images/ao_so_mi_tre_em_BERNIE_kids_a.jpg'),
+       (332, 'product_images/ao_so_mi_tre_em_BERNIE_kids_b.jpg'),
+       (332, 'product_images/ao_so_mi_tre_em_BERNIE_kids_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (333, 'product_images/ao_so_mi_tre_em_bibo_a.png'),
-       (333, 'product_images/ao_so_mi_tre_em_bibo_b.png'),
-       (333, 'product_images/ao_so_mi_tre_em_bibo_c.png');
+VALUES (333, 'product_images/ao_so_mi_tre_em_bibo_a.jpg'),
+       (333, 'product_images/ao_so_mi_tre_em_bibo_b.jpg'),
+       (333, 'product_images/ao_so_mi_tre_em_bibo_c.jpg');
 
 -- Ảnh cho Áo Khoác Trẻ Em (3 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_a.png');
+VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_b.png');
+VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_c.png');
+VALUES (341, 'product_images/ao_khoac_tre_em_uniqlo_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (342, 'product_images/ao_khoac_tre_em_Capy_Bara_a'),
-       (342, 'product_images/ao_khoac_tre_em_Capy_Bara_b.png'),
-       (342, 'product_images/ao_khoac_tre_em_Capy_Bara_c.png');
+VALUES (342, 'product_images/ao_khoac_tre_em_Capy_Bara_a.jpg'),
+       (342, 'product_images/ao_khoac_tre_em_Capy_Bara_b.jpg'),
+       (342, 'product_images/ao_khoac_tre_em_Capy_Bara_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (343, 'product_images/ao_khoac_tre_em_jean_a.png'),
-       (343, 'product_images/ao_khoac_tre_em_jean_b.png'),
-       (343, 'product_images/ao_khoac_tre_em_jean_c.png');
+VALUES (343, 'product_images/ao_khoac_tre_em_jean_a.jpg'),
+       (343, 'product_images/ao_khoac_tre_em_jean_b.jpg'),
+       (343, 'product_images/ao_khoac_tre_em_jean_c.jpg');
 
 
 -- Ảnh cho Váy Nữ Trẻ Em (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
-VALUES (351, 'product_images/vay_nu_tre_em_uniqlo_a.png');
+VALUES (351, 'product_images/vay_nu_tre_em_uniqlo_a.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (351, 'product_images/vay_nu_tre_em_uniqlo_b.png');
+VALUES (351, 'product_images/vay_nu_tre_em_uniqlo_b.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (352, 'product_images/vay_nu_tre_em_im_kids_a.png'),
-       (352, 'product_images/vay_nu_tre_em_im_kids_b.png'),
-       (352, 'product_images/vay_nu_tre_em_im_kids_c.png');
+VALUES (352, 'product_images/vay_nu_tre_em_im_kids_a.jpg'),
+       (352, 'product_images/vay_nu_tre_em_im_kids_b.jpg'),
+       (352, 'product_images/vay_nu_tre_em_im_kids_c.jpg');
 INSERT INTO ProductImage (product_id, image)
-VALUES (353, 'product_images/vay_nu_tre_em_BERNIE_a.png'),
-       (353, 'product_images/vay_nu_tre_em_BERNIE_b.png'),
-       (353, 'product_images/vay_nu_tre_em_BERNIE_c.png');
+VALUES (353, 'product_images/vay_nu_tre_em_BERNIE_a.jpg'),
+       (353, 'product_images/vay_nu_tre_em_BERNIE_b.jpg'),
+       (353, 'product_images/vay_nu_tre_em_BERNIE_c.jpg');
