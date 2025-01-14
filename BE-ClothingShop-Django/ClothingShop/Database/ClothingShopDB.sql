@@ -792,6 +792,36 @@ VALUES (
         2,
         4
     ),
+       (
+     234,
+        'Áo Sơ Mi Oxford Dáng Boxy ',
+        'ao-so-mi-nu-Oxford',
+        'Sản phẩm thiết kế đơn giản, năng động giúp người mặc thoải mái vận động nhưng vẫn mang lại sự thanh lịch và trẻ trung',
+        183000,
+        25,
+        2,
+        4
+    ),
+     (
+     235,
+        'Áo Kiểu Vải Rayon ',
+        'ao-so-mi-nu-Rayon',
+        'Với chất liệu Rayon mang lại cảm giác nhẹ nhàng thoải mái cho người mặc',
+        183000,
+        25,
+        2,
+        4
+    ),
+     (
+     236,
+        'Áo kiểu cổ chữ V ',
+        'ao-so-mi-nu-v',
+        'Áo kiểu cổ chữ V bằng vải dệt thoi hơi óng ánh. Có cổ, khuy dọc thân trước, tay dài với nẹp tay áo, măng sét cài khuy và vạt áo tròn.',
+        183000,
+        25,
+        2,
+        4
+    ),
     (
      241,
         'Áo Len Nữ',
@@ -807,10 +837,7 @@ VALUES (
      242,
         'Áo len Đỏ Năm Mới Giáng Sinh Slim Fit Cổ Tròn Micro Flare',
         'ao-len-nu-micro-flare',
-        'Mặc đi chụp noel thì phải gọi là bá cháy bọ chét,Mặc lên dịu keo nha còn tôn dáng nữa
-Kích thước (CM)
-Chiều dài quần áo:	47	Tượng bán thân:	76	Chiều dài tay áo:	63	Chiều rộng vai:	36
-        Mê không lối thoát rồi ',
+        'Mặc đi chụp noel thì phải gọi là bá cháy bọ chét,Mặc lên dịu keo nha còn tôn dáng nữa Kích thước (CM)',
         138000,
         425,
         2,
@@ -824,6 +851,37 @@ Chiều dài quần áo:	47	Tượng bán thân:	76	Chiều dài tay áo:	63	Chi
         Màu sắc tươi sáng và họa tiết độc đáo tạo nên một phong cách cá nhân và sành điệu.',
         149000,
         530,
+        2,
+        5
+    ),
+      (
+     244,
+        'Áo len thu đông của millane',
+        'ao-len-nu-millane',
+        'Sản phẩm này được làm bằng vật liệu tái chế và được tạo ra bằng cách tái sử dụng các vật liệu trước hoặc sau khi tiêu dùng. Sử dụng vật liệu tái chế trong các sản phẩm giúp giảm lượng nguyên liệu thô đầu vào và chất thải, năng lượng và nước liên quan trong quá trình sản xuất nguyên liệu thô.',
+        141000,
+        425,
+        2,
+        5
+    ),
+      (
+     245,
+        'Áo len urban Classic',
+        'ao-len-nu-urban',
+        '
+GIỚI THIỆU VỀ BẠN cung cấp giao hàng miễn phí cho các đơn hàng có giá trị từ 147.000đ. Chúng tôi cũng cung cấp dịch vụ hoàn trả miễn phí và chi trả chi phí đóng gói hàng hóa. Đơn đặt hàng với nhiều sản phẩm có thể được vận chuyển riêng.',
+        147000,
+        425,
+        2,
+        5
+    ),
+      (
+     246,
+        'Áo len MYLAVIE ',
+        'ao-len-nu-MYLAVIE',
+        'Sử dụng vật liệu tái chế trong các sản phẩm giúp giảm lượng nguyên liệu thô đầu vào và chất thải, năng lượng và nước liên quan trong quá trình sản xuất nguyên liệu thô.',
+        482000,
+        425,
         2,
         5
     ),
@@ -1342,7 +1400,18 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (233, 'product_images/ao_so_mi_nu_retro_a.png'),
        (233, 'product_images/ao_so_mi_nu_retro_b.png'),
        (233,'product_images/ao_so_mi_nu_retro_c.png');
-
+INSERT INTO ProductImage (product_id, image)
+VALUES (234, 'product_images/ao_so_mi_nu_Oxford_a.png'),
+       (234, 'product_images/ao_so_mi_nu_Oxford_b.png'),
+       (234,'product_images/ao_so_mi_nu_Oxford_c.png');
+    INSERT INTO ProductImage (product_id, image)
+VALUES (235, 'product_images/ao_so_mi_nu_Rayon_a.png'),
+       (235, 'product_images/ao_so_mi_nu_Rayon_b.png'),
+       (235,'product_images/ao_so_mi_nu_Rayon_c.png');
+    INSERT INTO ProductImage (product_id, image)
+VALUES (236, 'product_images/ao_so_mi_nu_v_a.png'),
+       (236, 'product_images/ao_so_mi_nu_v_b.png'),
+       (236,'product_images/ao_so_mi_nu_v_c.png');
 
 -- Ảnh cho Áo Len Nữ (4 ảnh)
 INSERT INTO ProductImage (product_id, image)
@@ -1361,7 +1430,19 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (243, 'product_images/ao_len_nu_ruiche_a.png'),
        (243, 'product_images/ao_len_nu_ruiche_b.png'),
        (243,'product_images/ao_len_nu_ruiche_c.png');
-
+INSERT INTO ProductImage (product_id, image)
+VALUES (244, 'product_images/ao_len_nu_millane_a.png'),
+       (244, 'product_images/ao_len_nu_millane_b.png'),
+       (244,'product_images/ao_len_nu_millane_c.png');
+    INSERT INTO ProductImage (product_id, image)
+VALUES (245, 'product_images/ao_len_nu_urban_a.png'),
+       (245, 'product_images/ao_len_nu_urban_b.png'),
+       (245,'product_images/ao_len_nu_urban_c.png');
+    INSERT INTO ProductImage (product_id, image)
+VALUES (246, 'product_images/ao_len_nu_MYLAVIE_a.png'),
+       (246, 'product_images/ao_len_nu_MYLAVIE_b.png'),
+       (246,'product_images/ao_len_nu_MYLAVIE_c.png');
+    
 -- Ảnh cho Chân Váy Nữ (2 ảnh)
 INSERT INTO ProductImage (product_id, image)
 VALUES (251, 'product_images/chan_vay_nu_uniqlo_a.png');
