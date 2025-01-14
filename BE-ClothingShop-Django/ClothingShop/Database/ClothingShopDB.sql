@@ -377,9 +377,6 @@ VALUES (
         1,
         4
     ),
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
      (
      134,
         'Áo Sơ Mi Tay Ngắn Teelab Eco Oxford Signature',
@@ -406,9 +403,10 @@ VALUES (
         'ao-so-mi-co-tau-ZUTEE',
         'Sơ mi nam cổ tàu là kiểu áo cách tân mới được nhiều bạn nam yêu thích vì sự trẻ trung, năng động, phá cách nó mang lại.',
         160000,
-=======
-=======
->>>>>>> Stashed changes
+        100,
+        1,
+        4
+    ),
      (
      134,
         'Áo Sơ Mi Nam Nữ JAMINE HOUSE Lụa',
@@ -435,21 +433,10 @@ VALUES (
         'ao-so-mi-nam-Tianlesiwei',
         'Để bạn mặc với sự tự tin và phong cách. Chú ý đến từng chi tiết và chất lượng tạo ra trang phục độc đáo, chất lượng cao sẽ khiến bạn nổi bật giữa đám đông.',
         87000,
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         100,
         1,
         4
     ),
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     (
      141,
         'Áo Khoác Nam',
@@ -1253,10 +1240,6 @@ INSERT INTO ProductImage (product_id, image)
 VALUES (136, 'product_images/ao_so_mi_nam_Tianlesiwei_a.jpg'),
        (136, 'product_images/ao_so_mi_nam_Tianlesiwei_b.jpg'),
        (136 ,'product_images/ao_so_mi_nam_Tianlesiwei_c.jpg');
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 
 -- Ảnh cho Áo Khoác Nam (3 ảnh)
