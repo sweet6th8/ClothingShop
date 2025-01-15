@@ -1,15 +1,9 @@
 from itertools import product
 from rest_framework import serializers
 from clothing_shop.models import *
-
 from djoser.serializers import UserCreateSerializer
-
 from django.contrib.auth.models import User
-# from django.contrib.auth import auth  enticate
 from django.db import transaction
-
-
-
 
 class MyUserCreateSerializer(UserCreateSerializer):
     class Meta(UserCreateSerializer.Meta):
@@ -20,6 +14,7 @@ class MyUserCreateSerializer(UserCreateSerializer):
         user.is_active = False  # Đảm bảo user chưa được kích hoạt khi đăng ký
         user.save()
         return user
+
 
 class SubcategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -32,15 +27,13 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = '__all__'
 
+
 class ProductImageSerializer(serializers.ModelSerializer):
-
-
     class Meta:
         model = ProductImage
         fields = ["id", "product", "image"]
 
    
-
 class ProductSerializer(serializers.ModelSerializer):
     images = ProductImageSerializer(many=True, read_only=True)
     uploaded_images = serializers.ListField(
@@ -76,9 +69,9 @@ class SimpleProductSerializer(serializers.ModelSerializer):
             return request.build_absolute_uri(product_image.image.url) if request else product_image.image.url
         return None
 
+
 class SimpleProductForShirtCartSerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
-
     class Meta:
         model = Product
         fields = ['product_name', 'image']
@@ -101,6 +94,7 @@ class CartItemSerializer(serializers.ModelSerializer):
     def total(self, cartitem:Cartitems):
         return cartitem.product.price * cartitem.quantity
 
+
 class CartSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(read_only = True)
     items = CartItemSerializer(many = True, read_only = True)
@@ -112,7 +106,6 @@ class CartSerializer(serializers.ModelSerializer):
     # Tính tổng giỏ hàng
     def main_total(self, cart:Cart):
         return sum(item.quantity * item.product.price for item in cart.items.all())
-
 
 
 class AddCartItemSerializer(serializers.ModelSerializer):
@@ -151,6 +144,7 @@ class AddCartItemSerializer(serializers.ModelSerializer):
         model = Cartitems
         fields = ["id", "product_id", "quantity"]
 
+
 class UpdateCartItemSerializer(serializers.ModelSerializer):
     """Serializer để cập nhật số lượng của một CartItem"""
 
@@ -170,10 +164,12 @@ class UpdateCartItemSerializer(serializers.ModelSerializer):
         model = Cartitems
         fields = ["quantity"]  # Cập nhật số lượng của CartItem
         
+
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = ["id", "name", "bio", "picture"]
+
 
 class OrderItemSerializer(serializers.ModelSerializer):
     product = SimpleProductSerializer(many=False)
@@ -181,11 +177,13 @@ class OrderItemSerializer(serializers.ModelSerializer):
         model = OrderItem
         fields = ["id", "product", "quantity"]
 
+
 class OrderSerializer(serializers.ModelSerializer):
     items = OrderItemSerializer(many=True, read_only=True)
     class Meta:
         model = Order
         fields = ["id", "placed_at", "pending_status", "owner", "total_price", "items"]
+
 
 class CreateOrderSerializer(serializers.Serializer):
     item_ids = serializers.ListField(
@@ -193,7 +191,6 @@ class CreateOrderSerializer(serializers.Serializer):
         write_only=True,
         help_text="Danh sách các CartItem ID mà người dùng muốn thanh toán"
     )
-
 
     def save(self, **kwargs):
         with transaction.atomic():
@@ -225,8 +222,6 @@ class CreateOrderSerializer(serializers.Serializer):
             cartitems.delete()
 
             return order.id  # Trả về id của Order
-
-
 
 
 class UpdateOrderSerializer(serializers.ModelSerializer):

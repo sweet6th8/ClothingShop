@@ -38,7 +38,7 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email',)
 
-# Đảm bảo bạn đăng ký model với admin
+
 try:
     admin.site.register(get_user_model(), CustomUserAdmin)
 except AlreadyRegistered:
@@ -53,9 +53,7 @@ class OrderAdmin(admin.ModelAdmin):
     pending_status_display.short_description = 'Payment Status'
 
 
-
 # đã đăng ký rồi
-
 # admin.site.register(Category, CategoryAdmin)
 # admin.site.register(Product, ProductAdmin)
 admin.site.register(Cart)

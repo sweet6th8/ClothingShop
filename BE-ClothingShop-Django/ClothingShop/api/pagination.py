@@ -10,9 +10,9 @@ class CustomPagination(PageNumberPagination):
         Tùy chỉnh phản hồi phân trang để bao gồm các thông tin như total_pages, current_page, page_size
         """
         return Response({
-            'total_count': self.page.paginator.count,  # Tổng số bản ghi
-            'total_pages': self.page.paginator.num_pages,  # Tổng số trang
-            'current_page': self.page.number,  # Trang hiện tại
-            'page_size': self.page.paginator.per_page,  # Số lượng mục mỗi trang
-            'results': data  # Dữ liệu phân trang
+            'total_count': self.page.paginator.count,  
+            'total_pages': self.page.paginator.num_pages,  
+            'current_page': self.page.number,  
+            'page_size': self.page.paginator.per_page,  
+            'results': data  
         })

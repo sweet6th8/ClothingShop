@@ -1,6 +1,4 @@
 from urllib import response
-# from django.shortcuts import render, get_object_or_404
-# from rest_framework.decorators import api_view
 from .serializers import *
 from clothing_shop.models import Category, Product, Cart, Cartitems, Profile
 from rest_framework.response import Response
@@ -28,11 +26,7 @@ from django.utils.http import urlsafe_base64_decode
 from rest_framework.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, redirect
 from rest_framework.exceptions import NotAuthenticated
-
-
-# from django.contrib.auth import login, logout
 from rest_framework.authtoken.models import Token
-# from .serializers import RegisterSerializer, LoginSerializer
 import requests
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny
@@ -55,7 +49,6 @@ class ProductViewSet(ModelViewSet):
     
     def create(self, request, *args, **kwargs):
         return super().create(request, *args, **kwargs)
-    
 
     # lấy danh sách sản phẩm ngẫu nhiên
     @action(detail=False, methods=['get'], url_path='random/(?P<count>[0-9]+)')
@@ -81,14 +74,11 @@ class ProductViewSet(ModelViewSet):
         serializer = self.get_serializer(random_products, many=True)
         return Response(serializer.data)
 
-    
 
 class CategoryViewSet(ModelViewSet):
     permission_classes = [AllowAny]
-    queryset = Category.objects.all() # lấy tất cả categories
+    queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    
-
 
 
 class SubcategoryViewSet(ModelViewSet):
@@ -97,19 +87,15 @@ class SubcategoryViewSet(ModelViewSet):
     serializer_class = SubcategorySerializer
 
     # Lấy danh sách subcategory theo category_id
-
     filter_backends = (DjangoFilterBackend, OrderingFilter)
-    filterset_fields = ['category_id']  # Định nghĩa query parameter category_id
+    filterset_fields = ['category_id']  
     
-
     def get_queryset(self):
         queryset = Subcategory.objects.all()
         category_id = self.request.query_params.get('category_id', None)
         if category_id is not None:
             queryset = queryset.filter(category_id=category_id)
         return queryset
-
-
 
 
 class CartViewSet(GenericViewSet, CreateModelMixin):
@@ -153,10 +139,8 @@ class CartViewSet(GenericViewSet, CreateModelMixin):
             many=True, 
             context={'request': request}
         )
-        
+      
         return Response(serializer.data)
-
-
 
 
 class CartitemViewSet(ModelViewSet):
@@ -164,7 +148,7 @@ class CartitemViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        #"""Trả về danh sách các sản phẩm trong giỏ hàng của user."""
+        # Trả về danh sách các sản phẩm trong giỏ hàng của user
         if not self.request.user.is_authenticated:
             raise NotAuthenticated("Bạn cần đăng nhập để thực hiện thao tác này.")
         
@@ -175,9 +159,7 @@ class CartitemViewSet(ModelViewSet):
         
         return Cartitems.objects.filter(cart=cart)
 
-
     def get_serializer_class(self):
-        #"""Chọn serializer tương ứng với phương thức HTTP"""
         if self.request.method == "POST":
             return AddCartItemSerializer
         elif self.request.method == "PATCH":
@@ -185,10 +167,9 @@ class CartitemViewSet(ModelViewSet):
         return CartItemSerializer
 
     def get_serializer_context(self):
-       # """Truyền cart_id từ user vào context của serializer."""
         if not self.request.user.is_authenticated:
             raise NotAuthenticated("Bạn cần đăng nhập để thực hiện thao tác này.")
-       # """Truyền thêm request và cart_id vào context của serializer."""
+       # Truyền thêm request và cart_id vào context của serializer
         context = super().get_serializer_context()
         cart = Cart.objects.filter(user=self.request.user).first()
         if not cart:
@@ -201,8 +182,7 @@ class CartitemViewSet(ModelViewSet):
 
 
     
-class ProfileViewSet(ModelViewSet):
-      
+class ProfileViewSet(ModelViewSet):   
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     parser_classes = (MultiPartParser, FormParser) # tuong thich voi react
@@ -211,9 +191,7 @@ class ProfileViewSet(ModelViewSet):
         name = request.data["name"]
         bio = request.data["bio"]
         picture = request.data["picture"]
-
         Profile.objects.create(name=name, bio=bio, picture=picture)
-
         return Response("Profile created successfully", status=status.HTTP_200_OK)
     
 
@@ -232,7 +210,7 @@ class OrderViewSet(ModelViewSet):
     def get_serializer_context(self):
         return {
             "user_id": self.request.user.id,
-            "request": self.request,  # Thêm request vào context
+            "request": self.request, 
         }
 
     def create(self, request, *args, **kwargs):
@@ -245,14 +223,12 @@ class OrderViewSet(ModelViewSet):
         # Trả về id của Order
         return Response({"order_id": order_id}, status=201)
 
-    
     @action(detail=True, methods=['POST'])
     def pay(self, request, pk):
         order = self.get_object()
         amount = order.total_price
         email = request.user.email
         order_id = str(order.id)
-        # redirect_url = "http://127.0.0.1:8000/confirm"
         return initiate_payment(amount, email, order_id)
     
     @action(detail=False,  methods=["GET", "POST"], permission_classes=[AllowAny])
@@ -263,9 +239,7 @@ class OrderViewSet(ModelViewSet):
         # Cập nhật trạng thái đơn hàng là "Completed" (hoàn thành)
         order.pending_status = "C"
         order.save()
-
         serializer = OrderSerializer(order)
-        
         data = {
             "msg": "Payment was successful",
             "data": serializer.data
@@ -331,10 +305,8 @@ def initiate_payment(amount, email, order_id):
 # Hệ thống cập nhật trạng thái đơn hàng và trả về thông báo thành công.
 
 
-
-
 class CustomUserViewSet(UserViewSet):
-    permission_classes = [AllowAny]  # Cấp quyền truy cập cho tất cả
+    permission_classes = [AllowAny] 
 
     @action(detail=False, methods=["get"], url_path="activate/(?P<uid>[\w-]+)/(?P<token>[\w-]+)")
     def activate(self, request, uid, token):
@@ -342,7 +314,7 @@ class CustomUserViewSet(UserViewSet):
         try:
             # Gọi API kích hoạt người dùng qua POST request
             response = requests.post(
-                'http://127.0.0.1:8000/auth/users/activation/',  # Đảm bảo URL chính xác
+                'http://127.0.0.1:8000/auth/users/activation/',  
                 data={'uid': uid, 'token': token}
             )
 
@@ -356,6 +328,7 @@ class CustomUserViewSet(UserViewSet):
         except requests.exceptions.RequestException as e:
             # Nếu có lỗi trong quá trình gọi API, trả về lỗi
             return JsonResponse({"error": "Có lỗi xảy ra. Vui lòng thử lại sau."}, status=500)
+
 
 class RecommendedProductView(APIView):
     permission_classes = [AllowAny]

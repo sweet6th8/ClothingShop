@@ -54,7 +54,6 @@ INSTALLED_APPS = [
 ]
 
 
-
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # Đặt ở đầu
     'django.middleware.common.CommonMiddleware',  
@@ -187,8 +186,6 @@ SIMPLE_JWT = {
 # POST /auth/users/set_password/ - Thay đổi mật khẩu người dùng.
 # POST /auth/users/reset_password/ - Reset mật khẩu cho người dùng.
 
-#   "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczMjgzNjAxNiwiaWF0IjoxNzMyNzQ5NjE2LCJqdGkiOiI1YWQ2MDRlMWFhY2E0N2Q4OTgxMmU3MGEyMWFlMDZhMCIsInVzZXJfaWQiOjF9._90RhuFWjlrC-uEzxEOUon5un6xT21bDzCZWbpd0V90",
-#     "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMyNzQ5OTE2LCJpYXQiOjE3MzI3NDk2MTYsImp0aSI6ImIxODk4MGQ5MjY5YjQzNDNiNmY3NGFlYzNmYzQzNWNkIiwidXNlcl9pZCI6MX0.5d5hEWgFFoG8xwPW7tilG5ru3yeeE9GrcyILXlHhVbs"
 
 #Djoser Settings
 DJOSER = {
@@ -207,12 +204,6 @@ DJOSER = {
         'user': 'api.serializers.MyUserCreateSerializer',
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
     },
-    # 'EMAIL': {
-    #     'activation': 'api.email.ActivationEmail',
-    #     'confirmation': 'api.email.ConfirmationEmail',
-    #     'password_reset': 'api.email.PasswordResetEmail',
-    #     'password_changed_confirmation': 'api.email.PasswordChangedConfirmationEmail',
-    # },
     'EMAIL': {
         
             'activation': 'djoser.email.ActivationEmail',
@@ -221,13 +212,8 @@ DJOSER = {
             'password_changed_confirmation': 'djoser.email.PasswordChangedConfirmationEmail',
             'username_changed_confirmation': 'djoser.email.UsernameChangedConfirmationEmail',
             'username_reset': 'djoser.email.UsernameResetEmail',
-
     },
-
-
 }
-
-
 
 # Email Configuration
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -343,5 +329,3 @@ JAZZMIN_UI_TWEAKS = {
     },
     "actions_sticky_top": True
 }
-
-

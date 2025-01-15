@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 import uuid
 from  django.conf import settings
-
+from django.db import models
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
@@ -10,7 +10,7 @@ from  django.conf import settings
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
 #   * Remove `# managed = False ` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
-from django.db import models
+
 
 class UserManager(BaseUserManager):
    # """Define a model manager for User model with no username field."""
@@ -47,14 +47,13 @@ class User(AbstractUser):
     username = None
     email = models.EmailField(unique=True)
     is_active = models.BooleanField(default=False)  # Đảm bảo user không được kích hoạt mặc định
-    
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
-
     objects = UserManager()
 
     class Meta:
         db_table = 'User'  # Tên bảng trong cơ sở dữ liệu
+
 
 class Category(models.Model):
     category_id = models.AutoField(primary_key=True)
@@ -69,6 +68,7 @@ class Category(models.Model):
         db_table = 'Category'
         verbose_name_plural = 'Categories'  # Tên số nhiều
 
+
 class Subcategory(models.Model):
     subcategory_id = models.AutoField(primary_key=True) 
     title = models.CharField(max_length=200)  
@@ -77,12 +77,11 @@ class Subcategory(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="subcategories")  
 
     def __str__(self):
-        return self.title  # Tên của subcategory
+        return self.title 
 
     class Meta:
-        db_table = 'Subcategory'  # Tên bảng trong cơ sở dữ liệu
+        db_table = 'Subcategory'  
         verbose_name_plural = 'Subcategories' 
-
 
 
 class Product(models.Model):
@@ -102,6 +101,7 @@ class Product(models.Model):
     class Meta:
         db_table = 'Product' 
 
+
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='product_images/',  blank=True, null=True, default='')
@@ -112,6 +112,7 @@ class ProductImage(models.Model):
     class Meta:
         db_table = 'ProductImage'
     
+
 class Cart(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="cart")
@@ -124,7 +125,6 @@ class Cart(models.Model):
     class Meta:
         db_table = 'Cart'
 
-    
 
 class Cartitems(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name="items", blank=True, null=True)
@@ -177,12 +177,10 @@ class Order(models.Model):
         return total
 
 
-
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.PROTECT, related_name = "items")
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     quantity = models.PositiveSmallIntegerField()
-    
 
     def __str__(self):
         return self.product.product_name

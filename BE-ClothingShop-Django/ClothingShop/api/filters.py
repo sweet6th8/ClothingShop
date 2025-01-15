@@ -11,8 +11,8 @@ class ProductFilter(FilterSet):
     subcategory_id = django_filters.NumberFilter(field_name='subcategory_id', lookup_expr='exact')
     
     # Lọc theo giá (price) với các điều kiện lớn hơn và nhỏ hơn
-    price__gt = django_filters.NumberFilter(field_name='price', lookup_expr='gt')  # Lọc theo giá lớn hơn
-    price__lt = django_filters.NumberFilter(field_name='price', lookup_expr='lt')  # Lọc theo giá nhỏ hơn
+    price__gt = django_filters.NumberFilter(field_name='price', lookup_expr='gt') 
+    price__lt = django_filters.NumberFilter(field_name='price', lookup_expr='lt') 
 
     class Meta:
         model = Product
